@@ -1,2 +1,2 @@
-" General
 set nocompatible
+set number
