@@ -1,3 +1,5 @@
+set backupdir=~/.vim/backup
+set hidden
 set nocompatible
 set number
 
