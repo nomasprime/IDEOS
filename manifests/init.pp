@@ -1,3 +1,3 @@
-class puppet-dotfiles {
+class dotfiles {
   
 }
