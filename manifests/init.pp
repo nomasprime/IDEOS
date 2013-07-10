@@ -1,3 +1,3 @@
 class dotfiles {
-  
+  notify { "${::luser}": }
 }
