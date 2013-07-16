@@ -1,14 +1,14 @@
 class vim {
   file { "${home}/.vimrc":
     require => [
-      File["${home}/.vim"], 
+      File["${home}/.vim/backup"], 
       Repository["${home}/.vim/bundle/vundle"]
     ],
     source => "puppet:///modules/habitullence/vim/.vimrc",
   }
 
-  file { "${home}/.vim":
-    source => "puppet:///modules/habitullence/vim/.vim",
+  file { ["${home}/.vim", "${home}/.vim/backup"]:
+    ensure => 'directory',
   }
 
   repository { "${home}/.vim/bundle/vundle":
