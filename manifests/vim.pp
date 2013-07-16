@@ -1,9 +1,9 @@
-class vim ($home) {
+class vim {
   file { "${home}/.vimrc":
-    #require => [
-    #  File["${home}/.vim/backup"], 
-    #  Repository["${home}/.vim/bundle/vundle"]
-    #],
+    require => [
+      File["${home}/.vim/backup"], 
+      Repository["${home}/.vim/bundle/vundle"]
+    ],
     source => "puppet:///modules/habitullence/vim/.vimrc",
   }
 
@@ -12,12 +12,12 @@ class vim ($home) {
   }
 
   repository { "${home}/.vim/bundle/vundle":
-    #require => File["${home}/.vim"],
+    require => File["${home}/.vim"],
     source => 'gmarik/vundle',
   }
 
   exec { 'Install Vundle bundles':
     command => 'vim +BundleInstall +qall',
-    #require => Repository["${home}/.vim/bundle/vundle"],
+    require => Repository["${home}/.vim/bundle/vundle"],
   }
 }
