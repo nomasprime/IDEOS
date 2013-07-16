@@ -1,5 +1,3 @@
-class dotfiles ($home = "/Users/${::luser}") {
-  file { "${home}/.vimrc":
-    source => "puppet:///modules/dotfiles/.vimrc",
-  }
+class habitullence ($home = "/Users/${::luser}") {
+  include habitullence::vim
 }
