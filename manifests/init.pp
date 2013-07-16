@@ -1,5 +1,5 @@
 class habitullence($home = "/Users/${::luser}") {
-  notify {"What":}
-  notify {"${home}":}
-  include habitullence::vim($home)
+  class { 'habitullence::vim':
+    home => $home,
+  }
 }
