@@ -18,6 +18,6 @@ class habitullence::vim($home) {
 
   exec { 'Install Vundle bundles':
     command => 'vim +BundleInstall +qall',
-    require => Repository["${home}/.vim/bundle/vundle"],
+    require => [Repository["${home}/.vim/bundle/vundle"],File["${home}/.vimrc"]],
   }
 }
