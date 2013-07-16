@@ -1,4 +1,4 @@
-class vim($home) {
+class habitullence::vim($home) {
   notify { "Test": }
   file { "${home}/.vimrc":
     require => [
