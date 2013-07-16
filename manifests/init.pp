@@ -1,3 +1,3 @@
-class habitullence($home = "/Users/${::luser}") {
-  include habitullence::vim($home)
+class habitullence ($home = "/Users/${::luser}") {
+  include habitullence::vim
 }
