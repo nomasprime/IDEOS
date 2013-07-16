@@ -1,4 +1,5 @@
 class habitullence::vim($home) {
+notify { "sentinel": }
   file { "${home}/.vimrc":
     require => [
       File["${home}/.vim/backup"], 
