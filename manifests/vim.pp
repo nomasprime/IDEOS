@@ -1,6 +1,12 @@
 class habitullence::vim($home) {
   include macvim 
 
+  file { "/Applications/MacVim.app":
+    ensure => link,
+    require => Package["macvim"],
+    target => "/opt/boxen/homebrew/Cellar/macvim/7.3-66/MacVim.app",
+  }
+
   package { 'vim': }
 
   file { "${home}/.vimrc":
