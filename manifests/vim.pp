@@ -1,4 +1,8 @@
 class habitullence::vim($home) {
+  include macvim 
+
+  package { 'vim': }
+
   file { "${home}/.vimrc":
     require => [
       File["${home}/.vim/backup"], 
