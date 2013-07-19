@@ -8,5 +8,9 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" Plugins
 Bundle 'kien/ctrlp.vim'
+
+Bundle 'altercation/vim-colors-solarized'
+syntax enable
+set background=dark
+colorscheme solarized
