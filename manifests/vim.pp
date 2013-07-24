@@ -1,5 +1,9 @@
 class habitullence::vim($home) {
-  include macvim 
+  class { "habitullence::powerline":
+    home => $home,
+  }
+
+  include macvim
 
   file { "/Applications/MacVim.app":
     ensure => link,
@@ -9,25 +13,29 @@ class habitullence::vim($home) {
 
   package { 'vim': }
 
+  file { "${home}/.vim":
+    ensure => directory,
+    recurse => true,
+    source => "puppet:///modules/habitullence/vim/.vim",
+  }
+
   file { "${home}/.vimrc":
     require => [
-      File["${home}/.vim/backup"], 
-      Repository["${home}/.vim/bundle/vundle"]
+      File["${home}/.vim"],
+      Repository["${home}/.vim/bundle/vundle"],
     ],
     source => "puppet:///modules/habitullence/vim/.vimrc",
   }
 
-  file { ["${home}/.vim", "${home}/.vim/backup"]:
-    ensure => 'directory',
-  }
-
   repository { "${home}/.vim/bundle/vundle":
-    require => File["${home}/.vim"],
     source => 'gmarik/vundle',
   }
 
   exec { 'Install Vundle bundles':
     command => 'vim +BundleInstall +qall',
-    require => [Repository["${home}/.vim/bundle/vundle"],File["${home}/.vimrc"]],
+    require => [
+      Repository["${home}/.vim/bundle/vundle"],
+      File["${home}/.vimrc"]
+    ],
   }
 }
