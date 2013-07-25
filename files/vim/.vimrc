@@ -69,10 +69,14 @@ set tabstop=4 " Number of spaces that a <Tab> in the file counts for
 
 " Keys
 let mapleader="," " Remap leader key to ,
-map <Down> <Nop> " Disable arrow keys
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
+inoremap <Down> <Nop> " Disable arrow keys
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
 set backspace=indent,eol,start " Allow backspace in insert mode
 set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 
