@@ -2,6 +2,8 @@
  set nocompatible
 
 " Plugins (Vundle https://github.com/gmarik/vundle)
+" Near top because I don't want plugins overriding settings in vimrc.
+" Plugin specific setting can be found in ~/.vim/plugin/<plugin name>.vim
 if filereadable(expand("~/.vim/vundle.vim"))
     source ~/.vim/vundle.vim
 endif
