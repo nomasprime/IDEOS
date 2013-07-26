@@ -98,5 +98,9 @@ set sidescroll=1 " The minimal number of colums to scroll horizontally
 set sidescrolloff=15 " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set
 set t_ti= t_te= " Keep last position in the scroll buffer when using view, man, etc. http://www.shallowsky.com/linux/noaltscreen.html
 
+if has('gui_running')
+    set guioptions-=r
+endif
+
 " Widows
 set winwidth=80 " Minimal number of columns for the current window
