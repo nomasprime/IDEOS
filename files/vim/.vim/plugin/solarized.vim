@@ -23,4 +23,4 @@ hi! link StatusLine DiffChange
 hi! link StatusLineNC DiffAdd
 
 " Vertical split less invasive
-hi! VertSplit guifg=#002b36  guibg=#002b36
+hi! VertSplit guibg=#002b36 guifg=#003745 cterm=NONE term=NONE ctermfg=NONE ctermbg=NONE
