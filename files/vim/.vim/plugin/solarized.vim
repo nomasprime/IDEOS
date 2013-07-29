@@ -1,5 +1,8 @@
 " Precision colors for machines and people
 
+" Change red delimiters
+hi! link Delimiter Identifier
+
 " Popup menu
 hi! link PMenu DiffAdd 
 hi! link PMenuSel DiffChange
