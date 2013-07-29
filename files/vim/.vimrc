@@ -89,9 +89,9 @@ set ignorecase smartcase " Ignore case in search patterns, overrdien if contains
 set incsearch " While typing a search command, show where the pattern so far matches
 
 " Scrolling
-set scrolloff=8 " Minimal number of screen lines to keep above and below the cursor
+set scrolloff=5 " Minimal number of screen lines to keep above and below the cursor
 set sidescroll=1 " The minimal number of colums to scroll horizontally
-set sidescrolloff=15 " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set
+set sidescrolloff=10 " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set
 set t_ti= t_te= " Keep last position in the scroll buffer when using view, man, etc. http://www.shallowsky.com/linux/noaltscreen.html
 
 if has('gui_running')
