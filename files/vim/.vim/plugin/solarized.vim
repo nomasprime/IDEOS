@@ -3,6 +3,9 @@
 " Change red delimiters
 hi! link Delimiter Identifier
 
+" Line numbers
+hi! LineNR guifg=#004C60 gui=bold guibg=#002B36 ctermfg=146
+
 " Popup menu
 hi! link PMenu DiffAdd
 hi! link PMenuSel DiffChange
