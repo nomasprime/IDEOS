@@ -25,14 +25,11 @@ set wildmode=list:longest " Completion mode that is used for the character speci
 " Colours and Fonts
 colorscheme solarized
 set background=dark
-set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h11
 set t_Co=256 " Use 256 colours
 
 " Command and Status
 set history=9999 " Command line history
 set laststatus=2 " When the last window will have a status line (0 - never; 1 - at least two windows; 2 - always)
-set noshowmode " Don't show editor mode
-set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
 set showcmd " Show incomplete commands
 set visualbell " Prefer visual to audial feedback
 

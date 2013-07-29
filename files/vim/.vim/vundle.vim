@@ -1,6 +1,7 @@
 " Plugins (Vundle https://github.com/gmarik/vundle)
 filetype off
 
+set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
