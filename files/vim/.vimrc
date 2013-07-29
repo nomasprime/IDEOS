@@ -25,7 +25,6 @@ set wildmode=list:longest " Completion mode that is used for the character speci
 " Colours and Fonts
 colorscheme solarized
 set background=dark
-set t_Co=256 " Use 256 colours
 
 " Command and Status
 set history=9999 " Command line history
