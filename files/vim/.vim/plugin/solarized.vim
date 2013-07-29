@@ -17,3 +17,6 @@ if exists('loaded_showmarks')
     hi! link ShowMarksHLo DiffAdd
     hi! link ShowMarksHLm DiffChange
 endif
+
+" Vertical split less invasive
+hi! VertSplit guifg=#002b36  guibg=#002b36
