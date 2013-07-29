@@ -95,7 +95,7 @@ set sidescrolloff=15 " The minimal number of screen columns to keep to the left 
 set t_ti= t_te= " Keep last position in the scroll buffer when using view, man, etc. http://www.shallowsky.com/linux/noaltscreen.html
 
 if has('gui_running')
-    set guioptions-=r
+    set guioptions-=rL
 endif
 
 " Widows
