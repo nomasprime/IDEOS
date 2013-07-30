@@ -4,9 +4,13 @@
 " Plugins (Vundle https://github.com/gmarik/vundle)
 " Near top because I don't want plugins overriding settings in vimrc.
 " Plugin specific setting can be found in ~/.vim/plugin/<plugin name>.vim
-if filereadable(expand("~/.vim/vundle.vim"))
-    source ~/.vim/vundle.vim
-endif
+filetype off
+set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+runtime! settings/*.vim
+filetype plugin indent on
 
 " Code Completion
 set wildignore=*.o,*.obj,*~ " File patterns to ignore (TODO Should these be moved out of vimrc?)

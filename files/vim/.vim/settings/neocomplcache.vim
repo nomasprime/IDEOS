@@ -1,4 +1,5 @@
 " Ultimate auto-completion
+Bundle 'Shougo/neocomplcache.vim'
 
 " Use neocomplcache
 let g:neocomplcache_enable_at_startup = 1

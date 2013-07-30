@@ -1,19 +1,9 @@
-" Plugins (Vundle https://github.com/gmarik/vundle)
-filetype off
-
-set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
 
 " Shows current CSS selector while navigating SASS
 Bundle 'aaronjensen/vim-sass-status'
 
 " Transition between single and multi-line code
 Bundle 'AndrewRadev/splitjoin.vim'
-
-" Solarized colour scheme
-Bundle 'altercation/vim-colors-solarized'
 
 " Like Vim's ci command but doesn't need surrounding character (will try {},
 " (), "", ><, [], '', ``)
@@ -41,9 +31,6 @@ Bundle 'honza/vim-snippets'
 
 " jQuery support
 Bundle 'itspriddle/vim-jquery'
-
-" Make NERDTree feel like a true panel, independent of tabs
-Bundle 'jistr/vim-nerdtree-tabs'
 
 " Adds Github markdown support to tpope/markdown
 Bundle 'jtratner/vim-flavored-markdown'
@@ -82,12 +69,10 @@ Bundle 'Raimondi/delimitMate'
 " / CLI script 'ack'
 Bundle 'rking/ag.vim'
 Bundle 'puppetlabs/puppet-syntax-vim'
-Bundle 'scrooloose/nerdtree'
 
 " Syntax checker
 Bundle 'scrooloose/syntastic'
 
-Bundle 'Shougo/neocomplcache.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tcomment_vim'
@@ -116,4 +101,3 @@ Bundle 'vim-scripts/sudo.vim'
 Bundle 'vim-scripts/TagHighlight'
 Bundle 'xsunsmile/showmarks'
 
-filetype plugin indent on

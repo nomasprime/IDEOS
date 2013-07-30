@@ -1,4 +1,5 @@
 " Precision colors for machines and people
+Bundle 'altercation/vim-colors-solarized'
 
 " Line numbers
 hi! LineNR guifg=#004C60 gui=bold guibg=#002B36 ctermfg=146
