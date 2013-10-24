@@ -1,8 +1,4 @@
 class habitullence::vim($home) {
-  class { "habitullence::powerline":
-    home => $home,
-  }
-
   file { "/Applications/MacVim.app":
     ensure => link,
     require => Package["macvim"],
@@ -30,6 +26,12 @@ class habitullence::vim($home) {
     ensure => directory,
     recurse => true,
     source => "puppet:///modules/habitullence/vim/.vim",
+  }
+
+  file { "${home}/Library/Fonts":
+    ensure => directory,
+    recurse => true,
+    source => "puppet:///modules/habitullence/vim/vim-powerline/fonts",
   }
 
   file { "${home}/.vimrc":
