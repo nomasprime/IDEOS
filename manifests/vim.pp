@@ -3,15 +3,28 @@ class habitullence::vim($home) {
     home => $home,
   }
 
-  include macvim
-
   file { "/Applications/MacVim.app":
     ensure => link,
     require => Package["macvim"],
-    target => "/opt/boxen/homebrew/Cellar/macvim/7.3-66/MacVim.app",
+    target => "/opt/boxen/homebrew/Cellar/macvim/HEAD/MacVim.app",
   }
 
-  package { 'vim': }
+  package {
+    [
+      'ctags',
+      'the_silver_searcher',
+      'vim'
+    ]:
+  }
+
+  package {
+    'macvim':
+      install_options => [
+        '--with-cscope',
+        '--with-lua',
+        '--HEAD'
+      ]
+  }
 
   file { "${home}/.vim":
     ensure => directory,
