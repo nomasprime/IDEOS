@@ -41,9 +41,10 @@ silent !mkdir ~/.vim/undo > /dev/null 2>&1
 syntax on
 
 " Folding
+set foldignore= " Stops folds breaking on empty lines
+set foldlevelstart=1 " Sets fold level when file is opened
 set foldmethod=indent " The kind of folding used for the current window
-set foldnestmax=3 " Sets the maximum nesting of folds for the indent and syntax methods
-set nofoldenable " All folds are open
+set foldnestmax=20 " Sets the maximum nesting of folds for the indent and syntax methods
 
 " Identation
 set autoindent " Copy indent from current line when starting new line
