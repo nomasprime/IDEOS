@@ -26,10 +26,6 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildmenu " Command-line completion operates in enchanced mode
 set wildmode=list:longest " Completion mode that is used for the character specified with 'wildchar'
 
-" Colours and Fonts
-colorscheme solarized
-set background=dark
-
 " Command and Status
 set history=9999 " Command line history
 set laststatus=2 " When the last window will have a status line (0 - never; 1 - at least two windows; 2 - always)
