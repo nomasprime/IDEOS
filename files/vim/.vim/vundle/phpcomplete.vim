@@ -1,0 +1,1 @@
+Bundle 'shawncplus/phpcomplete.vim'
