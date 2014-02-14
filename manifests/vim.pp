@@ -7,7 +7,7 @@ class habitullence::vim($home) {
 
   package {
     [
-      'ctags',
+      'ctags-exuberant',
       'the_silver_searcher',
       'vim'
     ]:
