@@ -1,16 +1,5 @@
 " Vim, rather than Vi (needs to be set first - affects all other settings)
- set nocompatible
-
-" Plugins (Vundle https://github.com/gmarik/vundle)
-" Near top because I don't want plugins overriding settings in vimrc.
-" Plugin specific setting can be found in ~/.vim/plugin/<plugin name>.vim
-filetype off
-set rtp+=/opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/vim
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-runtime! vundle/*.vim
-filetype plugin indent on
+set nocompatible
 
 " Code Completion
 set wildignore=*.o,*.obj,*~ " File patterns to ignore (TODO Should these be moved out of vimrc?)
@@ -100,3 +89,14 @@ endif
 
 " Widows
 set winwidth=80 " Minimal number of columns for the current window
+
+" Plugins (Vundle https://github.com/gmarik/vundle)
+" Was at the top but moved to the bottom because some settings depend on
+" general Vim settings.
+" Loads settings from .vim/vundle directory.
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+runtime! vundle/*.vim
+filetype plugin indent on
