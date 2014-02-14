@@ -31,7 +31,7 @@ set backup " Create backup files
 set backupdir=~/.vim/backup " Backup files dir
 set directory=~/.vim/temp " Swap files dir
 set hidden " Allow hidden buffers
-set list listchars=tab:\ \ ,trail:· " Show tabs and trailing spaces
+set list listchars=tab:▸\ ,trail:· " Show tabs and trailing spaces
 set showmatch " When a bracket is inserted, briefly jump to the matching one
 set undodir=~/.vim/undo " Undo files dir
 set undofile " Create undo files
