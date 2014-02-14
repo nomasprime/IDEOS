@@ -90,6 +90,9 @@ if has('gui_running')
     set guioptions-=rL
 endif
 
+" Tags
+set tags+=.tags
+
 " Widows
 set winwidth=80 " Minimal number of columns for the current window
 
