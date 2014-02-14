@@ -46,11 +46,11 @@ class habitullence::vim($home) {
     source => 'gmarik/vundle',
   }
 
-  exec { 'Install Vundle bundles':
-    command => 'vim --noplugin -u ~/.vim/vundle.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall',
-    require => [
-      Repository["${home}/.vim/bundle/vundle"],
-      File["${home}/.vimrc"]
-    ],
-  }
+  # exec { 'Install Vundle bundles':
+  #   command => 'vim --noplugin -u ~/.vim/vundle.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall',
+  #   require => [
+  #     Repository["${home}/.vim/bundle/vundle"],
+  #     File["${home}/.vimrc"]
+  #   ],
+  # }
 }
