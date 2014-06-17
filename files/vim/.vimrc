@@ -65,7 +65,7 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
-nmap <silent> // :nohlesearch<CR>
+nmap <silent> // :nohlsearch<CR>
 set backspace=indent,eol,start " Allow backspace in insert mode
 set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 
