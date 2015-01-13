@@ -40,6 +40,9 @@ silent !mkdir ~/.vim/temp > /dev/null 2>&1
 silent !mkdir ~/.vim/undo > /dev/null 2>&1
 syntax on
 
+" Filetypes
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+
 " Folding
 set foldignore= " Stops folds breaking on empty lines
 set foldlevelstart=1 " Sets fold level when file is opened
