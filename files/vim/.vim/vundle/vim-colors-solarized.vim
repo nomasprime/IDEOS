@@ -3,15 +3,14 @@ Bundle 'altercation/vim-colors-solarized'
 
 " Colours and Fonts
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
-" Line numbers
-hi! LineNR guifg=#004C60 gui=bold guibg=#002B36 ctermfg=146
+" CursorLine
+hi! link CursorLineNr CursorLine
 
-" NonText subtle like VertSplit
-hi! link NonText VertSplit
-hi! VertSplit guibg=#002b36 guifg=#003745 cterm=NONE term=NONE ctermfg=NONE ctermbg=NONE
+" VertSplit
+hi! link VertSplit SignColumn
 
 " Popup menu
 hi! link PMenu DiffAdd
