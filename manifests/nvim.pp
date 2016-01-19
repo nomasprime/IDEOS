@@ -3,7 +3,7 @@ class habitullence::nvim($home) {
     [
       'ctags-exuberant',
       'the_silver_searcher',
-      'neovim'
+      'neovim/neovim/neovim'
     ]:
   }
 
