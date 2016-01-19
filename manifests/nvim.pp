@@ -18,7 +18,7 @@ class habitullence::nvim($home) {
   file { "${home}/Library/Fonts":
     ensure => directory,
     recurse => true,
-    source => "puppet:///modules/habitullence/vim/vim-powerline/fonts",
+    source => "puppet:///modules/habitullence/nvim/vim-powerline/fonts",
   }
 
   file { "${home}/.nvimrc":
