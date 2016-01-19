@@ -92,6 +92,7 @@ set winwidth=80 " Minimal number of columns for the current window
 " Was at the top but moved to the bottom because some settings depend on
 " general Vim settings.
 " Loads settings from .vim/vundle directory.
+set nocompatible
 filetype off
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
