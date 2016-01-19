@@ -1,0 +1,1 @@
+Bundle 'nrocco/vim-phplint'

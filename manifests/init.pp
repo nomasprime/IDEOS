@@ -1,5 +1,5 @@
 class habitullence($home = "/Users/${::luser}") {
-  class { "habitullence::vim": 
+  class { "habitullence::nvim": 
     home => $home,
   }
 }
