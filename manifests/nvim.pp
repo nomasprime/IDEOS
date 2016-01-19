@@ -1,4 +1,6 @@
 class habitullence::nvim($home) {
+  homebrew::tap { 'neovim/neovim': }
+
   package {
     [
       'ctags-exuberant',
