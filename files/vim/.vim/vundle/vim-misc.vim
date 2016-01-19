@@ -1,1 +1,0 @@
-Bundle 'xolox/vim-misc'

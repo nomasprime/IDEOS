@@ -93,8 +93,9 @@ set winwidth=80 " Minimal number of columns for the current window
 " general Vim settings.
 " Loads settings from .vim/vundle directory.
 filetype off
-set rtp+=~/.nvim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin()
+Bundle 'VundleVim/Vundle.vim'
 runtime! vundle/*.vim
+call vundle#end()
 filetype plugin indent on

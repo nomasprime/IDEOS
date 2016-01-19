@@ -1,1 +1,0 @@
-Bundle 'vim-scripts/Specky'

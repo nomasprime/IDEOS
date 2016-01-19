@@ -24,13 +24,13 @@ class habitullence::nvim($home) {
   file { "${home}/.nvimrc":
     require => [
       File["${home}/.nvim"],
-      Repository["${home}/.nvim/bundle/vundle"],
+      Repository["${home}/.nvim/bundle/Vundle.vim"],
     ],
     source => "puppet:///modules/habitullence/nvim/.nvimrc",
   }
 
-  repository { "${home}/.nvim/bundle/vundle":
-    source => 'gmarik/vundle',
+  repository { "${home}/.nvim/bundle/Vundle.vim":
+    source => 'VundleVim/Vundle.vim',
   }
 
   # exec { 'Install Vundle bundles':

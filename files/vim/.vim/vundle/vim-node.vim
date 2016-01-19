@@ -1,1 +1,0 @@
-Bundle 'moll/vim-node'
