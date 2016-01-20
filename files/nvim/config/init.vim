@@ -1,17 +1,3 @@
-" Code Completion
-" set wildignore=*.o,*.obj,*~ " File patterns to ignore (TODO Should these be moved out of vimrc?)
-" set wildignore+=*vim/backup*
-" set wildignore+=*sass-cache*
-" set wildignore+=*DS_Store*
-" set wildignore+=vendor/rails/**
-" set wildignore+=vendor/cache/**
-" set wildignore+=*.gem
-" set wildignore+=log/**
-" set wildignore+=tmp/**
-" set wildignore+=*.png,*.jpg,*.gif
-" set wildmenu " Command-line completion operates in enchanced mode
-" set wildmode=list:longest " Completion mode that is used for the character specified with 'wildchar'
-
 " Command and Status
 set history=9999 " Command line history
 set laststatus=2 " When the last window will have a status line (0 - never; 1 - at least two windows; 2 - always)
