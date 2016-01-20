@@ -27,11 +27,11 @@ class habitullence::nvim($home) {
     source => 'VundleVim/Vundle.vim',
   }
 
-  # exec { 'Install Vundle bundles':
-  #   command => 'vim --noplugin -u ~/.vim/vundle.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall',
-  #   require => [
-  #     Repository["${home}/.vim/bundle/vundle"],
-  #     File["${home}/.vimrc"]
-  #   ],
-  # }
+  exec { 'Install Vundle bundles':
+    command => 'nvim +PluginInstall +qall',
+    require => [
+      Repository["${nvim_config}/bundle/Vundle.vim"],
+      File[$nvim_config]
+    ],
+  }
 }
