@@ -9,12 +9,17 @@ class habitullence::nvim($home) {
     ]:
   }
 
+  file { "${home}/.config":
+    ensure => directory
+  }
+
   $nvim_config = "${home}/.config/nvim"
 
   file { $nvim_config:
-    ensure => directory,
+    ensure  => directory,
     recurse => true,
-    source => "puppet:///modules/habitullence/nvim/config",
+    require => File["${home}/.config"],
+    source  => "puppet:///modules/habitullence/nvim/config",
   }
 
   file { "${home}/Library/Fonts":
