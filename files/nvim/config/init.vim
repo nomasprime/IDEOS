@@ -94,9 +94,9 @@ set winwidth=80 " Minimal number of columns for the current window
 " Loads settings from .vim/vundle directory.
 set nocompatible
 filetype off
-set rtp+=~/.nvim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 
-call vundle#begin()
+call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'aaronjensen/vim-sass-status'
 Plugin 'altercation/vim-colors-solarized'

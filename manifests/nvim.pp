@@ -9,10 +9,12 @@ class habitullence::nvim($home) {
     ]:
   }
 
-  file { "${home}/.nvim":
+  $nvim_config = "${home}/.config/nvim"
+
+  file { $nvim_config:
     ensure => directory,
     recurse => true,
-    source => "puppet:///modules/habitullence/nvim/.nvim",
+    source => "puppet:///modules/habitullence/nvim/config",
   }
 
   file { "${home}/Library/Fonts":
@@ -21,15 +23,7 @@ class habitullence::nvim($home) {
     source => "puppet:///modules/habitullence/nvim/vim-powerline/fonts",
   }
 
-  file { "${home}/.nvimrc":
-    require => [
-      File["${home}/.nvim"],
-      Repository["${home}/.nvim/bundle/Vundle.vim"],
-    ],
-    source => "puppet:///modules/habitullence/nvim/.nvimrc",
-  }
-
-  repository { "${home}/.nvim/bundle/Vundle.vim":
+  repository { "${nvim_config}/bundle/Vundle.vim":
     source => 'VundleVim/Vundle.vim',
   }
 
