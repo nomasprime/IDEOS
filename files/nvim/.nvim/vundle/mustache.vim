@@ -1,1 +1,0 @@
-Bundle 'juvenn/mustache.vim'

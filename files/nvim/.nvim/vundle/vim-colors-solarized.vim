@@ -1,6 +1,3 @@
-" Precision colors for machines and people
-Bundle 'altercation/vim-colors-solarized'
-
 " Colours and Fonts
 syntax enable
 set background=light
