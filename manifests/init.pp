@@ -3,6 +3,7 @@ class habitullence($home = "/Users/${::luser}") {
     home => $home,
   }
 
+  include divvy
   include dropbox
   include habitullence::iterm2
   include onepassword
