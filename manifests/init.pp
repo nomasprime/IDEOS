@@ -4,4 +4,5 @@ class habitullence($home = "/Users/${::luser}") {
   }
 
   include habitullence::iterm2
+  include onepassword
 }
