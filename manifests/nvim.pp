@@ -39,9 +39,4 @@ class habitullence::nvim($home) {
       File[$nvim_config]
     ],
   }
-
-  exec { 'Install YouCompleteMe':
-    command => "${nvim_config}/bundle/YouCompleteMe/install.py",
-    require => Exec['Install Vundle bundles']
-  }
 }
