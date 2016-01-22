@@ -4,8 +4,8 @@ class habitullence::nvim($home) {
   package {
     [
       'ctags-exuberant',
-      'the_silver_searcher',
-      'neovim/neovim/neovim'
+      'neovim/neovim/neovim',
+      'wget'
     ]:
   }
 
@@ -38,5 +38,16 @@ class habitullence::nvim($home) {
       Repository["${nvim_config}/bundle/Vundle.vim"],
       File[$nvim_config]
     ],
+  }
+
+  exec { 'Download Eclim installer':
+    command => "wget http://sourceforge.net/projects/eclim/files/eclim/2.5.0/eclim_2.5.0.jar/download -O /tmp/eclim_2.5.0.jar",
+    creates => "/tmp/eclim_2.5.0.jar",
+    require => Package['wget']
+  }
+  ->
+  exec { 'Install Eclim':
+    command => "java -Dvim.files=${home}/.config/nvim -Declipse.home=/Applications/Eclipse.app/Contents/Eclipse -jar /tmp/eclim_2.5.0.jar install",
+    creates => "${home}/eclipse/java-mars/Eclipse.app/Contents/Eclipse/MacOS/eclimd"
   }
 }
