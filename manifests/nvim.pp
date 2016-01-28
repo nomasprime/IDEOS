@@ -9,6 +9,13 @@ class habitullence::nvim($home) {
     ]:
   }
 
+  include python
+
+  package { 'neovim':
+    provider => 'pip',
+    require  => Class['python']
+  }
+
   file { "${home}/.config":
     ensure => directory
   }
@@ -44,6 +51,13 @@ class habitullence::nvim($home) {
     ]
   }
 
+  exec { 'Install YouCompleteMe':
+    command => "${home}/.config/nvim/bundle/YouCompleteMe/install.py",
+    require => [
+      Exec['Install Vundle bundles']
+    ]
+  }
+
   exec { 'Download Eclim installer':
     command => "wget http://sourceforge.net/projects/eclim/files/eclim/2.5.0/eclim_2.5.0.jar/download -O /tmp/eclim_2.5.0.jar",
     creates => "/tmp/eclim_2.5.0.jar",
@@ -52,6 +66,6 @@ class habitullence::nvim($home) {
   ->
   exec { 'Install Eclim':
     command => "java -Dvim.files=${home}/.config/nvim -Declipse.home=/Applications/Eclipse.app/Contents/Eclipse -jar /tmp/eclim_2.5.0.jar install",
-    creates => "${home}/eclipse/java-mars/Eclipse.app/Contents/Eclipse/MacOS/eclimd"
+    creates => "/Applications/Eclipse.app/Contents/Eclipse/eclimd"
   }
 }
