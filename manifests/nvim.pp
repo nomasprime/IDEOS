@@ -33,11 +33,15 @@ class habitullence::nvim($home) {
   }
 
   exec { 'Install Vundle bundles':
-    command => 'nvim +PluginInstall +qall',
-    require => [
+    command     => 'nvim +PluginInstall +qall',
+    refreshonly => true,
+    require     => [
       Repository["${nvim_config}/bundle/Vundle.vim"],
       File[$nvim_config]
     ],
+    subscribe => [
+      File[$nvim_config]
+    ]
   }
 
   exec { 'Download Eclim installer':
