@@ -54,6 +54,7 @@ class ideos::nvim($home) {
 
   exec { 'Install YouCompleteMe':
     command => "${home}/.config/nvim/bundle/YouCompleteMe/install.py",
+    creates => "${home}/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so",
     require => [
       Exec['Install Vundle bundles']
     ]
