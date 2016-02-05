@@ -3,7 +3,7 @@ class ideos::nvim($home) {
 
   package {
     [
-      'ctags-exuberant',
+      'ctags',
       'neovim/neovim/neovim',
       'wget'
     ]:
