@@ -1,7 +1,7 @@
-class habitullence($home = "/Users/${::luser}") {
-  include habitullence::iterm2
+class ideos($home = "/Users/${::luser}") {
+  include ideos::iterm2
 
-  class { "habitullence::nvim":
+  class { "ideos::nvim":
     home => $home,
   }
 

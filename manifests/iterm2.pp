@@ -1,6 +1,5 @@
-class habitullence::iterm2() {
+class ideos::iterm2() {
   include iterm2::stable
-  include iterm2::colors::solarized_light
   # iterm2::colors { 'My Solarized Light':
   #   ansi_0_color        => [0.19370138645172119, 0.15575926005840302, 0.0],
   #   ansi_1_color        => [0.14145712554454803, 0.10840645432472229, 0.81926983594894409],

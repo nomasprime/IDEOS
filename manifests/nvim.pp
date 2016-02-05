@@ -1,4 +1,4 @@
-class habitullence::nvim($home) {
+class ideos::nvim($home) {
   homebrew::tap { 'neovim/neovim': }
 
   package {
@@ -9,6 +9,7 @@ class habitullence::nvim($home) {
     ]:
   }
 
+  include java
   include python
 
   package { 'neovim':
@@ -26,13 +27,13 @@ class habitullence::nvim($home) {
     ensure  => directory,
     recurse => true,
     require => File["${home}/.config"],
-    source  => "puppet:///modules/habitullence/nvim/config",
+    source  => "puppet:///modules/ideos/nvim/config",
   }
 
   file { "${home}/Library/Fonts":
     ensure => directory,
     recurse => true,
-    source => "puppet:///modules/habitullence/nvim/vim-powerline/fonts",
+    source => "puppet:///modules/ideos/nvim/vim-powerline/fonts",
   }
 
   repository { "${nvim_config}/bundle/Vundle.vim":
