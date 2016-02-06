@@ -1,14 +1,15 @@
-class habitullence::nvim($home) {
+class ideos::nvim($home) {
   homebrew::tap { 'neovim/neovim': }
 
   package {
     [
-      'ctags-exuberant',
+      'ctags',
       'neovim/neovim/neovim',
       'wget'
     ]:
   }
 
+  include java
   include python
 
   package { 'neovim':
@@ -26,13 +27,13 @@ class habitullence::nvim($home) {
     ensure  => directory,
     recurse => true,
     require => File["${home}/.config"],
-    source  => "puppet:///modules/habitullence/nvim/config",
+    source  => "puppet:///modules/ideos/nvim/config",
   }
 
   file { "${home}/Library/Fonts":
     ensure => directory,
     recurse => true,
-    source => "puppet:///modules/habitullence/nvim/vim-powerline/fonts",
+    source => "puppet:///modules/ideos/nvim/vim-powerline/fonts",
   }
 
   repository { "${nvim_config}/bundle/Vundle.vim":
@@ -53,6 +54,7 @@ class habitullence::nvim($home) {
 
   exec { 'Install YouCompleteMe':
     command => "${home}/.config/nvim/bundle/YouCompleteMe/install.py",
+    creates => "${home}/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so",
     require => [
       Exec['Install Vundle bundles']
     ]
