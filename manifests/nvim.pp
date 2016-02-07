@@ -50,7 +50,8 @@ class ideos::nvim($home) {
     ],
     subscribe => [
       File[$nvim_config]
-    ]
+    ],
+    timeout => 1800
   }
 
   exec { 'Install YouCompleteMe':
