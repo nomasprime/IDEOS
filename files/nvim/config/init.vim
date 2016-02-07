@@ -88,9 +88,9 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'aaronjensen/vim-sass-status'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'briandoll/change-inside-surroundings.vim'
 Plugin 'chrisbra/color_highlight'
+Plugin 'chriskempson/base16-vim'
 Plugin 'ck3g/vim-change-hash-syntax'
 Plugin 'craigemery/vim-autotag'
 Plugin 'digitaltoad/vim-jade'
