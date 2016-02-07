@@ -57,6 +57,9 @@ set linebreak " Wrap long lines at a character in 'breakat' rather than last cha
 set number " Show line numbers
 set wrap " Wrap long lines
 
+" Registers
+set clipboard=unnamed
+
 " Search
 set hlsearch " When there is a previous search pattern, highlight all its matches
 set ignorecase smartcase " Ignore case in search patterns, overrdien if contains uppercase characters
