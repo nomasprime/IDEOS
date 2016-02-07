@@ -5,6 +5,7 @@ class ideos::nvim($home) {
     [
       'ctags',
       'neovim/neovim/neovim',
+      'the_silver_searcher',
       'wget'
     ]:
   }
