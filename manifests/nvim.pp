@@ -65,7 +65,7 @@ class ideos::nvim($home) {
     command => "wget http://sourceforge.net/projects/eclim/files/eclim/2.5.0/eclim_2.5.0.jar/download -O /tmp/eclim_2.5.0.jar",
     creates => "/tmp/eclim_2.5.0.jar",
     require => [
-      Package['java'],
+      Class['java'],
       Package['wget']
     ]
   }
