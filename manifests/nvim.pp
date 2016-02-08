@@ -31,14 +31,21 @@ class ideos::nvim($home) {
     source  => "puppet:///modules/ideos/nvim/config",
   }
 
-  file { "${home}/Library/Fonts":
-    ensure => directory,
-    recurse => true,
-    source => "puppet:///modules/ideos/nvim/vim-powerline/fonts",
+  repository { "${nvim_config}/bundle/Vundle.vim":
+    source => 'VundleVim/Vundle.vim'
   }
 
-  repository { "${nvim_config}/bundle/Vundle.vim":
-    source => 'VundleVim/Vundle.vim',
+  exec { 'Clean Vundle bundles':
+    command     => 'nvim +PluginClean! +qall',
+    refreshonly => true,
+    require     => [
+      Repository["${nvim_config}/bundle/Vundle.vim"],
+      File[$nvim_config]
+    ],
+    subscribe => [
+      File[$nvim_config]
+    ],
+    timeout => 1800
   }
 
   exec { 'Install Vundle bundles':
