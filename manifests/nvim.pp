@@ -54,6 +54,21 @@ class ideos::nvim($home) {
     timeout => 1800
   }
 
+  tidy { "${home}/.config/nvim/vundle/powerline.vim": }
+  ->
+  tidy { "${home}/.config/nvim/vundle/vim-powerline.vim": }
+  ->
+  tidy { "${home}/.config/nvim/vundle/vim-solarized-powerline.vim": }
+
+  repository { "/tmp/fonts":
+    source => 'powerline/fonts'
+  }
+  ->
+  exec { 'Install Powerline fonts':
+    command => '/tmp/fonts/install.sh',
+    creates => "${home}/Library/Fonts/Menlo Regular for Powerline.ttf"
+  }
+
   exec { 'Install YouCompleteMe':
     command => "${home}/.config/nvim/bundle/YouCompleteMe/install.py",
     creates => "${home}/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so",
