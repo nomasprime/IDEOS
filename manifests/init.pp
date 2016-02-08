@@ -5,7 +5,7 @@ class ideos($home = "/Users/${::luser}") {
     home => $home
   }
 
-  class { "ideos::Zsh":
+  class { "ideos::zsh":
     home => $home
   }
 }
