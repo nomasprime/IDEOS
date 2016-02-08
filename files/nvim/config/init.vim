@@ -120,6 +120,7 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'sjl/gundo.vim'
 Plugin 'tfnico/vim-gradle'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tcomment_vim'
@@ -157,4 +158,50 @@ Plugin 'xolox/vim-session'
 call vundle#end()
 
 filetype plugin indent on
-runtime! vundle/*.vim
+
+" Plugin Settings
+
+" chriskempson/base16-vim
+set background=dark
+colorscheme base16-twilight
+
+" ervandew/eclim
+let g:EclimCompletionMethod = 'omnifunc'
+
+" kien/ctrlp.vim
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_map = '<Leader>g'
+let g:ctrlp_show_hidden = 1
+
+" majutsushi/tagbar
+let g:tagbar_ctags_bin='/opt/boxen/homebrew/bin/ctags'
+nnoremap <Leader>t :TagbarToggle<CR>
+
+" peterhost/YankRing.vim
+let g:yankring_history_file = '.nvim/yankring_history'
+nnoremap <Leader>y :YRShow<CR>
+
+" Raimondi/delimitMate
+let g:delimitMate_expand_cr = 1
+
+" rking/ag.vim
+set grepprg=ag
+
+" scrooloose/nerdtree
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+nnoremap <Leader>d :NERDTreeToggle<CR>
+
+" sjl/gundo.vim
+let g:gundo_right = 1
+nnoremap <Leader>u :GundoToggle<CR>
+
+" Valloric/YouCompleteMe
+let g:ycm_register_as_syntastic_checker = 0
+
+" vim-airline/vim-airline
+let g:airline_powerline_fonts=1
+let g:airline_theme='base16_twilight'
+
+" xolox/vim-session
+let g:session_autosave = 'no'

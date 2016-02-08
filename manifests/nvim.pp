@@ -19,7 +19,7 @@ class ideos::nvim($home) {
   }
 
   file { "${home}/.config":
-    ensure => directory
+    ensure  => directory
   }
 
   $nvim_config = "${home}/.config/nvim"
@@ -60,12 +60,6 @@ class ideos::nvim($home) {
     ],
     timeout => 1800
   }
-
-  tidy { "${home}/.config/nvim/vundle/powerline.vim": }
-  ->
-  tidy { "${home}/.config/nvim/vundle/vim-powerline.vim": }
-  ->
-  tidy { "${home}/.config/nvim/vundle/vim-solarized-powerline.vim": }
 
   repository { "/tmp/fonts":
     source => 'powerline/fonts'
