@@ -1,2 +1,2 @@
-set background=light
-colorscheme base16-solarized
+set background=dark
+colorscheme base16-twilight
