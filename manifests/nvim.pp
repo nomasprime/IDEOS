@@ -91,4 +91,9 @@ class ideos::nvim($home) {
     command => "java -Dvim.files=${home}/.config/nvim -Declipse.home=/Applications/Eclipse.app/Contents/Eclipse -jar /tmp/eclim_2.5.0.jar install",
     creates => "/Applications/Eclipse.app/Contents/Eclipse/eclimd"
   }
+  ->
+  file { '/usr/local/bin/eclimd':
+    ensure => 'link',
+    target => '/Applications/Eclipse.app/Contents/Eclipse/eclimd'
+  }
 }
