@@ -195,6 +195,8 @@ nnoremap <Leader>u :GundoToggle<CR>
 let g:ycm_register_as_syntastic_checker = 0
 
 " vim-airline/vim-airline
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_powerline_fonts=1
 let g:airline_theme='base16_twilight'
 
