@@ -117,7 +117,6 @@ Plugin 'peterhost/YankRing.vim'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'sjl/gundo.vim'
@@ -138,6 +137,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -186,11 +186,6 @@ let g:delimitMate_expand_cr = 1
 
 " rking/ag.vim
 set grepprg=ag
-
-" scrooloose/nerdtree
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
-nnoremap <Leader>d :NERDTreeToggle<CR>
 
 " sjl/gundo.vim
 let g:gundo_right = 1
