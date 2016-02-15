@@ -48,7 +48,6 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
-nmap <silent> // :nohlsearch<CR>
 set backspace=indent,eol,start " Allow backspace in insert mode
 set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 
@@ -61,9 +60,7 @@ set wrap " Wrap long lines
 set clipboard=unnamed
 
 " Search
-set hlsearch " When there is a previous search pattern, highlight all its matches
 set ignorecase smartcase " Ignore case in search patterns, overrdien if contains uppercase characters
-set incsearch " While typing a search command, show where the pattern so far matches
 
 " Scrolling
 set scrolloff=3 " Minimal number of screen lines to keep above and below the cursor
@@ -98,6 +95,9 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'evidens/vim-twig'
 Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch-easymotion.vim'
+Plugin 'haya14busa/incsearch-fuzzy.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'itspriddle/vim-jquery'
 Plugin 'jelera/vim-javascript-syntax'
@@ -146,7 +146,6 @@ Plugin 'vim-scripts/camelcasemotion'
 Plugin 'vim-scripts/ExplainPattern'
 Plugin 'vim-scripts/greplace.vim'
 Plugin 'vim-scripts/groovy.vim'
-Plugin 'vim-scripts/IndexedSearch'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/Specky'
 Plugin 'vim-scripts/sudo.vim'
@@ -167,6 +166,48 @@ colorscheme base16-twilight
 
 " ervandew/eclim
 let g:EclimCompletionMethod = 'omnifunc'
+
+" haya14busa/incsearch.vim
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" haya14busa/inchsearch-easymotion.vim
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
+" haya14busa/inchsearch-fuzzy.vim
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " kien/ctrlp.vim
 let g:ctrlp_clear_cache_on_exit = 0
