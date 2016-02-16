@@ -6,7 +6,7 @@ set visualbell " Prefer visual to audial feedback
 
 " Cursor
 set cursorline " Highlight current line
-set gcr=a:blinkon0 " Disable cursor bliking
+set gcr=a:blinkon0 " Disable cursor blinking
 
 " Files and Syntax
 set autoread " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
@@ -53,8 +53,11 @@ set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 
 " Lines
 set linebreak " Wrap long lines at a character in 'breakat' rather than last character that fits on the screen
+set nolist " List disables linebreak
 set number " Show line numbers
+set textwidth=0
 set wrap " Wrap long lines
+set wrapmargin=0
 
 " Registers
 set clipboard=unnamed
@@ -102,6 +105,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'itspriddle/vim-jquery'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'junegunn/goyo.vim'
 Plugin 'juvenn/mustache.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kshenoy/vim-signature'
@@ -208,6 +212,9 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+
+" junegunn/goyo.vim
+let g:goyo_width = 100
 
 " kien/ctrlp.vim
 let g:ctrlp_clear_cache_on_exit = 0
