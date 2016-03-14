@@ -1,3 +1,7 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Core
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Command and Status
 set history=9999 " Command line history
 set laststatus=2 " When the last window will have a status line (0 - never; 1 - at least two windows; 2 - always)
@@ -77,10 +81,12 @@ set tags+=.tags
 " Widows
 set winwidth=80 " Minimal number of columns for the current window
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins (Vundle https://github.com/gmarik/vundle)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Was at the top but moved to the bottom because some settings depend on
 " general Vim settings.
-" Loads settings from .vim/vundle directory.
 set nocompatible
 filetype off
 set rtp+=~/.config/nvim/bundle/Vundle.vim
@@ -163,7 +169,9 @@ call vundle#end()
 
 filetype plugin indent on
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " chriskempson/base16-vim
 set background=dark
