@@ -67,7 +67,7 @@ class ideos::nvim($home) {
   ->
   exec { 'Install Powerline fonts':
     command => '/tmp/fonts/install.sh',
-    creates => "${home}/Library/Fonts/Menlo Regular for Powerline.ttf"
+    creates => "${home}/Library/Fonts/Meslo LG S DZ Regular for Powerline.otf"
   }
 
   exec { 'Install YouCompleteMe':
