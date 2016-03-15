@@ -10,7 +10,7 @@ set visualbell " Prefer visual to audial feedback
 
 " Cursor
 set cursorline " Highlight current line
-set gcr=a:blinkon0 " Disable cursor blinking
+set selection=exclusive
 
 " Files and Syntax
 set autoread " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
