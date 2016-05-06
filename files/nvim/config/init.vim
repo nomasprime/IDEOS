@@ -67,6 +67,7 @@ set wrapmargin=0
 set clipboard=unnamed
 
 " Search
+nmap <silent> // :nohlsearch<CR>
 set ignorecase smartcase " Ignore case in search patterns, overrdien if contains uppercase characters
 
 " Scrolling
