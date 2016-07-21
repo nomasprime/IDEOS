@@ -186,8 +186,9 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " chriskempson/base16-vim
-set background=dark
-colorscheme base16-twilight
+set background=light
+colorscheme base16-google
+hi Search ctermfg=13 guifg=#e8e4cf
 
 " ervandew/eclim
 let g:EclimCompletionMethod = 'omnifunc'
@@ -267,7 +268,7 @@ let g:ycm_register_as_syntastic_checker = 0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_powerline_fonts=1
-let g:airline_theme='base16_twilight'
+let g:airline_theme='base16'
 
 " xolox/vim-session
 let g:session_autosave = 'no'
