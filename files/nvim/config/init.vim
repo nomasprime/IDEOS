@@ -59,7 +59,7 @@ set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 set linebreak " Wrap long lines at a character in 'breakat' rather than last character that fits on the screen
 set nolist " List disables linebreak
 set number " Show line numbers
-set textwidth=0
+set textwidth=120
 set wrap " Wrap long lines
 set wrapmargin=0
 
