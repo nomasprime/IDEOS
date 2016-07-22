@@ -90,6 +90,7 @@ set winwidth=80 " Minimal number of columns for the current window
 " general Vim settings.
 call plug#begin()
 Plug 'aaronjensen/vim-sass-status'
+Plug 'airblade/vim-gitgutter'
 Plug 'briandoll/change-inside-surroundings.vim'
 Plug 'chrisbra/color_highlight'
 Plug 'chriskempson/base16-vim'
