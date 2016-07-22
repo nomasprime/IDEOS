@@ -31,28 +31,17 @@ class ideos::nvim($home) {
     source  => "puppet:///modules/ideos/nvim/config",
   }
 
-  repository { "${nvim_config}/bundle/Vundle.vim":
-    source => 'VundleVim/Vundle.vim'
+  exec { 'Download vim-plug':
+    command => 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
+    creates => "${home}/.config/nvim/autoload/plug.vim"
   }
 
-  exec { 'Clean Vundle bundles':
-    command     => 'nvim +PluginClean! +qall',
+  exec { 'Install vim-plug plugins':
+    command     => 'nvim +PlugInstall +qall',
     refreshonly => true,
     require     => [
-      Repository["${nvim_config}/bundle/Vundle.vim"],
-      File[$nvim_config]
-    ],
-    subscribe => [
-      File[$nvim_config]
-    ],
-    timeout => 1800
-  }
-
-  exec { 'Install Vundle bundles':
-    command     => 'nvim +PluginInstall +qall',
-    refreshonly => true,
-    require     => [
-      Repository["${nvim_config}/bundle/Vundle.vim"],
+      Exec['Download vim-plug'],
       File[$nvim_config]
     ],
     subscribe => [
@@ -71,10 +60,10 @@ class ideos::nvim($home) {
   }
 
   exec { 'Install YouCompleteMe':
-    command => "${home}/.config/nvim/bundle/YouCompleteMe/install.py",
-    creates => "${home}/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so",
+    command => "${home}/.config/nvim/plugged/YouCompleteMe/install.py",
+    creates => "${home}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/ycm_core.so",
     require => [
-      Exec['Install Vundle bundles']
+      Exec['Install vim-plug plugins']
     ]
   }
 
