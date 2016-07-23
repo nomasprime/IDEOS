@@ -237,6 +237,9 @@ nnoremap <Leader>t :TagbarToggle<CR>
 let g:yankring_history_file='.nvim/yankring_history'
 nnoremap <Leader>y :YRShow<CR>
 
+" puppetlabs/puppet-syntax-vim
+let g:puppet_align_hashes = 0
+
 " Raimondi/delimitMate
 let g:delimitMate_expand_cr=1
 
