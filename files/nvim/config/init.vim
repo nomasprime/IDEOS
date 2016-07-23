@@ -92,7 +92,7 @@ call plug#begin()
 Plug 'aaronjensen/vim-sass-status'
 Plug 'airblade/vim-gitgutter'
 Plug 'briandoll/change-inside-surroundings.vim'
-Plug 'chrisbra/color_highlight'
+Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
 Plug 'ck3g/vim-change-hash-syntax'
 Plug 'ctrlpvim/ctrlp.vim'
