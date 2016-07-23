@@ -100,7 +100,6 @@ Plug 'digitaltoad/vim-jade'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'elixir-lang/vim-elixir'
 Plug 'evidens/vim-twig'
-Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-consul'
 Plug 'hashivim/vim-terraform'
@@ -133,6 +132,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'shawncplus/phpcomplete.vim'
+Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'terryma/vim-multiple-cursors'
@@ -185,7 +185,7 @@ colorscheme base16-google
 hi Search ctermfg=13 guifg=#e8e4cf
 
 " ervandew/eclim
-let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimCompletionMethod='omnifunc'
 
 " haya14busa/incsearch.vim
 map /  <Plug>(incsearch-forward)
@@ -193,7 +193,7 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 set hlsearch
-let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#auto_nohlsearch=1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
@@ -230,33 +230,38 @@ endfunction
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " junegunn/goyo.vim
-let g:goyo_width = 100
+let g:goyo_width=100
 
 " kien/ctrlp.vim
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_map = '<Leader>g'
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_map='<Leader>g'
+let g:ctrlp_show_hidden=1
 
 " majutsushi/tagbar
 let g:tagbar_ctags_bin='/opt/boxen/homebrew/bin/ctags'
 nnoremap <Leader>t :TagbarToggle<CR>
 
 " peterhost/YankRing.vim
-let g:yankring_history_file = '.nvim/yankring_history'
+let g:yankring_history_file='.nvim/yankring_history'
 nnoremap <Leader>y :YRShow<CR>
 
 " Raimondi/delimitMate
-let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr=1
 
 " rking/ag.vim
 set grepprg=ag
 
+" SilVer/ultisnips
+let g:UltiSnipsExpandTrigger='<c-k>'
+let g:UltiSnipsJumpForwardTrigger='<c-k>'
+let g:UltiSnipsJumpBackwardTrigger='<s-c-j>'
+
 " sjl/gundo.vim
-let g:gundo_right = 1
+let g:gundo_right=1
 nnoremap <Leader>u :GundoToggle<CR>
 
 " Valloric/YouCompleteMe
-let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_register_as_syntastic_checker=0
 
 " vim-airline/vim-airline
 let g:airline_left_sep=''
@@ -265,4 +270,4 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='base16'
 
 " xolox/vim-session
-let g:session_autosave = 'no'
+let g:session_autosave='no'
