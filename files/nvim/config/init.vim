@@ -18,7 +18,7 @@ set backup " Create backup files
 set backupdir=~/.nvim/backup " Backup files dir
 set directory=~/.nvim/temp " Swap files dir
 set hidden " Allow hidden buffers
-set list listchars=tab:▸\ ,trail:· " Show tabs and trailing spaces
+set list listchars=tab:‣\ ,trail:• " Show tabs and trailing spaces
 set showmatch " When a bracket is inserted, briefly jump to the matching one
 set undodir=~/.nvim/undo " Undo files dir
 set undofile " Create undo files
@@ -57,7 +57,6 @@ set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 
 " Lines
 set linebreak " Wrap long lines at a character in 'breakat' rather than last character that fits on the screen
-set nolist " List disables linebreak
 set number " Show line numbers
 set textwidth=120
 set wrap " Wrap long lines
