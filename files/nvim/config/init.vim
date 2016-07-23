@@ -116,6 +116,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mhinz/vim-grepper'
 Plug 'moll/vim-node'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'Peeja/vim-cdo'
@@ -124,7 +125,6 @@ Plug 'peterhost/YankRing.vim'
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'Raimondi/delimitMate'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
@@ -245,9 +245,6 @@ nnoremap <Leader>y :YRShow<CR>
 
 " Raimondi/delimitMate
 let g:delimitMate_expand_cr=1
-
-" rking/ag.vim
-set grepprg=ag
 
 " SilVer/ultisnips
 let g:UltiSnipsExpandTrigger='<c-k>'
