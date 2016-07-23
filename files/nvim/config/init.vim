@@ -174,9 +174,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " chriskempson/base16-vim
+let base16colorspace=256
 set background=light
-colorscheme base16-google
-hi Search ctermfg=13 guifg=#e8e4cf
+colorscheme base16-google-light
 
 " ervandew/eclim
 let g:EclimCompletionMethod='omnifunc'
