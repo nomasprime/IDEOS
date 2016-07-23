@@ -97,7 +97,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'elixir-lang/vim-elixir'
-Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-consul'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-vagrant'
@@ -109,6 +108,7 @@ Plug 'itspriddle/vim-jquery'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'juvenn/mustache.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kshenoy/vim-signature'
@@ -228,6 +228,10 @@ noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " junegunn/goyo.vim
 let g:goyo_width=100
+
+" junegunn/vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " kien/ctrlp.vim
 let g:ctrlp_clear_cache_on_exit=0
