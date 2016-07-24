@@ -104,6 +104,7 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'honza/vim-snippets'
 Plug 'itspriddle/vim-jquery'
+Plug 'janko-m/vim-test'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/goyo.vim'
@@ -212,6 +213,13 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+
+" janko-m/vim-test
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 
 " junegunn/goyo.vim
 let g:goyo_width=100
