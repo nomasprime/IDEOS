@@ -43,7 +43,7 @@ set softtabstop=4 " Number of spaces that a <Tab> counts for while performing ed
 set tabstop=4 " Number of spaces that a <Tab> in the file counts for
 
 " Keys
-let mapleader="," " Remap leader key to ,
+let mapleader="\<Space>"
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
