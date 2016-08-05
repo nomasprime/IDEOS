@@ -219,11 +219,11 @@ endfunction
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " janko-m/vim-test
-nmap <silent> <leader>tn :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ts :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tv :TestVisit<CR>
+nmap <silent> <Leader>tn :TestNearest<CR>
+nmap <silent> <Leader>tf :TestFile<CR>
+nmap <silent> <Leader>ts :TestSuite<CR>
+nmap <silent> <Leader>tl :TestLast<CR>
+nmap <silent> <Leader>tv :TestVisit<CR>
 
 " junegunn/goyo.vim
 let g:goyo_width=100
@@ -234,12 +234,15 @@ nmap ga <Plug>(EasyAlign)
 
 " kien/ctrlp.vim
 let g:ctrlp_clear_cache_on_exit=0
-let g:ctrlp_map='<Leader>g'
+let g:ctrlp_map='<Leader>f'
 let g:ctrlp_show_hidden=1
 
 " majutsushi/tagbar
 let g:tagbar_ctags_bin='/opt/boxen/homebrew/bin/ctags'
 nnoremap <Leader>t :TagbarToggle<CR>
+
+" mhinz/vim-grepper
+nnoremap <Leader>g :Grepper<CR>
 
 " peterhost/YankRing.vim
 let g:yankring_history_file='.nvim/yankring_history'
@@ -252,9 +255,9 @@ let g:puppet_align_hashes = 0
 let g:delimitMate_expand_cr=1
 
 " SilVer/ultisnips
-let g:UltiSnipsExpandTrigger='<c-k>'
-let g:UltiSnipsJumpForwardTrigger='<c-k>'
-let g:UltiSnipsJumpBackwardTrigger='<s-c-j>'
+let g:UltiSnipsExpandTrigger='<C-K>'
+let g:UltiSnipsJumpForwardTrigger='<C-K>'
+let g:UltiSnipsJumpBackwardTrigger='<S-C-J>'
 
 " sjl/gundo.vim
 let g:gundo_right=1
