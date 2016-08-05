@@ -62,6 +62,10 @@ set textwidth=120
 set wrap " Wrap long lines
 set wrapmargin=0
 
+" netrw
+let g:netrw_banner=1 " vim-vinegar
+let g:netrw_localrmdir='rm -r'
+
 " Registers
 set clipboard=unnamed
 
