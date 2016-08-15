@@ -254,6 +254,13 @@ let g:puppet_align_hashes = 0
 " Raimondi/delimitMate
 let g:delimitMate_expand_cr=1
 
+" scrooloose/syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_ruby_checkers=['rubocop']
+
 " SilVer/ultisnips
 let g:UltiSnipsExpandTrigger='<C-K>'
 let g:UltiSnipsJumpForwardTrigger='<C-K>'
