@@ -4,17 +4,22 @@ class ideos::nvim($home) {
   package {
     [
       'ctags',
-      'neovim/neovim/neovim',
       'the_silver_searcher',
       'wget'
     ]:
+  }
+
+  package { 'neovim/neovim/neovim':
+    install_options => [
+      '--HEAD'
+    ]
   }
 
   include java
   include python
 
   package { 'neovim':
-    ensure   => 'latest',
+    ensure   => '0.1.9',
     provider => 'pip',
     require  => Class['python']
   }
@@ -85,5 +90,10 @@ class ideos::nvim($home) {
   file { '/usr/local/bin/eclimd':
     ensure => 'link',
     target => '/Applications/Eclipse.app/Contents/Eclipse/eclimd'
+  }
+
+  ruby_gem { 'neovim':
+    gem          => 'neovim',
+    ruby_version => '*'
   }
 }
