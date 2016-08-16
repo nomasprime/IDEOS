@@ -96,4 +96,9 @@ class ideos::nvim($home) {
     gem          => 'neovim',
     ruby_version => '*'
   }
+
+  ruby_gem { 'rubocop':
+    gem          => 'rubocop',
+    ruby_version => '*'
+  }
 }
