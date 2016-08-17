@@ -34,7 +34,7 @@ class ideos::nvim($home) {
     ensure  => directory,
     recurse => true,
     require => File["${home}/.config"],
-    source  => "puppet:///modules/ideos/nvim/config",
+    source  => "puppet:///modules/ideos/nvim/config/nvim",
   }
 
   exec { 'Download vim-plug':
