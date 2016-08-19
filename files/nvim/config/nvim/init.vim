@@ -152,6 +152,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'Valloric/ListToggle'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -258,7 +259,6 @@ let g:delimitMate_expand_cr=1
 
 " scrooloose/syntastic
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_ruby_checkers=['rubocop']
@@ -271,6 +271,10 @@ let g:UltiSnipsJumpBackwardTrigger='<S-C-J>'
 " sjl/gundo.vim
 let g:gundo_right=1
 nnoremap <Leader>u :GundoToggle<CR>
+
+" Valloric/ListToggle
+let g:lt_location_list_toggle_map = '<Leader>l'
+let g:lt_quickfix_list_toggle_map = '<Leader>q'
 
 " Valloric/YouCompleteMe
 let g:ycm_register_as_syntastic_checker=0
