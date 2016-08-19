@@ -125,10 +125,10 @@ Plug 'moll/vim-node'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'pearofducks/ansible-vim'
 Plug 'peterhost/YankRing.vim'
-Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'Raimondi/delimitMate'
 Plug 'rhysd/nyaovim-markdown-preview'
+Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
@@ -251,11 +251,11 @@ nnoremap <Leader>g :Grepper<CR>
 let g:yankring_history_file='.nvim/yankring_history'
 nnoremap <Leader>y :YRShow<CR>
 
-" puppetlabs/puppet-syntax-vim
-let g:puppet_align_hashes=0
-
 " Raimondi/delimitMate
 let g:delimitMate_expand_cr=1
+
+" rodjek/vim-puppet
+let g:puppet_align_hashes=0
 
 " scrooloose/syntastic
 let g:syntastic_always_populate_loc_list=1
