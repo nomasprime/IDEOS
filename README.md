@@ -1,4 +1,5 @@
-# IDEOS
+# iDE OS
+Standing on the shoulders of giants
 
 ## Vision
 
