@@ -44,7 +44,7 @@ class ideos::nvim($home) {
   }
 
   exec { 'Install vim-plug plugins':
-    command     => 'nvim +PlugInstall +qall',
+    command     => 'nvim +PlugClean +qall && nvim +PlugInstall +qall',
     refreshonly => true,
     require     => [
       Exec['Download vim-plug'],
