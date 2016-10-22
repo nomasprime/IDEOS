@@ -279,6 +279,7 @@ let g:lt_location_list_toggle_map = '<Leader>l'
 let g:lt_quickfix_list_toggle_map = '<Leader>q'
 
 " Valloric/YouCompleteMe
+let g:ycm_auto_trigger=0
 let g:ycm_register_as_syntastic_checker=0
 
 " vim-airline/vim-airline
