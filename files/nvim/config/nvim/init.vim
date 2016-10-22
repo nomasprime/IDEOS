@@ -18,7 +18,7 @@ set backup " Create backup files
 set backupdir=~/.nvim/backup " Backup files dir
 set directory=~/.nvim/temp " Swap files dir
 set hidden " Allow hidden buffers
-set list listchars=tab:‣\ ,trail:• " Show tabs and trailing spaces
+set list listchars=tab:‣\
 set showmatch " When a bracket is inserted, briefly jump to the matching one
 set undodir=~/.nvim/undo " Undo files dir
 set undofile " Create undo files
@@ -123,6 +123,7 @@ Plug 'mhinz/vim-grepper'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-node'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'peterhost/YankRing.vim'
 Plug 'radenling/vim-dispatch-neovim'
