@@ -291,4 +291,5 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='base16'
 
 " xolox/vim-session
+let g:session_autoload='no'
 let g:session_autosave='no'
