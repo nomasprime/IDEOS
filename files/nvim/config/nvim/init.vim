@@ -9,6 +9,7 @@ set showcmd " Show incomplete commands
 set visualbell " Prefer visual to audial feedback
 
 " Cursor
+set cursorcolumn " Highlight current column
 set cursorline " Highlight current line
 set selection=exclusive
 
