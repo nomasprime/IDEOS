@@ -36,11 +36,11 @@ set foldnestmax=20 " Sets the maximum nesting of folds for the indent and syntax
 " Identation
 set autoindent " Copy indent from current line when starting new line
 set expandtab " Use the appropriate number of spaces to insert a <Tab>
-set shiftwidth=4 " Number of spaces to use for each step (auto)indent
+set shiftwidth=2 " Number of spaces to use for each step (auto)indent
 set smartindent " Do smart autoindenting when starting a new line
 set smarttab " When on a <Tab> in front of a line inserts blanks according to 'shiftwidth'
-set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
-set tabstop=4 " Number of spaces that a <Tab> in the file counts for
+set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
+set tabstop=2 " Number of spaces that a <Tab> in the file counts for
 
 " Keys
 let mapleader="\<Space>"
