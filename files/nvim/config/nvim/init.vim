@@ -166,6 +166,8 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+" elzr/vim-json
+let g:vim_json_warnings=0
 
 " haya14busa/incsearch.vim
 map /  <Plug>(incsearch-forward)
