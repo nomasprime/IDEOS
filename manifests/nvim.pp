@@ -73,25 +73,6 @@ class ideos::nvim($home) {
     ]
   }
 
-  exec { 'Download Eclim installer':
-    command => "wget http://sourceforge.net/projects/eclim/files/eclim/2.5.0/eclim_2.5.0.jar/download -O /tmp/eclim_2.5.0.jar",
-    creates => "/tmp/eclim_2.5.0.jar",
-    require => [
-      Class['java'],
-      Package['wget']
-    ]
-  }
-  ->
-  exec { 'Install Eclim':
-    command => "java -Dvim.files=${home}/.config/nvim -Declipse.home=/Applications/Eclipse.app/Contents/Eclipse -jar /tmp/eclim_2.5.0.jar install",
-    creates => "/Applications/Eclipse.app/Contents/Eclipse/eclimd"
-  }
-  ->
-  file { '/usr/local/bin/eclimd':
-    ensure => 'link',
-    target => '/Applications/Eclipse.app/Contents/Eclipse/eclimd'
-  }
-
   ruby_gem { 'neovim':
     gem          => 'neovim',
     ruby_version => '*'

@@ -166,8 +166,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-" ervandew/eclim
-let g:EclimCompletionMethod='omnifunc'
 
 " haya14busa/incsearch.vim
 map /  <Plug>(incsearch-forward)
