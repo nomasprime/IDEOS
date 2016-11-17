@@ -125,7 +125,6 @@ Plug 'peterhost/YankRing.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'rodjek/vim-puppet'
-Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
@@ -152,6 +151,7 @@ Plug 'vim-scripts/camelcasemotion'
 Plug 'vim-scripts/ExplainPattern'
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/TagHighlight'
+Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 call plug#end()
@@ -245,12 +245,6 @@ let g:delimitMate_expand_cr=1
 " rodjek/vim-puppet
 let g:puppet_align_hashes=0
 
-" scrooloose/syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_ruby_checkers=['rubocop']
-
 " SilVer/ultisnips
 let g:UltiSnipsExpandTrigger='<C-K>'
 let g:UltiSnipsJumpForwardTrigger='<C-K>'
@@ -276,6 +270,12 @@ let g:airline_right_sep=''
 let g:airline_powerline_fonts=1
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
+
+" vim-syntastic/syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_ruby_checkers=['rubocop']
 
 " xolox/vim-session
 let g:session_autoload='no'
