@@ -138,6 +138,7 @@ Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/vim-after-object'
 Plug 'kshenoy/vim-signature'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
@@ -239,6 +240,10 @@ nmap <silent> <Leader>ts :TestSuite<CR>
 nmap <silent> <Leader>tl :TestLast<CR>
 nmap <silent> <Leader>tv :TestVisit<CR>
 
+" junegunn/vim-after-object
+silent! if has_key(g:plugs, 'vim-after-object')
+  autocmd VimEnter * silent! call after_object#enable('=', ':', '#', ' ', '|')
+endif
 
 " junegunn/vim-easy-align
 let g:easy_align_delimiters = {
