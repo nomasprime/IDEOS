@@ -136,6 +136,7 @@ Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'junegunn/gv.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
