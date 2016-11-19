@@ -40,7 +40,7 @@ syntax on
 
 " Folding
 set foldignore= " Stops folds breaking on empty lines
-set foldlevelstart=20 " Hopefully open file with all folds open
+set foldlevelstart=99 " Hopefully open file with all folds open
 set foldmethod=indent " The kind of folding used for the current window
 set foldnestmax=20 " Sets the maximum nesting of folds for the indent and syntax methods
 
