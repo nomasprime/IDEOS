@@ -156,10 +156,10 @@ Plug 'pearofducks/ansible-vim'
 Plug 'peterhost/YankRing.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'SirVer/ultisnips'
-Plug 'tomtom/tcomment_vim'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -307,6 +307,9 @@ let g:UltiSnipsExpandTrigger='<C-K>'
 let g:UltiSnipsJumpForwardTrigger='<C-K>'
 let g:UltiSnipsJumpBackwardTrigger='<S-C-J>'
 
+" tpope/vim-commentary
+map  gc <Plug>Commentary
+nmap gcc <Plug>CommentaryLine
 
 " Valloric/ListToggle
 let g:lt_location_list_toggle_map = '<Leader>l'
