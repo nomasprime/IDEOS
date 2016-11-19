@@ -18,6 +18,9 @@ set virtualedit=block " cursor can be position where there is no actual characte
 " Diffs
 set diffopt=filler,vertical
 
+" Editing
+set nojoinspaces
+
 " Files and Syntax
 set autoread " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
 set backup " Create backup files
