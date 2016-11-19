@@ -141,6 +141,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-after-object'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'justinmk/vim-gtfo'
+Plug 'kchmck/vim-coffee-script'
 Plug 'kshenoy/vim-signature'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
