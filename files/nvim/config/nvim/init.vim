@@ -103,7 +103,7 @@ set t_ti= t_te= " Keep last position in the scroll buffer when using view, man, 
 set tags+=.tags
 
 " Widows
-set winwidth=80 " Minimal number of columns for the current window
+set winwidth=120 " Minimal number of columns for the current window
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
