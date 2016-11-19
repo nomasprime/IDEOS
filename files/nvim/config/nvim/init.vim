@@ -67,6 +67,8 @@ set backspace=indent,eol,start " Allow backspace in insert mode
 set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 
 " Lines
+set breakindent
+set breakindentopt=sbr
 set formatoptions=cqt
 set linebreak " Wrap long lines at a character in 'breakat' rather than last character that fits on the screen
 set number " Show line numbers
