@@ -133,6 +133,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'honza/vim-snippets'
 Plug 'itspriddle/vim-jquery'
 Plug 'janko-m/vim-test'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'junegunn/vim-easy-align'
 Plug 'kshenoy/vim-signature'
@@ -146,7 +147,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'peterhost/YankRing.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'rodjek/vim-puppet'
 Plug 'SirVer/ultisnips'
@@ -257,9 +257,6 @@ nnoremap <Leader>g :Grepper<CR>
 " peterhost/YankRing.vim
 let g:yankring_history_file='.nvim/yankring_history'
 nnoremap <Leader>y :YRShow<CR>
-
-" Raimondi/delimitMate
-let g:delimitMate_expand_cr=1
 
 " rodjek/vim-puppet
 let g:puppet_align_hashes=0
