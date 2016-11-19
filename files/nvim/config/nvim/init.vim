@@ -123,6 +123,7 @@ Plug 'docker/docker'
 Plug 'elzr/vim-json'
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'hashivim/vim-consul'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-vagrant'
