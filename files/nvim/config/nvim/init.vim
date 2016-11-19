@@ -26,6 +26,7 @@ set autoread " When a file has been detected to have been changed outside of Vim
 set backup " Create backup files
 set backupdir=~/.nvim/backup " Backup files dir
 set directory=~/.nvim/temp " Swap files dir
+set encoding=utf-8
 set hidden " Allow hidden buffers
 set list listchars=tab:‣\
 set showmatch " When a bracket is inserted, briefly jump to the matching one
