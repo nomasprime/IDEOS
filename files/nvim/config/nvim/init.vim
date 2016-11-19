@@ -7,6 +7,8 @@ set history=9999 " Command line history
 set laststatus=2 " When the last window will have a status line (0 - never; 1 - at least two windows; 2 - always)
 set showcmd " Show incomplete commands
 set visualbell " Prefer visual to audial feedback
+set wildmenu " command-line completion in enhanced mode
+set wildmode=full " complete the next full match
 
 " Cursor
 set cursorline " Highlight current line
