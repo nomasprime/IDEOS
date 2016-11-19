@@ -76,6 +76,7 @@ set linebreak " Wrap long lines at a character in 'breakat' rather than last cha
 set number " Show line numbers
 set numberwidth=4
 let &showbreak='↳ '
+set nostartofline " Cursor position after certain commands
 set textwidth=120
 set wrapmargin=0
 
