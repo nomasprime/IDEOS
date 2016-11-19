@@ -111,7 +111,7 @@ set winwidth=120 " Minimal number of columns for the current window
 
 " Was at the top but moved to the bottom because some settings depend on
 " general Vim settings.
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 Plug 'aaronjensen/vim-sass-status'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'briandoll/change-inside-surroundings.vim'
