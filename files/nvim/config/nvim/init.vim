@@ -150,7 +150,6 @@ Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-grepper'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'nelstrom/vim-visual-star-search'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pearofducks/ansible-vim'
 Plug 'peterhost/YankRing.vim'
