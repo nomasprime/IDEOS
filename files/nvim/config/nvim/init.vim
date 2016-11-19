@@ -147,6 +147,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/gist-vim'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'mhinz/vim-grepper'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-visual-star-search'
@@ -156,7 +157,6 @@ Plug 'peterhost/YankRing.vim'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'rodjek/vim-puppet'
 Plug 'SirVer/ultisnips'
-Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
@@ -290,6 +290,9 @@ let g:ctrlp_show_hidden=1
 let g:tagbar_ctags_bin='/opt/boxen/homebrew/bin/ctags'
 nnoremap <Leader>t :TagbarToggle<CR>
 
+" mbbill/undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
+
 " mhinz/vim-grepper
 nnoremap <Leader>g :Grepper<CR>
 
@@ -305,9 +308,6 @@ let g:UltiSnipsExpandTrigger='<C-K>'
 let g:UltiSnipsJumpForwardTrigger='<C-K>'
 let g:UltiSnipsJumpBackwardTrigger='<S-C-J>'
 
-" sjl/gundo.vim
-let g:gundo_right=1
-nnoremap <Leader>u :GundoToggle<CR>
 
 " Valloric/ListToggle
 let g:lt_location_list_toggle_map = '<Leader>l'
