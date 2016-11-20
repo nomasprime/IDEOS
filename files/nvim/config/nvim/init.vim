@@ -28,7 +28,7 @@ set backupdir=~/.nvim/backup " Backup files dir
 set directory=~/.nvim/temp " Swap files dir
 set encoding=utf-8
 set hidden " Allow hidden buffers
-set list listchars=tab:‣\
+set list listchars=tab:\|\ ,
 set shortmess=aIT " avoid hit-enter prompts
 set showmatch " When a bracket is inserted, briefly jump to the matching one
 set undodir=~/.nvim/undo " Undo files dir
