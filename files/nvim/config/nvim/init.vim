@@ -80,10 +80,6 @@ set nostartofline " Cursor position after certain commands
 set textwidth=120
 set wrapmargin=0
 
-" netrw
-let g:netrw_banner=1 " vim-vinegar
-let g:netrw_localrmdir='rm -r'
-
 " Registers
 set clipboard=unnamed
 
@@ -139,6 +135,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-after-object'
+Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'justinmk/vim-gtfo'
 Plug 'kchmck/vim-coffee-script'
@@ -168,7 +165,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
 Plug 'Valloric/ListToggle'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
