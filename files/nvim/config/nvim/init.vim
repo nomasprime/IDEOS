@@ -122,9 +122,6 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'hashivim/vim-consul'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-vagrant'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'honza/vim-snippets'
 Plug 'itspriddle/vim-jquery'
 Plug 'janko-m/vim-test'
@@ -137,9 +134,9 @@ Plug 'junegunn/vim-after-object'
 Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'justinmk/vim-gtfo'
+Plug 'justinmk/vim-sneak'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kshenoy/vim-signature'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/gist-vim'
@@ -185,47 +182,6 @@ endif
 " elzr/vim-json
 let g:vim_json_warnings=0
 
-" haya14busa/incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-let g:incsearch#auto_nohlsearch=1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-
-" haya14busa/inchsearch-easymotion.vim
-function! s:incsearch_config(...) abort
-  return incsearch#util#deepextend(deepcopy({
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {
-  \     "\<CR>": '<Over>(easymotion)'
-  \   },
-  \   'is_expr': 0
-  \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
-
-" haya14busa/inchsearch-fuzzy.vim
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzy#converter()],
-  \   'modules': [incsearch#config#easymotion#module()],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
-
 " janko-m/vim-test
 nmap <silent> <Leader>tn :TestNearest<CR>
 nmap <silent> <Leader>tf :TestFile<CR>
@@ -270,6 +226,23 @@ let g:easy_align_delimiters = {
 nmap ga <Plug>(EasyAlign)
 nmap gaa ga_
 xmap ga <Plug>(EasyAlign)
+
+" justinmk/vim-sneak
+
+let g:sneak#streak = 1
+let g:sneak#use_ic_scs = 1
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
 " kien/ctrlp.vim
 let g:ctrlp_clear_cache_on_exit=0
