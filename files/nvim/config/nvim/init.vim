@@ -113,7 +113,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'docker/docker'
 Plug 'elzr/vim-json'
 Plug 'elixir-lang/vim-elixir'
@@ -127,6 +126,8 @@ Plug 'itspriddle/vim-jquery'
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
+set rtp+=/opt/boxen/homebrew/opt/fzf
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-after-object'
@@ -141,7 +142,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'mhinz/vim-grepper'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
@@ -193,6 +193,36 @@ silent! if has_key(g:plugs, 'vim-after-object')
   autocmd VimEnter * silent! call after_object#enable('=', ':', '#', ' ', '|')
 endif
 
+" junegunn/fzf
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_layout = { 'left': '~33%' }
+
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>` :Marks<CR>
+
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
 " junegunn/vim-easy-align
 let g:easy_align_delimiters = {
 \ '>': { 'pattern': '>>\|=>\|>' },
@@ -227,7 +257,6 @@ nmap gaa ga_
 xmap ga <Plug>(EasyAlign)
 
 " justinmk/vim-sneak
-
 let g:sneak#streak = 1
 let g:sneak#use_ic_scs = 1
 nmap f <Plug>Sneak_f
@@ -243,20 +272,12 @@ xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 
-" kien/ctrlp.vim
-let g:ctrlp_clear_cache_on_exit=0
-let g:ctrlp_map='<Leader>f'
-let g:ctrlp_show_hidden=1
-
 " majutsushi/tagbar
 let g:tagbar_ctags_bin='/opt/boxen/homebrew/bin/ctags'
 nnoremap <Leader>t :TagbarToggle<CR>
 
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
-
-" mhinz/vim-grepper
-nnoremap <Leader>g :Grepper<CR>
 
 " peterhost/YankRing.vim
 let g:yankring_history_file='.nvim/yankring_history'
