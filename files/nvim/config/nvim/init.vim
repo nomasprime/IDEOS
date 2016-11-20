@@ -151,7 +151,6 @@ Plug 'rodjek/vim-puppet'
 Plug 'SirVer/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
