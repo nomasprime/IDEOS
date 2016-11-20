@@ -127,11 +127,11 @@ Plug 'itspriddle/vim-jquery'
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-after-object'
 Plug 'justinmk/vim-dirvish'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'justinmk/vim-gtfo'
 Plug 'justinmk/vim-sneak'
