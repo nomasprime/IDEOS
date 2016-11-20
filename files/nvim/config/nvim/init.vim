@@ -111,7 +111,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'aaronjensen/vim-sass-status'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'briandoll/change-inside-surroundings.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
