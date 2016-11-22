@@ -69,7 +69,6 @@ set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
 " Lines
 set breakindent
 set breakindentopt=sbr
-set colorcolumn=120
 set formatoptions=cqt
 set nofixeol
 set linebreak " Wrap long lines at a character in 'breakat' rather than last character that fits on the screen
