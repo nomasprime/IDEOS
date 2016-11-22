@@ -142,6 +142,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'pearofducks/ansible-vim'
@@ -166,7 +167,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'vim-scripts/ExplainPattern'
-Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 call plug#end()
@@ -278,6 +278,11 @@ nnoremap <Leader>t :TagbarToggle<CR>
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
+" neomake/neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list=2
+let g:neomake_ruby_enabled_makers=['rubocop']
+
 " peterhost/YankRing.vim
 let g:yankring_history_file='.nvim/yankring_history'
 nnoremap <Leader>y :YRShow<CR>
@@ -312,13 +317,6 @@ let g:airline_theme='base16'
 let g:airline#extensions#branch#displayed_head_limit=13
 let g:airline#extensions#branch#format=2
 let g:airline#extensions#tagbar#enabled=0
-
-" vim-syntastic/syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_ruby_checkers=['rubocop']
 
 " xolox/vim-session
 let g:session_autoload='no'
