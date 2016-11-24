@@ -282,7 +282,6 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 " neomake/neomake
 autocmd! BufWritePost * Neomake
-let g:neomake_open_list=2
 let g:neomake_ruby_enabled_makers=['rubocop']
 
 " peterhost/YankRing.vim
