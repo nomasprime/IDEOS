@@ -177,6 +177,8 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+hi Number ctermfg=208
+
 " elzr/vim-json
 let g:vim_json_warnings=0
 
