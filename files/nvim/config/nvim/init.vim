@@ -313,7 +313,7 @@ let g:airline_powerline_fonts=1
 let g:airline_right_alt_sep='|'
 let g:airline_right_sep=''
 let g:airline_theme='base16'
-let g:airline#extensions#branch#displayed_head_limit=13
+let g:airline#extensions#branch#displayed_head_limit=20
 let g:airline#extensions#branch#format=2
 let g:airline#extensions#tagbar#enabled=0
 
