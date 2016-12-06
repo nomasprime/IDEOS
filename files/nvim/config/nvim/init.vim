@@ -64,7 +64,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
 set backspace=indent,eol,start " Allow backspace in insert mode
-set timeoutlen=800 " Timeout (milliseconds) for mapped key sequence
+set timeoutlen=500 " Timeout (milliseconds) for mapped key sequence
 
 " Lines
 set breakindent
