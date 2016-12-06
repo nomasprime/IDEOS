@@ -207,21 +207,7 @@ silent! if has_key(g:plugs, 'vim-after-object')
 endif
 
 " junegunn/fzf
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-let g:fzf_layout = { 'left': '~33%' }
+let g:fzf_layout = { 'down': '~33%' }
 
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
