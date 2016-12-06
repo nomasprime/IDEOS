@@ -79,6 +79,9 @@ set nostartofline " Cursor position after certain commands
 set textwidth=120
 set wrapmargin=0
 
+" Misc
+set cpoptions=aABceFns
+
 " Registers
 set clipboard=unnamed
 
