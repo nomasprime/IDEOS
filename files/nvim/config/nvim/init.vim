@@ -192,6 +192,15 @@ nmap <silent> <Leader>ts :TestSuite<CR>
 nmap <silent> <Leader>tl :TestLast<CR>
 nmap <silent> <Leader>tv :TestVisit<CR>
 
+let test#strategy = "neovim"
+
+function! DockerTransform(cmd) abort
+  return 'cd inf/development && docker-compose run -e "RAILS_ENV=test" web '.a:cmd.''
+endfunction
+
+let g:test#custom_transformations = {'docker': function('DockerTransform')}
+let g:test#transformation = 'docker'
+
 " junegunn/vim-after-object
 silent! if has_key(g:plugs, 'vim-after-object')
   autocmd VimEnter * silent! call after_object#enable('=', ':', '#', ' ', '|')
