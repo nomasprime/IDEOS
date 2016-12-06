@@ -325,6 +325,10 @@ let g:session_autosave='no'
 " Lib
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Buffers
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
+
 " Delete hidden buffers
 function! DeleteHiddenBuffers()
   let tpbl=[]
