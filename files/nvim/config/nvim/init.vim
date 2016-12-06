@@ -352,3 +352,9 @@ xnoremap <silent> <C-h> <gv
 xnoremap <silent> <C-l> >gv
 xnoremap < <gv
 xnoremap > >gv
+
+" Quickfix
+nnoremap ]q :cnext<cr>zz
+nnoremap [q :cprev<cr>zz
+nnoremap ]l :lnext<cr>zz
+nnoremap [l :lprev<cr>zz
