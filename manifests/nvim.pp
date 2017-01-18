@@ -19,7 +19,7 @@ class ideos::nvim($home) {
   include python
 
   package { 'neovim':
-    ensure   => '0.1.9',
+    ensure   => 'latest',
     provider => 'pip',
     require  => Class['python']
   }
