@@ -82,4 +82,10 @@ class ideos::nvim($home) {
     gem          => 'rubocop',
     ruby_version => '*'
   }
+
+  package { 'jsbeautifier':
+    ensure => 'latest',
+    provider => 'pip',
+    require => Class['python']
+  }
 }
