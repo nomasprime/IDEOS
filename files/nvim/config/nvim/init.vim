@@ -113,6 +113,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'aaronjensen/vim-sass-status'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Chiel92/vim-autoformat'
 Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
 Plug 'docker/docker'
