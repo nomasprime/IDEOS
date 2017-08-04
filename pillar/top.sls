@@ -1,4 +1,4 @@
 base:
   '*':
-    - keybase
+    - global
     - ssh

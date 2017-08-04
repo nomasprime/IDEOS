@@ -1,4 +1,7 @@
+install:
+	salt-call --state-output=mixed state.apply
+
 saltstack:
 	bin/saltstack
 
-.PHONY: saltstack
+.PHONY: install saltstack
