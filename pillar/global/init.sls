@@ -1,4 +1,5 @@
 global:
+  editor: vim
   modes:
     source:
       dir: /Users/{{ opts.user }}/Library

@@ -1,0 +1,3 @@
+{% for gitignore in pillar.git.ignores -%}
+{{ gitignore }}
+{% endfor %}
