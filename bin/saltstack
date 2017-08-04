@@ -1,0 +1,13 @@
+#!/bin/bash
+if type salt-call; then
+  echo 'Already installed saltstack'
+  exit
+fi
+
+if ! type brew; then
+  echo 'Installing homebrew...'
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+echo 'Installing saltstack...'
+brew install saltstack
