@@ -1,0 +1,5 @@
+#!/bin/zsh
+setopt EXTENDED_GLOB
+for rcfile in "{{ pillar.global.user.home }}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "{{ pillar.global.user.home }}/.${rcfile:t}"
+done

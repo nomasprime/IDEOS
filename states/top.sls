@@ -5,5 +5,6 @@ base:
     - git
     - iterm2
     - keybase
+    - prezto
     - ssh
     - vagrant
