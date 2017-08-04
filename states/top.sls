@@ -5,6 +5,7 @@ base:
     - git
     - iterm2
     - keybase
+    - neovim
     - prezto
     - ssh
     - vagrant
