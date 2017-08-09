@@ -1,2 +1,2 @@
 base16_shell:
-  theme: base16_dracula
+  theme: base16_summerfruit-light
