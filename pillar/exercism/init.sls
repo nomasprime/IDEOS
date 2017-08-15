@@ -1,0 +1,20 @@
+#!yaml|gpg
+exercism:
+  key:
+    -----BEGIN PGP MESSAGE-----
+
+    hQIMA86Y2ntSBBbHARAAuStvRlGlmnM65rWp63JOhD8R5ugA6VT+p8HoFCEMZ/5d
+    B3e+O1fNd9PlvwyIaVQLke68+O7JR7wHrB0lCZ0WC9C7CdAxg1YX6yvPZurx4SjO
+    q0BSD55j+yArUXAPofdKtINeDyvs5ipbHDift9ZOzxnIK08vIALpQn60xCNd2bgb
+    Rl38ytnHBBn3Tf75gxbtHZ9re7NY3IlXcFM0C8ic+a0gjFQa9hC7O3Zs0mXHbbQv
+    A3c8OXSRtJNpy7jfkHFthRDnpBh+gzGlG+c9iNq+FEV4ZZfYZwnEs4Am9Bz7Z4rc
+    YOHY2emgteTooYPbHDkNhlAbMeMbGQfO7HkY4zWCouxp1QAqm8r1El1736L8GC6t
+    MobPlar09G2SwQepEsG60PVIWCB4KUW8A5E3WarDFt1C2BPacFnsZqCEE+xYwEOA
+    LPwl8XSfnQWAYfAPg4QGi8ffEdXoqRwdRvhMrKxsPuuw6i+45pLs4dt2HxuyZ7OU
+    K+9x+gynExflp+ecpxbdZ+tt1jOIXOOnLaagGS+WpALz5s5rP6zhTHMese67qaVH
+    Xdzch7a9DzQTImvXL9W9HKS4+3nqwpB7XpzEvNPd/kd0+fqH9xSC94/5uGMtFpOt
+    VyzPMlCRbr+tDHcQmPNAn/ZNi83n6FgL16vbyZ6OHF3Sj+3Rl8OyE4mGBYQCeCXS
+    UQGppLfHn2bh8vjMob4/Ux2gwVDx0sVI9U2iFxg0Dnb00tJi183jW+mUkuhaWbXa
+    JEXyxwhqa7mJJLfYUvvl/FsCvUMebmXPKHPb99QvI28XKA==
+    =8COx
+    -----END PGP MESSAGE-----
