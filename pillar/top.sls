@@ -1,5 +1,6 @@
 base:
   '*':
+    - 1password
     - base16-shell
     - controllermate
     - dropbox
