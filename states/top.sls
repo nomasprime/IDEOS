@@ -2,6 +2,7 @@ base:
   '*':
     - base16-shell
     - controllermate
+    - dropbox
     - fzf
     - git
     - iterm2
