@@ -1,19 +1,13 @@
 include:
   - base16-shell
   - fzf
+  - python
 
 .install_package:
   pkg.installed:
     - name: neovim
     - options:
       - '--HEAD'
-    - require:
-      - pkg: .install_python_package
-      - pip: .install_python_pip
-
-.install_python_package:
-  pkg.installed:
-    - name: python3
 
 .recurse_config:
   file.recurse:
@@ -34,7 +28,7 @@ include:
   pip.installed:
     - name: neovim
     - require:
-      - pkg: .install_python_package
+      - sls: python
 
 .install_vim_plug_plugins:
   cmd.run:

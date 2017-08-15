@@ -8,5 +8,6 @@ base:
     - keybase
     - neovim
     - prezto
+    - python
     - ssh
     - vagrant
