@@ -9,6 +9,7 @@ base:
     - iterm2
     - keybase
     - neovim
+    - parallels-desktop
     - prezto
     - python
     - ssh
