@@ -8,6 +8,7 @@ base:
     - git
     - iterm2
     - keybase
+    - launchbar
     - neovim
     - nylas-mail
     - parallels-desktop
