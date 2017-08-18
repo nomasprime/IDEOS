@@ -9,3 +9,4 @@ base:
     - iterm2
     - parallels-desktop
     - ssh
+    - tidal

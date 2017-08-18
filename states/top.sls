@@ -13,4 +13,5 @@ base:
     - prezto
     - python
     - ssh
+    - tidal
     - vagrant
