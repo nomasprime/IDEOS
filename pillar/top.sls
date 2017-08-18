@@ -7,6 +7,7 @@ base:
     - git
     - global
     - iterm2
+    - nylas-mail
     - parallels-desktop
     - ssh
     - tidal
