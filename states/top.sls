@@ -13,6 +13,7 @@ base:
     - neovim
     - nylas-mail
     - parallels-desktop
+    - osx.general
     - prezto
     - python
     - ssh

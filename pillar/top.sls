@@ -11,5 +11,6 @@ base:
     - little-snitch
     - nylas-mail
     - parallels-desktop
+    - osx
     - ssh
     - tidal
