@@ -14,6 +14,7 @@ base:
     - nylas-mail
     - parallels-desktop
     - osx.dock
+    - osx.finder
     - osx.general
     - prezto
     - python
