@@ -9,6 +9,7 @@ base:
     - iterm2
     - keybase
     - launchbar
+    - little-snitch
     - neovim
     - nylas-mail
     - parallels-desktop

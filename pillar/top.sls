@@ -8,6 +8,7 @@ base:
     - global
     - iterm2
     - launchbar
+    - little-snitch
     - nylas-mail
     - parallels-desktop
     - ssh
