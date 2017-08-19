@@ -1,6 +1,7 @@
 base:
   '*':
     - base16-shell
+    - controllermate
     - fzf
     - git
     - iterm2
