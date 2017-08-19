@@ -11,7 +11,7 @@ include:
 
 .recurse_config:
   file.recurse:
-    - name: {{ pillar.global.user.home }}/.config/nvim
+    - name: {{ pillar.global.user.home_dir }}/.config/nvim
     - source: salt://neovim/files
     - user: {{ pillar.global.user.name }}
     - require:
@@ -22,7 +22,7 @@ include:
   cmd.run:
     - name: 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    - creates: {{ pillar.global.user.home }}/.config/nvim/autoload/plug.vim
+    - creates: {{ pillar.global.user.home_dir }}/.config/nvim/autoload/plug.vim
 
 .install_python_pip:
   pip.installed:
@@ -34,6 +34,6 @@ include:
   cmd.run:
     - name: nvim +PlugClean +y +qall && nvim +PlugInstall +qall
     - onchanges:
-      - file: {{ pillar.global.user.home }}/.config/nvim
+      - file: {{ pillar.global.user.home_dir }}/.config/nvim
     - require:
       - pkg: .install_package

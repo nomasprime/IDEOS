@@ -21,14 +21,14 @@
     {% if application_support -%}
 .copy_{{ application_support }}:
   file.copy:
-    - name: {{ pillar.global.user.home }}/Library/Application Support/{{ application_support }}
+    - name: {{ pillar.global.user.application_support_dir }}/{{ application_support }}
     - source: {{ pillar.pwd }}/states/{{ application }}/files/Library/Application Support/{{ application_support }}
     {%- endif -%}
 
     {% for preference in salt['pillar.get']("%s:files:library:preferences" % application, []) %}
 .copy_{{ preference }}:
   file.copy:
-    - name: {{ pillar.global.user.home }}/Library/Preferences/{{ preference }}
+    - name: {{ pillar.global.user.preferences_dir }}/{{ preference }}
     - source: {{ pillar.pwd }}/states/{{ application }}/files/Library/Preferences/{{ preference }}
     {%- endfor %}
   {%- endif %}
