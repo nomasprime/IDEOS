@@ -27,8 +27,3 @@
   cmd.run:
     - name: defaults write com.apple.dock static-only -int {{ pillar.osx.dock.static_only }}; killall Dock
     - unless: test $(defaults read com.apple.dock static-only) = {{ pillar.osx.dock.static_only }}
-
-.tile_size:
-  cmd.run:
-    - name: defaults write com.apple.dock tilesize -int {{ pillar.osx.dock.tile_size }}; killall Dock
-    - unless: test $(defaults read com.apple.dock tilesize) = {{ pillar.osx.dock.tile_size }}
