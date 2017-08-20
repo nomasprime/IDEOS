@@ -16,6 +16,7 @@ base:
     - osx.dock
     - osx.finder
     - osx.general
+    - osx.screensaver
     - prezto
     - python
     - ssh

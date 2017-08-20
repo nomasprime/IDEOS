@@ -13,3 +13,7 @@ osx:
   general:
     hide_menu_bar: 1 # 0
     show_scroll_bars: Automatic # Automatic
+  screensaver:
+    ask_for_password: 1 # 1
+    ask_for_password_delay: 5 # 300
+    idle_time: 120 # 1200
