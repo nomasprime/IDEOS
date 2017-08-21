@@ -20,6 +20,7 @@ base:
     - prezto
     - python
     - skype
+    - slack
     - ssh
     - tidal
     - vagrant
