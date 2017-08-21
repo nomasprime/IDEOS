@@ -1,10 +1,22 @@
-install:
-	salt-call --state-output=mixed state.apply pillar="{'pwd':'${CURDIR}'}"
+mode := destination
+force := false
 
-source:
-	salt-call --state-output=mixed state.apply pillar="{'mode':'source','pwd':'${CURDIR}'}"
+PILLAR_PAIRS :=
+
+ifdef mode
+	PILLAR_PAIRS += 'mode':'$(mode)',
+endif
+
+ifdef force
+	PILLAR_PAIRS += 'force':'$(force)',
+endif
+
+PILLAR_PAIRS += 'pwd':'${CURDIR}'
+
+configure:
+	salt-call --state-output=mixed state.apply pillar="{$(PILLAR_PAIRS) }"
 
 saltstack:
 	bin/saltstack
 
-.PHONY: install saltstack source
+.PHONY: configure saltstack

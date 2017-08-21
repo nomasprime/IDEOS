@@ -1,3 +1,2 @@
-.install_package:
-  pkg.installed:
-    - name: python
+include:
+  - {{ pillar.mode }}.sls
