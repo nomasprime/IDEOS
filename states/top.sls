@@ -19,6 +19,7 @@ base:
     - osx.screensaver
     - prezto
     - python
+    - skype
     - ssh
     - tidal
     - vagrant
