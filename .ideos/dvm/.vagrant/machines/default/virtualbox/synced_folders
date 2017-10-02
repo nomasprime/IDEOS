@@ -1,0 +1,1 @@
+{"nfs":{"home":{"disabled":false,"guestpath":"/vagrant","hostpath":"/Users/nomasprime","id":"home","nfs":true,"mount_options":["nolock,vers=3,udp"],"type":"nfs","__vagrantfile":true,"map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"630020611"}}}

@@ -1,4 +1,4 @@
-little-snitch:
+little_snitch:
   files:
     library:
       preferences:

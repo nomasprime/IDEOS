@@ -1,4 +1,4 @@
-nylas-mail:
+nylas_mail:
   files:
     library:
       preferences:

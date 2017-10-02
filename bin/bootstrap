@@ -1,0 +1,36 @@
+#!/bin/bash
+
+os=`uname`
+
+if [[ os == 'Darwin' ]]; then
+  package_manager='Homebrew'
+elif [[ os == 'Linux' ]]; then
+  package_manager='Linuxbrew'
+fi
+
+if ! type brew &> /dev/null; then
+  if [[ $package_manager == 'Linuxbrew' ]] && ! type ruby &> /dev/null; then
+    sudo apt-get -y install ruby
+  fi
+
+  echo "Installing $package_manager"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/$package_manager/install/master/install)"
+
+  if [[ $package_manager == 'Linuxbrew' ]]; then
+    sudo apt-get -y install build-essential
+    echo 'export PATH="/home/ubuntu/.linuxbrew/bin:$PATH"' >> ~/.bash_profile
+    echo 'export MANPATH="/home/ubuntu/.linuxbrew/share/man:$MANPATH"' >> ~/.bash_profile
+    echo 'export INFOPATH="/home/ubuntu/.linuxbrew/share/info:$INFOPATH"' >> ~/.bash_profile
+    PATH="/home/ubuntu/.linuxbrew/bin:$PATH"
+    brew install gcc
+  fi
+else
+  echo "Already installed $package_manager"
+fi
+
+if ! type salt-call &> /dev/null; then
+  echo 'Installing Saltstack'
+  brew install saltstack
+else
+  echo 'Already installed Saltstack'
+fi

@@ -1,2 +1,2 @@
 salt-call:
-  config_dir: config
+  config_dir: etc

@@ -1,0 +1,11 @@
+id: dvm
+file_client: local
+minion_id_caching: False
+renderer: stateconf
+file_roots:
+  base:
+    - {{ pillar.dvm.vagrantfile.synced_folder }}{{ pillar.pwd|replace(pillar.global.user.home_dir, "") }}/salt
+pillar_roots:
+  base:
+    - {{ pillar.dvm.vagrantfile.synced_folder }}{{ pillar.pwd|replace(pillar.global.user.home_dir, "") }}/pillar
+user: ubuntu

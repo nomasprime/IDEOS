@@ -1,0 +1,3 @@
+#!/bin/bash
+
+(cd {{ pillar.pwd }}/{{ pillar.global.build_dir }}/dvm && vagrant "$@")

@@ -16,7 +16,7 @@ PILLAR_PAIRS += 'pwd':'${CURDIR}'
 configure:
 	salt-call --state-output=mixed state.apply pillar="{$(PILLAR_PAIRS) }"
 
-saltstack:
-	bin/saltstack
+bootstrap:
+	bin/bootstrap
 
-.PHONY: configure saltstack
+.PHONY: configure bootstrap
