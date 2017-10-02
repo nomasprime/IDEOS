@@ -1,0 +1,4 @@
+---
+- hosts: devs
+  roles:
+    - openssl
