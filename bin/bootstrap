@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if ! type brew &> /dev/null; then
+  echo "Installing Homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  echo "Already installed Homebrew"
+fi
+
+if ! type ansible &> /dev/null; then
+  echo 'Installing Ansible'
+  brew install ansible
+else
+  echo 'Already installed Ansible'
+fi
