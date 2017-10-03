@@ -1,0 +1,15 @@
+---
+- name: install git
+  homebrew:
+    name: git
+    state: present
+
+- name: manage config
+  template:
+    dest: ~/.gitconfig
+    src: .gitconfig.j2
+
+- name: manage ignore
+  template:
+    dest: ~/.gitignore
+    src: .gitignore.j2

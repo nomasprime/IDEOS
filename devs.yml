@@ -1,4 +1,5 @@
 ---
 - hosts: devs
   roles:
+    - git
     - openssl

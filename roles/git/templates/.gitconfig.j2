@@ -1,0 +1,18 @@
+[apply]
+  whitespace = {{ git['config']['apply']['whitespace'] }}
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[core]
+  autocrlf = input
+  editor = {{ global['editor'] }}
+  excludesfile = {{ git['config']['core']['excludesfile'] }}
+  pager = {{ git['config']['core']['pager'] }}
+[credential]
+  helper = osxkeychain
+[hub]
+  protocol = {{ git['config']['hub']['protocol'] }}
+[user]
+  name = {{ git['config']['user']['name'] }}
+  email = {{ git['config']['user']['email'] }}
