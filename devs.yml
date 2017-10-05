@@ -2,6 +2,7 @@
 - hosts: devs
   roles:
     - base16-shell
+    - fzf
     - git
     - openssl
     - prezto

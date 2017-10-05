@@ -1,0 +1,51 @@
+---
+- name: install packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - fzf
+    - the_silver_searcher
+
+- name: append colours to rc
+  blockinfile:
+    block: |
+      _gen_fzf_default_opts() {
+        local color00='#FFFFFF'
+        local color01='#E0E0E0'
+        local color02='#D0D0D0'
+        local color03='#B0B0B0'
+        local color04='#000000'
+        local color05='#101010'
+        local color06='#151515'
+        local color07='#202020'
+        local color08='#FF0086'
+        local color09='#FD8900'
+        local color0A='#ABA800'
+        local color0B='#00C918'
+        local color0C='#1FAAAA'
+        local color0D='#3777E6'
+        local color0E='#AD00A1'
+        local color0F='#CC6633'
+
+        export FZF_DEFAULT_OPTS="
+          --color=bg+:$color01,bg:$color00,spinner:$color0F,hl:$color03
+          --color=fg:$color06,header:$color0D,info:$color0A,pointer:$color08
+          --color=marker:$color0C,fg+:$color06,prompt:$color0E,hl+:$color08
+        "
+      }
+
+      _gen_fzf_default_opts
+    marker: "# {mark} {{ role_path|basename }} append colours to rc"
+    path: ~/.zshrc
+
+- name: append config to rc
+  blockinfile:
+    block: "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh"
+    marker: "# {mark} {{ role_path|basename }} append config to rc"
+    path: ~/.zshrc
+
+- name: manage zsh
+  copy:
+    dest: ~/.fzf.zsh
+    src: .fzf.zsh
