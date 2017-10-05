@@ -3,3 +3,4 @@
   roles:
     - git
     - openssl
+    - prezto

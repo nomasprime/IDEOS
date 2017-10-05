@@ -1,0 +1,32 @@
+---
+- name: install zsh
+  homebrew:
+    name: zsh
+    state: present
+
+- name: enable shell
+  become: true
+  lineinfile:
+    line: '/usr/local/bin/zsh'
+    path: /etc/shells
+
+- name: test shell
+  command: dscl localhost -read /Local/Default/Users/{{ ansible_user_id }} shell
+  register: test_shell_result
+
+- name: change shell
+  become: true
+  command: chsh -s /usr/local/bin/zsh {{ ansible_user_id }}
+  when: test_shell_result.stdout.find('/usr/local/bin/zsh') == -1
+
+- name: clone repository
+  git:
+    dest: ~/.zprezto
+    recursive: yes
+    repo: git@github.com:{{ ansible_user_id }}/prezto.git
+    update: no
+
+- name: symlink runcoms
+  script: config
+  args:
+    creates: "{{ ansible_env.HOME }}/.zlogin"
