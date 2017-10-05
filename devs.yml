@@ -1,6 +1,7 @@
 ---
 - hosts: devs
   roles:
+    - base16-shell
     - git
     - openssl
     - prezto
