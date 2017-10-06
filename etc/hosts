@@ -1,0 +1,4 @@
+[devs]
+# BEGIN DO NOT EDIT
+localhost ansible_connection=local ansible_python_interpreter=/usr/local/bin/python2
+# END DO NOT EDIT

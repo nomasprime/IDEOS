@@ -1,15 +1,38 @@
 #!/bin/bash
 
 if ! type brew &> /dev/null; then
-  echo "Installing Homebrew"
+  echo 'Installing Homebrew...'
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-  echo "Already installed Homebrew"
+  echo 'Already installed homebrew'
 fi
 
-if ! type ansible &> /dev/null; then
-  echo 'Installing Ansible'
-  brew install ansible
+if ! type python2 &> /dev/null; then
+  echo 'Installing python...'
+  brew install python
 else
-  echo 'Already installed Ansible'
+  echo 'Already installed python'
+fi
+
+if ! pip2 list | grep ansible &> /dev/null; then
+  echo 'Installing ansible...'
+  pip2 install ansible
+else
+  echo 'Already installed ansible'
+fi
+
+if ! pip2 list | grep pexpect &> /dev/null; then
+  echo 'Installing pexpect...'
+  pip2 install pexpect
+else
+  echo 'Already installed pexpect'
+fi
+
+if [[ ! -f /etc/ansible/hosts ]]; then
+  echo 'Initializing inventory...'
+  sudo mkdir /etc/ansible
+  dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  sudo ln -s "$dir/../etc/hosts" /etc/ansible/hosts
+else
+  echo 'Already initialized inventory'
 fi

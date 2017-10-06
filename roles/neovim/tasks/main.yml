@@ -1,0 +1,28 @@
+---
+- name: install neovim
+  homebrew:
+    install_options: --HEAD
+    name: neovim
+    state: present
+
+- name: manage config
+  synchronize:
+    dest: ~/.config
+    src: nvim
+  register: config
+
+- name: download vim plug
+  command: curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  args:
+    creates: "{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim"
+
+- name: install python pip
+  pip:
+    name: neovim
+
+- name: install vim plug plugins
+  expect:
+    command: nvim +PlugClean +y +qall && nvim +PlugInstall +qall
+    responses:
+      Delete all directories\? \(y/N\): "y\n"
+  when: config.changed
