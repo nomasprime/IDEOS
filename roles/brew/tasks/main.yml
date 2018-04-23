@@ -1,0 +1,16 @@
+---
+- name: install homebrew
+  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  args:
+    creates: /usr/local/Homebrew
+    executable: /bin/bash
+
+- name: add path to rc
+  blockinfile:
+    block: export PATH="/usr/local/bin:/usr/local/sbin':$PATH"
+    create: yes
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: "~/.{{ item }}"
+  with_items:
+    - bashrc
+    - zshrc
