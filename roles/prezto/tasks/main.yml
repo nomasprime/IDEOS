@@ -1,0 +1,43 @@
+---
+- name: install zsh
+  homebrew:
+    name: zsh
+    state: present
+
+- name: enable zsh
+  become: true
+  lineinfile:
+    line: '/usr/local/bin/zsh'
+    path: /etc/shells
+
+- name: test shell
+  command: "dscl localhost -read /Local/Default/Users/{{ ansible_user_id }} shell"
+  register: test_shell_result
+
+- name: change shell
+  become: true
+  command: chsh -s /usr/local/bin/zsh {{ ansible_user_id }}
+  when:
+    - test_shell_result.stdout.find('/usr/local/bin/zsh') == -1
+
+- name: clone repository
+  git:
+    dest: ~/.zprezto
+    recursive: yes
+    repo: git@github.com:{{ git['github']['username'] }}/prezto.git
+    update: yes
+
+- name: add runcoms
+  blockinfile:
+    block: "{{ lookup('file', '~/.zprezto/runcoms/' + item) }}"
+    create: yes
+    insertbefore: BOF
+    marker: "# {mark} {{ role_path|basename }} add runcoms"
+    path: "~/.{{ item }}"
+  with_items:
+    - zlogin
+    - zlogout
+    - zpreztorc
+    - zprofile
+    - zshenv
+    - zshrc
