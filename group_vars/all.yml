@@ -1,4 +1,6 @@
 ---
+base16_shell:
+  theme: base16_bright
 git:
   config:
     core:
