@@ -1,0 +1,30 @@
+---
+git:
+  config:
+    apply:
+      whitespace: fix
+    core:
+      editor: vim
+      excludesfile: ~/.gitignore
+      pager: less -r
+    hub:
+      protocol: git
+  ignores:
+    - .DS_Store
+    - .DS_Store?
+    - .envrc
+    - .Spotlight-V100
+    - .Trashes
+    - ._*
+    - Icon
+    - Thumbs.db
+    - ehthumbs.db
+    - '*.swp'
+    - '*.swo'
+    - '*.orig'
+    - '*~'
+    - \#*\#
+    - /tags
+    - /.bundle/
+ideos:
+  editor: vim

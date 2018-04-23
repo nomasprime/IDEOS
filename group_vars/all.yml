@@ -1,4 +1,13 @@
 ---
+git:
+  config:
+    core:
+      editor: nvim
+    user:
+      name: Rick Jones
+      email: rick.jones@playtimestudios.com
+  github:
+    username: nomasprime
 openssl:
   private_key: !vault |
     $ANSIBLE_VAULT;1.1;AES256
