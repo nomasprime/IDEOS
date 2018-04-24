@@ -1,4 +1,6 @@
 ---
+base16_fzf:
+  theme: base16-bright
 base16_shell:
   theme: base16_bright
 git:
