@@ -1,0 +1,28 @@
+---
+- name: install zsh
+  homebrew:
+    name: zsh
+    state: present
+
+- name: link zsh
+  become: true
+  file:
+    dest: /bin/zsh
+    src: /home/linuxbrew/.linuxbrew/bin/zsh
+    state: link
+
+- name: enable shell
+  become: true
+  lineinfile:
+    line: '/home/linuxbrew/.linuxbrew/bin/zsh'
+    path: /etc/shells
+
+- name: test shell
+  shell: "getent passwd {{ ansible_user_id }} | cut -d: -f7"
+  register: test_shell_result
+
+- name: change shell
+  become: true
+  command: chsh -s /home/linuxbrew/.linuxbrew/bin/zsh {{ ansible_user_id }}
+  when:
+    - test_shell_result.stdout.find('/home/linuxbrew/.linuxbrew/bin/zsh') == -1

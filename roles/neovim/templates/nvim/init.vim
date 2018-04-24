@@ -132,7 +132,7 @@ Plug 'itspriddle/vim-jquery'
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jtratner/vim-flavored-markdown'
-set rtp+=/usr/local/opt/fzf
+set rtp+={{ brew['prefix'] }}/opt/fzf
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-after-object'

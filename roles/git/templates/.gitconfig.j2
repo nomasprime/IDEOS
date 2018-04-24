@@ -9,8 +9,10 @@
   editor = {{ git['config']['core']['editor'] }}
   excludesfile = {{ git['config']['core']['excludesfile'] }}
   pager = {{ git['config']['core']['pager'] }}
+{% if ansible_os_family == 'Darwin' %}
 [credential]
   helper = osxkeychain
+{% endif %}
 [hub]
   protocol = {{ git['config']['hub']['protocol'] }}
 [user]

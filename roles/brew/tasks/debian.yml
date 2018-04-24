@@ -1,0 +1,7 @@
+---
+- name: install linuxbrew
+  when: ansible_distribution == 'Ubuntu'
+  package:
+    name: linuxbrew-wrapper
+    state: present
+  become: true

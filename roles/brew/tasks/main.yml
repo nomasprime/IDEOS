@@ -1,13 +1,16 @@
 ---
-- name: install homebrew
-  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  args:
-    creates: /usr/local/Homebrew
-    executable: /bin/bash
+- name: OS vars
+  include_vars: "{{ ansible_os_family|lower }}.yml"
+
+- include: darwin.yml
+  when: ansible_os_family == 'Darwin'
+
+- include: debian.yml
+  when: ansible_os_family == 'Debian'
 
 - name: add path to rc
   blockinfile:
-    block: export PATH="/usr/local/bin:/usr/local/sbin':$PATH"
+    block: export PATH="{{ brew['prefix'] }}/bin:{{ brew['prefix'] }}/sbin':$PATH"
     create: yes
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: "~/.{{ item }}"
