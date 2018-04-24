@@ -1,0 +1,25 @@
+---
+- name: install packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - fzf
+    - the_silver_searcher
+
+- name: add config to rc
+  blockinfile:
+    block: "[ -f ~/.fzf.{{ item }} ] && source ~/.fzf.{{ item }}"
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: ~/.{{ item }}rc
+  with_items:
+    - bash
+    - zsh
+
+- name: config
+  template:
+    dest: ~/.fzf.{{ item }}
+    src: .fzf.j2
+  with_items:
+    - bash
+    - zsh
