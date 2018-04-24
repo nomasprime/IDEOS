@@ -1,0 +1,10 @@
+---
+- name: install dependecies
+  command: brew cask install virtualbox
+  args:
+    creates: /usr/local/Caskroom/virtualbox
+
+- name: install vagrant
+  command: brew cask install vagrant
+  args:
+    creates: /usr/local/Caskroom/vagrant
