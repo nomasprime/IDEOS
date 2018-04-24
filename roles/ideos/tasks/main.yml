@@ -1,0 +1,5 @@
+---
+- name: manage build directory
+  file:
+    path: "{{ ideos['build_dir'] }}"
+    state: directory
