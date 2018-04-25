@@ -1,0 +1,66 @@
+---
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: add repo apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
+  become: true
+  register: add_repository_key
+
+- name: add repository
+  apt_repository:
+    repo: "{{ docker['apt']['repository'] }}"
+    state: present
+  become: true
+
+- name: install
+  apt:
+    name: docker-ce
+    state: present
+  become: true
+
+- name: enable systemd service
+  become: true
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: manage daemon configuration
+  become: true
+  copy:
+    src: daemon.json
+    dest: /etc/docker/docker.json
+
+- name: manage prune cron job
+  become: true
+  cron:
+    name: docker-prune
+    minute: 0
+    hour: "*/2"
+    job: docker container prune -f
+
+- name: add users to group
+  become: true
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  with_items: "{{ docker['group_members'] }}"
+  when: docker['group_members'] is defined
+
+- name: install docker-compose
+  pip:
+    name: docker-compose
+    state: present

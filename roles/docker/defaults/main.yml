@@ -1,0 +1,7 @@
+---
+docker:
+  version: 17.10.0~ce-0~ubuntu
+  apt:
+    repository: "deb [arch=amd64] https://download.docker.com/linux/ubuntu    zesty edge"
+  group_members:
+    - vagrant
