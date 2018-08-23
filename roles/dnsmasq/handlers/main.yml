@@ -1,0 +1,6 @@
+---
+- name: restart dnsmasq
+  shell: brew services restart dnsmasq
+  args:
+    executable: /bin/bash
+  become: true
