@@ -1,0 +1,14 @@
+---
+- name: install
+  homebrew:
+    name: direnv
+    state: present
+
+- name: add config to rc
+  blockinfile:
+    block: eval "$(direnv hook zsh)"
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: ~/.{{ item }}rc
+  with_items:
+    - bash
+    - zsh
