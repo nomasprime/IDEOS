@@ -77,7 +77,6 @@ set number " Show line numbers
 set numberwidth=4
 let &showbreak='↳'
 set nostartofline " Cursor position after certain commands
-set textwidth=120
 set wrapmargin=0
 
 " Misc
