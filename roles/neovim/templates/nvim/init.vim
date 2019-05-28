@@ -182,6 +182,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+hi Comment cterm=italic
 hi CursorLine cterm=none ctermbg=none
 hi Visual cterm=underline ctermbg=none
 hi! link Search IncSearch
