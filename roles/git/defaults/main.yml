@@ -13,6 +13,7 @@ git:
     - .DS_Store
     - .DS_Store?
     - .envrc
+    - .ignore
     - .Spotlight-V100
     - .Trashes
     - ._*

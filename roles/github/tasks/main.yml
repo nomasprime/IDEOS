@@ -1,0 +1,41 @@
+---
+- name: install hub
+  homebrew:
+    name: hub
+    state: present
+
+- name: manage config directory
+  file:
+    path: ~/.config/hub
+    state: directory
+
+- name: manage configs
+  template:
+    dest: "~/.config/hub/{{ item.name }}"
+    src: config.j2
+  with_items: "{{ github['users'] }}"
+
+- name: add config to rc
+  blockinfile:
+    block: "export HUB_CONFIG=~/.config/hub/{{ github['users'][0]['name'] }}"
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: ~/.{{ item }}rc
+  with_items:
+    - bash
+    - zsh
+
+- name: manage gitconfig
+  blockinfile:
+    block: |
+      [hub]
+        protocol = {{ github['config']['hub']['protocol'] }}
+    marker: "# {mark} {{ role_path|basename }} manage config"
+    path: ~/.gitconfig
+
+- name: add github to known hosts
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.ssh/known_hosts"
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    regexp: "^github\\.com"

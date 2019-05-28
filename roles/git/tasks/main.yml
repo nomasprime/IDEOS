@@ -5,19 +5,13 @@
     state: present
 
 - name: manage config
-  template:
-    dest: ~/.gitconfig
-    src: .gitconfig.j2
+  blockinfile:
+    block: "{{ lookup('template', 'templates/.gitconfig.j2') }}"
+    create: yes
+    marker: "# {mark} {{ role_path|basename }} manage config"
+    path: ~/.gitconfig
 
 - name: manage ignore
   template:
     dest: ~/.gitignore
     src: .gitignore.j2
-
-- name: add github to known hosts
-  lineinfile:
-    dest: "{{ ansible_env.HOME }}/.ssh/known_hosts"
-    create: yes
-    state: present
-    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
-    regexp: "^github\\.com"

@@ -9,7 +9,7 @@
   git:
     dest: ~/.zprezto
     recursive: yes
-    repo: git@github.com:{{ git['github']['username'] }}/prezto.git
+    repo: git@github.com:{{ github['users'][0]['name'] }}/prezto.git
     update: no
 
 - name: add runcoms
