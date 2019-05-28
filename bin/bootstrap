@@ -41,4 +41,4 @@ else
   echo 'Already initialized inventory'
 fi
 
-${bin_path}/ansible-playbook --ask-become-pass site.yml
+${bin_path}/ansible-playbook --ask-become-pass --diff site.yml
