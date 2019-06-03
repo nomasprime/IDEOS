@@ -17,6 +17,7 @@ git:
     - .Spotlight-V100
     - .Trashes
     - ._*
+    - docker-compose.override.yml
     - Icon
     - Thumbs.db
     - ehthumbs.db
