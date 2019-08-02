@@ -184,6 +184,7 @@ endif
 
 hi Comment cterm=italic
 hi CursorLine cterm=none ctermbg=none
+hi CursorLineNr ctermfg=16
 hi Visual cterm=underline ctermbg=none
 hi! link Search IncSearch
 hi! link WildMenu IncSearch
