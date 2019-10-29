@@ -3,6 +3,10 @@ base16_fzf:
   theme: base16-bright
 base16_shell:
   theme: base16_bright
+exercism:
+  config:
+    token: 3dd7e081-f84a-49ec-98d0-087b8b74807b
+    workspace: Organisations/nomas_prime/exercism
 git:
   config:
     core:

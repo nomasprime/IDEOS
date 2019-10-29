@@ -1,0 +1,10 @@
+---
+- name: install exercism
+  homebrew:
+    name: exercism
+    state: present
+
+- name: manage config
+  template:
+    dest: ~/.config/exercism/user.json
+    src: user.json.j2
