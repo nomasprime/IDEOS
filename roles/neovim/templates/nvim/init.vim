@@ -60,6 +60,7 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <Up> <Nop>
+nnoremap Y y$
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
