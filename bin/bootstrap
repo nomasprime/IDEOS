@@ -1,33 +1,24 @@
 #!/bin/bash
 
-if ! type python &> /dev/null; then
-  echo "You haven't installed Python"
+if ! type python3 &> /dev/null; then
+  echo "You haven't installed Python 3"
   exit 1
 fi
 
 bin_path=/usr/local/bin
 
-${bin_path}/pip install --upgrade pip
+${bin_path}/pip3 install --upgrade pip
 
-if ! type ${bin_path}/pip &> /dev/null; then
-  echo 'Installing pip...'
-  sudo easy_install pip
-else
-  echo 'Already installed pip'
-fi
-
-if ! ${bin_path}/pip list | grep ansible &> /dev/null; then
+if ! ${bin_path}/pip3 list | grep ansible &> /dev/null; then
   echo 'Installing ansible...'
-  sudo easy_install nose
-  sudo easy_install tornado
-  sudo -H ${bin_path}/pip install ansible
+  sudo -H ${bin_path}/pip3 install ansible
 else
   echo 'Already installed ansible'
 fi
 
-if ! ${bin_path}/pip list | grep pexpect &> /dev/null; then
+if ! ${bin_path}/pip3 list | grep pexpect &> /dev/null; then
   echo 'Installing pexpect...'
-  sudo -H ${bin_path}/pip install pexpect
+  sudo -H ${bin_path}/pip3 install pexpect
 else
   echo 'Already installed pexpect'
 fi
