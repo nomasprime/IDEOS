@@ -30,7 +30,7 @@ set directory=~/.nvim/temp " Swap files dir
 set encoding=utf-8
 set hidden " Allow hidden buffers
 set list listchars=tab:\|\ ,
-set shortmess=aIT " avoid hit-enter prompts
+set shortmess=aFIT " avoid hit-enter prompts
 set showmatch " When a bracket is inserted, briefly jump to the matching one
 set undodir=~/.nvim/undo " Undo files dir
 set undofile " Create undo files
@@ -136,9 +136,9 @@ set rtp+={{ brew['prefix'] }}/opt/fzf
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-after-object'
-Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
+Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
 Plug 'justinmk/vim-sneak'
 Plug 'kchmck/vim-coffee-script'
