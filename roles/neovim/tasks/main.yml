@@ -33,6 +33,7 @@
 
 - name: install python pip
   pip:
+    executable: pip3
     name: neovim
     state: present
 

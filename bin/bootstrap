@@ -11,14 +11,14 @@ ${bin_path}/pip3 install --upgrade pip
 
 if ! ${bin_path}/pip3 list | grep ansible &> /dev/null; then
   echo 'Installing ansible...'
-  sudo -H ${bin_path}/pip3 install ansible
+  ${bin_path}/pip3 install ansible
 else
   echo 'Already installed ansible'
 fi
 
 if ! ${bin_path}/pip3 list | grep pexpect &> /dev/null; then
   echo 'Installing pexpect...'
-  sudo -H ${bin_path}/pip3 install pexpect
+  ${bin_path}/pip3 install pexpect
 else
   echo 'Already installed pexpect'
 fi
