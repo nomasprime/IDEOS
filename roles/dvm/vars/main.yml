@@ -1,2 +1,0 @@
-dvm:
-  build_dir: "{{ ideos['build_dir'] }}/{{ role_name }}"

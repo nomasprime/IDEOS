@@ -1,3 +1,0 @@
-#!/bin/bash
-
-(cd {{ dvm['build_dir'] }} && vagrant "$@")
