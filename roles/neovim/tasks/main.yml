@@ -43,6 +43,11 @@
     name: neovim
     state: present
 
+- name: install ruby provider
+  gem:
+    name: neovim
+    state: present
+
 - name: install vim plug plugins
   expect:
     command: "{{ brew['prefix'] }}/bin/nvim +PlugClean +y +qall && {{ brew['prefix'] }}/bin/nvim +PlugInstall +qall"
