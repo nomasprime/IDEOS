@@ -111,70 +111,110 @@ set winwidth=80 " Minimal number of columns for the current window
 " Was at the top but moved to the bottom because some settings depend on
 " general Vim settings.
 call plug#begin('~/.config/nvim/plugged')
-Plug 'aaronjensen/vim-sass-status'
-Plug 'airblade/vim-gitgutter'
+
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Chiel92/vim-autoformat'
+" Single/multi-line switching
+" https://github.com/AndrewRadev/splitjoin.vim
+
 Plug 'chrisbra/Colorizer'
+" Colour hex codes and colour names
+" https://github.com/chrisbra/Colorizer
+
 Plug 'chriskempson/base16-vim'
-Plug 'docker/docker'
-Plug 'elzr/vim-json'
-Plug 'elixir-lang/vim-elixir'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'gcmt/taboo.vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'hashivim/vim-consul'
-Plug 'hashivim/vim-terraform'
-Plug 'hashivim/vim-vagrant'
-Plug 'honza/vim-snippets'
-Plug 'IN3D/vim-raml'
-Plug 'itspriddle/vim-jquery'
+" Base16 themes
+" https://github.com/chriskempson/base16-vim
+
 Plug 'janko-m/vim-test'
-Plug 'jiangmiao/auto-pairs'
-Plug 'jtratner/vim-flavored-markdown'
+" Test runner
+" https://github.com/janko/vim-test
+
 set rtp+={{ brew['prefix'] }}/opt/fzf
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/gv.vim'
-Plug 'junegunn/vim-after-object'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+" Default FZF commands and mappings
+" https://github.com/junegunn/fzf.vim
+
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
+" Markdown preview in Chrome
+" https://github.com/junegunn/vim-xmark
+
 Plug 'justinmk/vim-dirvish'
+" Directory viewer (netrw alternative)
+" https://github.com/justinmk/vim-dirvish
+
 Plug 'justinmk/vim-gtfo'
+" Opens file manage (e.g. Finder) or terminal at the directory of the current
+" file
+" https://github.com/justinmk/vim-gtfo
+
 Plug 'justinmk/vim-sneak'
-Plug 'kchmck/vim-coffee-script'
+" Jump to any location specified by tow characters
+" https://github.com/justinmk/vim-sneak
+
 Plug 'kshenoy/vim-signature'
+" Toggle, display, and navigate marks
+" https://github.com/kshenoy/vim-signature
+
 Plug 'ludovicchabant/vim-gutentags'
+" Generates tag files
+" https://github.com/ludovicchabant/vim-gutentags
+
 Plug 'luochen1990/rainbow'
-Plug 'majutsushi/tagbar'
+" Rainbow brackets
+" https://github.com/frazrepo/vim-rainbow
+
 Plug 'mattn/gist-vim'
+" Create Gists
+" https://github.com/mattn/gist-vim
+
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+" History visualizer
+" https://github.com/mbbill/undotree
+
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'neomake/neomake'
+" Defines new text object based on indentation levels
+" https://github.com/michaeljsmith/vim-indent-object
+
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'pangloss/vim-javascript'
-Plug 'pearofducks/ansible-vim'
-Plug 'rodjek/vim-puppet'
-Plug 'saltstack/salt-vim'
-Plug 'SirVer/ultisnips'
-Plug 'tomtom/tlib_vim'
+" Better whitespace highlighting
+" https://github.com/michaeljsmith/vim-indent-object
+
 Plug 'tpope/vim-abolish'
+" Working with word variants
+" https://github.com/tomtom/tlib_vim
+
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
+" Commenting
+" https://github.com/tpope/vim-commentary
+
+Plug 'tpope/vim-eunuch'
+" Shell wrapper
+" https://github.com/tpope/vim-eunuch
+
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-rails'
+" Granular project configuration using projections
+" https://github.com/tpope/vim-projectionist
+
 Plug 'tpope/vim-repeat'
+" Remaps . to repeat entire map rather than the last native command inside the
+" map
+" https://github.com/tpope/vim-repeat
+
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/ListToggle'
+" Delete, change, and add surroundings in pairs
+" (N.B. Insert mode for brackets, quotes, etc.)
+" https://github.com/tpope/vim-surround
+
 Plug 'vim-airline/vim-airline'
+" Status/tab line
+" https://github.com/vim-airline/vim-airline
+
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/camelcasemotion'
+" Themes for airline
+" https://github.com/vim-airline/vim-airline-themes
+
 Plug 'vim-scripts/ExplainPattern'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+" Explains regex pattern
+" https://github.com/vim-scripts/ExplainPattern
 call plug#end()
 
 " chriskempson/base16-vim
@@ -193,9 +233,6 @@ hi! link Sneak IncSearch
 hi! link SneakLabel IncSearch
 hi! link SneakScope Visual
 
-" elzr/vim-json
-let g:vim_json_warnings=0
-
 " janko-m/vim-test
 nmap <silent> <Leader>tn :TestNearest<CR>
 nmap <silent> <Leader>tf :TestFile<CR>
@@ -211,11 +248,6 @@ endfunction
 
 let g:test#custom_transformations = {'docker': function('DockerTransform')}
 let g:test#transformation = 'docker'
-
-" junegunn/vim-after-object
-silent! if has_key(g:plugs, 'vim-after-object')
-  autocmd VimEnter * silent! call after_object#enable('=', ':', '#', ' ', '|')
-endif
 
 " junegunn/fzf
 let g:fzf_layout = { 'down': '~33%' }
@@ -246,39 +278,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
-" junegunn/vim-easy-align
-let g:easy_align_delimiters = {
-\ '>': { 'pattern': '>>\|=>\|>' },
-\ '\': { 'pattern': '\\' },
-\ '/': { 'pattern': '//\+\|/\*\|\*/', 'delimiter_align': 'l', 'ignore_groups': ['!Comment'] },
-\ ']': {
-\     'pattern':       '\]\zs',
-\     'left_margin':   0,
-\     'right_margin':  1,
-\     'stick_to_left': 0
-\   },
-\ ')': {
-\     'pattern':       ')\zs',
-\     'left_margin':   0,
-\     'right_margin':  1,
-\     'stick_to_left': 0
-\   },
-\ 'f': {
-\     'pattern': ' \(\S\+(\)\@=',
-\     'left_margin': 0,
-\     'right_margin': 0
-\   },
-\ 'd': {
-\     'pattern': ' \ze\S\+\s*[;=]',
-\     'left_margin': 0,
-\     'right_margin': 0
-\   }
-\ }
-
-nmap ga <Plug>(EasyAlign)
-nmap gaa ga_
-xmap ga <Plug>(EasyAlign)
 
 " justinmk/vim-sneak
 let g:sneak#streak = 1
@@ -321,36 +320,12 @@ let g:rainbow_conf = {
 \   }
 \}
 
-" majutsushi/tagbar
-let g:tagbar_ctags_bin='/opt/boxen/homebrew/bin/ctags'
-nnoremap <Leader>t :TagbarToggle<CR>
-
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
-
-" neomake/neomake
-autocmd! BufWritePost * Neomake
-let g:neomake_ruby_enabled_makers=['rubocop']
-
-" peterhost/YankRing.vim
-let g:yankring_history_file='.nvim/yankring_history'
-nnoremap <Leader>y :YRShow<CR>
-
-" rodjek/vim-puppet
-let g:puppet_align_hashes=0
-
-" SilVer/ultisnips
-let g:UltiSnipsExpandTrigger='<C-K>'
-let g:UltiSnipsJumpForwardTrigger='<C-K>'
-let g:UltiSnipsJumpBackwardTrigger='<S-C-J>'
 
 " tpope/vim-commentary
 map  gc <Plug>Commentary
 nmap gcc <Plug>CommentaryLine
-
-" Valloric/ListToggle
-let g:lt_location_list_toggle_map = '<Leader>l'
-let g:lt_quickfix_list_toggle_map = '<Leader>q'
 
 " vim-airline/vim-airline
 let g:airline_left_alt_sep=''
@@ -362,10 +337,6 @@ let g:airline_theme='base16'
 let g:airline#extensions#branch#displayed_head_limit=20
 let g:airline#extensions#branch#format=2
 let g:airline#extensions#tagbar#enabled=0
-
-" xolox/vim-session
-let g:session_autoload='no'
-let g:session_autosave='no'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lib
