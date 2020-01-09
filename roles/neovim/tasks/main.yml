@@ -31,7 +31,13 @@
   args:
     creates: "{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim"
 
-- name: install python pip
+- name: install node provider
+  npm:
+    name: neovim
+    global: yes
+    state: present
+
+- name: install python provider
   pip:
     executable: pip3
     name: neovim
