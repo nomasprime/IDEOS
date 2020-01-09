@@ -1,20 +1,22 @@
+" Select option and press K to lookup option in NeoVim help
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Core
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Command and Status
-set history=9999 " Command line history
-set laststatus=2 " When the last window will have a status line (0 - never; 1 - at least two windows; 2 - always)
-set showcmd " Show incomplete commands
-set visualbell " Prefer visual to audial feedback
-set wildmenu " command-line completion in enhanced mode
-set wildmode=full " complete the next full match
+set history=9999
+set laststatus=2
+set showcmd
+set visualbell
+set wildmenu
+set wildmode=full
 
 " Cursor
-set cursorline " Highlight current line
+set cursorline
 set guicursor=
 set selection=inclusive
-set virtualedit=block " cursor can be position where there is no actual character
+set virtualedit=block
 
 " Diffs
 set diffopt=filler,vertical
@@ -23,36 +25,36 @@ set diffopt=filler,vertical
 set nojoinspaces
 
 " Files and Syntax
-set autoread " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again
-set backup " Create backup files
-set backupdir=~/.nvim/backup " Backup files dir
-set directory=~/.nvim/temp " Swap files dir
+set autoread
+set backup
+set backupdir=~/.nvim/backup
+set directory=~/.nvim/temp
 set encoding=utf-8
-set hidden " Allow hidden buffers
+set hidden
 set list listchars=tab:\|\ ,
-set shortmess=aFIT " avoid hit-enter prompts
-set showmatch " When a bracket is inserted, briefly jump to the matching one
-set undodir=~/.nvim/undo " Undo files dir
-set undofile " Create undo files
+set shortmess=aFIT
+set showmatch
+set undodir=~/.nvim/undo
+set undofile
 silent !mkdir ~/.nvim/backup > /dev/null 2>&1
 silent !mkdir ~/.nvim/temp > /dev/null 2>&1
 silent !mkdir ~/.nvim/undo > /dev/null 2>&1
 syntax on
 
 " Folding
-set foldignore= " Stops folds breaking on empty lines
-set foldlevelstart=99 " Hopefully open file with all folds open
-set foldmethod=indent " The kind of folding used for the current window
-set foldnestmax=20 " Sets the maximum nesting of folds for the indent and syntax methods
+set foldignore=
+set foldlevelstart=99
+set foldmethod=indent
+set foldnestmax=20
 
 " Identation
-set autoindent " Copy indent from current line when starting new line
-set expandtab " Use the appropriate number of spaces to insert a <Tab>
-set shiftwidth=2 " Number of spaces to use for each step (auto)indent
-set smartindent " Do smart autoindenting when starting a new line
-set smarttab " When on a <Tab> in front of a line inserts blanks according to 'shiftwidth'
-set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
-set tabstop=2 " Number of spaces that a <Tab> in the file counts for
+set autoindent
+set expandtab
+set shiftwidth=2
+set smartindent
+set smarttab
+set softtabstop=2
+set tabstop=2
 
 " Keys
 let mapleader="\<Space>"
@@ -65,19 +67,19 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
-set backspace=indent,eol,start " Allow backspace in insert mode
-set timeoutlen=500 " Timeout (milliseconds) for mapped key sequence
+set backspace=indent,eol,start
+set timeoutlen=500
 
 " Lines
 set breakindent
 set breakindentopt=sbr
 set formatoptions=cqt
 set nofixeol
-set linebreak " Wrap long lines at a character in 'breakat' rather than last character that fits on the screen
-set number " Show line numbers
+set linebreak
+set number
 set numberwidth=4
 let &showbreak='↳'
-set nostartofline " Cursor position after certain commands
+set nostartofline
 set wrapmargin=0
 
 " Misc
@@ -89,20 +91,20 @@ set clipboard=unnamed
 " Search
 nmap <silent> // :nohlsearch<CR>
 set hlsearch
-set ignorecase smartcase " Ignore case in search patterns, overrdien if contains uppercase characters
+set ignorecase smartcase
 set incsearch
 
 " Scrolling
-set scrolloff=2 " Minimal number of screen lines to keep above and below the cursor
-set sidescroll=1 " The minimal number of colums to scroll horizontally
-set sidescrolloff=10 " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set
-set t_ti= t_te= " Keep last position in the scroll buffer when using view, man, etc. http://www.shallowsky.com/linux/noaltscreen.html
+set scrolloff=2
+set sidescroll=1
+set sidescrolloff=10
+set t_ti= t_te=
 
 " Tags
 set tags+=.tags
 
 " Widows
-set winwidth=80 " Minimal number of columns for the current window
+set winwidth=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
