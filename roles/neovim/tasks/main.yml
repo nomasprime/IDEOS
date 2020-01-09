@@ -10,6 +10,11 @@
     name: neovim
     state: present
 
+- name: install node
+  homebrew:
+    name: node
+    state: present
+
 - name: manage config directories
   file:
     path: ~/.config/nvim/{{ item.path }}
@@ -34,7 +39,7 @@
 - name: install node provider
   npm:
     name: neovim
-    global: yes
+    global: true
     state: present
 
 - name: install python provider
@@ -50,7 +55,7 @@
 
 - name: install vim plug plugins
   expect:
-    command: "{{ brew['prefix'] }}/bin/nvim +PlugClean +y +qall && {{ brew['prefix'] }}/bin/nvim +PlugInstall +qall"
+    command: "{{ brew['prefix'] }}/bin/nvim --headless +PlugClean +y +qa && {{ brew['prefix'] }}/bin/nvim --headless +PlugInstall +qa"
     responses:
       Delete all directories\? \(y/N\): "y\n"
   when: config.changed

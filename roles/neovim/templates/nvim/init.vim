@@ -5,6 +5,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Command and Status
+set cmdheight=2 " (see coc.nvim)
 set history=9999
 set laststatus=2
 set showcmd
@@ -32,10 +33,11 @@ set directory=~/.nvim/temp
 set encoding=utf-8
 set hidden
 set list listchars=tab:\|\ ,
-set shortmess=aFIT
+set shortmess=acFIT
 set showmatch
 set undodir=~/.nvim/undo
 set undofile
+set updatetime=300 " (see coc.nvim)
 silent !mkdir ~/.nvim/backup > /dev/null 2>&1
 silent !mkdir ~/.nvim/temp > /dev/null 2>&1
 silent !mkdir ~/.nvim/undo > /dev/null 2>&1
@@ -99,6 +101,9 @@ set scrolloff=2
 set sidescroll=1
 set sidescrolloff=10
 set t_ti= t_te=
+
+" Sign Column
+set signcolumn=yes
 
 " Tags
 set tags+=.tags
@@ -175,6 +180,10 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'michaeljsmith/vim-indent-object'
 " Defines new text object based on indentation levels
 " https://github.com/michaeljsmith/vim-indent-object
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Intellisense engine
+" https://github.com/neoclide/coc.nvim
 
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
