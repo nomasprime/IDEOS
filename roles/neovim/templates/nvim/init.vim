@@ -193,7 +193,7 @@ Plug 'tpope/vim-abolish'
 " Working with word variants
 " https://github.com/tomtom/tlib_vim
 
-Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'tpope/vim-commentary'
 " Commenting
 " https://github.com/tpope/vim-commentary
 
@@ -321,10 +321,6 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
 endfunction
-
-" tpope/vim-commentary
-map  gc <Plug>Commentary
-nmap gcc <Plug>CommentaryLine
 
 " vim-airline/vim-airline
 let g:airline_left_alt_sep=''
