@@ -1,5 +1,5 @@
 ---
-- name: install dependencies
+- name: install ctags
   homebrew:
     name: ctags
     state: present
