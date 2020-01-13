@@ -59,3 +59,10 @@
     responses:
       Delete all directories\? \(y/N\): "y\n"
   when: config.changed
+
+  # TODO: Denite dependency
+- name: install pynim
+  pip:
+    executable: pip3
+    name: pynvim
+    state: present

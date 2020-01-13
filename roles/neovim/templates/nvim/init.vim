@@ -135,11 +135,6 @@ Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
 
-set rtp+={{ brew['prefix'] }}/opt/fzf
-Plug 'junegunn/fzf.vim'
-" Default FZF commands and mappings
-" https://github.com/junegunn/fzf.vim
-
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 " Markdown preview in Chrome
 " https://github.com/junegunn/vim-xmark
@@ -184,10 +179,15 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Intellisense engine
 " https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc-denite'
 
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
 " https://github.com/michaeljsmith/vim-indent-object
+
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Like a fuzzy finder but more generic
+" https://github.com/Shougo/denite.nvim
 
 Plug 'tpope/vim-abolish'
 " Working with word variants
@@ -260,36 +260,6 @@ endfunction
 let g:test#custom_transformations = {'docker': function('DockerTransform')}
 let g:test#transformation = 'docker'
 
-" junegunn/fzf
-let g:fzf_layout = { 'down': '~33%' }
-
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>` :Marks<CR>
-
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
 " justinmk/vim-sneak
 let g:sneak#streak = 1
 let g:sneak#use_ic_scs = 1
@@ -333,6 +303,24 @@ let g:rainbow_conf = {
 
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
+
+" Shougo/denite.nvim
+autocmd FileType denite call s:denite_my_settings()
+
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
 
 " tpope/vim-commentary
 map  gc <Plug>Commentary
