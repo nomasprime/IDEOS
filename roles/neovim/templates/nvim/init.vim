@@ -289,6 +289,7 @@ let s:denite_options = {
 
 call denite#custom#option('default', s:denite_options)
 
+nmap <Leader>b :Denite buffer<CR>
 nmap <Leader>f :DeniteProjectDir file/rec<CR>
 
 " Denite buffer maps
