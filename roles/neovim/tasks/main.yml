@@ -15,6 +15,11 @@
     name: node
     state: present
 
+- name: install rg
+  homebrew:
+    name: rg
+    state: present
+
 - name: manage config directories
   file:
     path: ~/.config/nvim/{{ item.path }}

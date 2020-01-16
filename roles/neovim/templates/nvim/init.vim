@@ -290,13 +290,22 @@ let s:denite_options = {
 call denite#custom#option('default', s:denite_options)
 
 call denite#custom#kind('directory', 'default_action', 'open')
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 nmap <Leader>b :Denite buffer<CR>
 nmap <Leader>c :Denite command_history<CR>
 nmap <Leader>C :Denite command<CR>
 nmap <Leader>d :DeniteProjectDir directory_rec<CR>
 nmap <Leader>f :DeniteProjectDir file/rec<CR>
-nmap <Leader>G :Denite line<CR>
+nnoremap <Leader>g :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <Leader>G :<C-u>Denite grep:. -no-empty<CR>
+nmap <Leader>l :Denite line<CR>
 nmap <Leader>m :Denite mark<CR>
 nmap <Leader>r :Denite register<CR>
 
