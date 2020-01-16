@@ -291,6 +291,7 @@ call denite#custom#option('default', s:denite_options)
 
 nmap <Leader>b :Denite buffer<CR>
 nmap <Leader>f :DeniteProjectDir file/rec<CR>
+nmap <Leader>G :Denite line<CR>
 
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
