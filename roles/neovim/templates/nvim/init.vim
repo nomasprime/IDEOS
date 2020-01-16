@@ -293,6 +293,7 @@ nmap <Leader>b :Denite buffer<CR>
 nmap <Leader>f :DeniteProjectDir file/rec<CR>
 nmap <Leader>G :Denite line<CR>
 nmap <Leader>m :Denite mark<CR>
+nmap <Leader>r :Denite register<CR>
 
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
