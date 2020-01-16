@@ -1,4 +1,0 @@
----
-dependencies:
-  - { role: base16-shell }
-  - { role: fzf }
