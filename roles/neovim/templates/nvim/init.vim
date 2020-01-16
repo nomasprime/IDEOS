@@ -4,6 +4,9 @@
 " Core
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Colours
+set termguicolors " ✓
+
 " Command and Status
 set cmdheight=2 " (see coc.nvim)
 set history=9999
@@ -234,7 +237,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-hi Comment cterm=italic
+hi Comment cterm=italic gui=italic
 hi CursorLine cterm=none ctermbg=none
 hi CursorLineNr ctermfg=16
 hi Visual cterm=underline ctermbg=none
