@@ -65,6 +65,11 @@
       Delete all directories\? \(y/N\): "y\n"
   when: config.changed
 
+- name: install coc-pairs
+  command:
+    cmd: "{{ brew['prefix'] }}/bin/nvim --headless +CocInstall\ coc-pairs +qa"
+    creates: ~/.config/coc/extensions/node_modules/coc-pairs
+
   # TODO: Denite dependency
 - name: install pynim
   pip:
