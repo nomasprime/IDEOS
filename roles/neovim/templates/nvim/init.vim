@@ -283,7 +283,7 @@ let s:denite_options = {
       \ 'start_filter': 1,
       \ 'statusline': 0,
       \ 'wincol': &columns / 3,
-      \ 'winrow': 0,
+      \ 'winrow': 1,
       \ 'winwidth': &columns / 3,
       \ }
 
