@@ -276,21 +276,56 @@ omap T <Plug>Sneak_T
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Shougo/denite.nvim
-autocmd FileType denite call s:denite_my_settings()
+let s:denite_options = {
+      \ 'auto_resize': 1,
+      \ 'source_names': 'short',
+      \ 'split': 'floating',
+      \ 'start_filter': 1,
+      \ 'statusline': 0,
+      \ 'wincol': &columns / 3,
+      \ 'winrow': 0,
+      \ 'winwidth': &columns / 3,
+      \ }
 
+call denite#custom#option('default', s:denite_options)
+
+nmap <Leader>f :DeniteProjectDir file/rec<CR>
+
+" Denite buffer maps
+autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <C-s>
+  \ denite#do_map('do_action', 'split')
+  nnoremap <silent><buffer><expr> <C-t>
+  \ denite#do_map('do_action', 'tabopen')
+  nnoremap <silent><buffer><expr> <C-v>
+  \ denite#do_map('do_action', 'vsplit')
   nnoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
   nnoremap <silent><buffer><expr> p
   \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> i
   \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
+endfunction
+
+" Denite filter buffer maps
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+  inoremap <silent><buffer><expr> <C-s>
+        \ denite#do_map('do_action', 'split')
+  inoremap <silent><buffer><expr> <C-t>
+        \ denite#do_map('do_action', 'tabopen')
+  inoremap <silent><buffer><expr> <C-v>
+        \ denite#do_map('do_action', 'vsplit')
+  inoremap <silent><buffer><expr> <CR>
+        \ denite#do_map('do_action')
+  inoremap <silent><buffer><expr> <Esc>
+        \ denite#do_map('quit')
 endfunction
 
 " vim-airline/vim-airline
