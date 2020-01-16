@@ -290,6 +290,8 @@ let s:denite_options = {
 call denite#custom#option('default', s:denite_options)
 
 nmap <Leader>b :Denite buffer<CR>
+nmap <Leader>c :Denite command_history<CR>
+nmap <Leader>C :Denite command<CR>
 nmap <Leader>f :DeniteProjectDir file/rec<CR>
 nmap <Leader>G :Denite line<CR>
 nmap <Leader>m :Denite mark<CR>
