@@ -36,6 +36,7 @@ set directory=~/.nvim/temp
 set encoding=utf-8
 set hidden
 set list listchars=tab:\|\ ,
+set fillchars=fold:-
 set shortmess=acFIT
 set showmatch
 set undodir=~/.nvim/undo
