@@ -35,7 +35,8 @@ set backupdir=~/.nvim/backup
 set directory=~/.nvim/temp
 set encoding=utf-8
 set hidden
-set list listchars=tab:\|\ ,
+set list
+set listchars=tab:→\ , " U+2192
 set fillchars=fold:-
 set shortmess=acFIT
 set showmatch
@@ -84,7 +85,7 @@ set nofixeol
 set linebreak
 set number
 set numberwidth=4
-let &showbreak='↳'
+let &showbreak='↪' " U+21AA
 set nostartofline
 set wrapmargin=0
 
