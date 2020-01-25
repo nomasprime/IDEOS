@@ -1,0 +1,18 @@
+---
+- name: clone repository
+  git:
+    dest: ~/.config/base16-fzf
+    recursive: yes
+    repo: git@github.com:nicodebo/base16-fzf.git
+    update: yes
+
+- name: add config to rc
+  blockinfile:
+    block: |
+      source "$HOME/.config/base16-fzf/bash/{{ base16_fzf['theme'] }}.config"
+    create: yes
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: ~/.{{ item }}rc
+  with_items:
+    - bash
+    - zsh
