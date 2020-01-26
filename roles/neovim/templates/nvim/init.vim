@@ -124,6 +124,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Single/multi-line switching
 " https://github.com/AndrewRadev/splitjoin.vim
 
+Plug 'chaoren/vim-wordmotion'
+" More useful word motions
+" https://github.com/chaoren/vim-wordmotion
+
 Plug 'chrisbra/Colorizer'
 " Colour hex codes and colour names
 " https://github.com/chrisbra/Colorizer
