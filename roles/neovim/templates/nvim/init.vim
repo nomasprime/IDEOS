@@ -311,8 +311,6 @@ nmap <Leader>r :Denite register<CR>
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <C-o>
-  \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <C-s>
   \ denite#do_map('do_action', 'split')
   nnoremap <silent><buffer><expr> <C-t>
