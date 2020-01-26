@@ -3,7 +3,7 @@
   git:
     dest: ~/.config/base16-fzf
     recursive: yes
-    repo: git@github.com:nicodebo/base16-fzf.git
+    repo: git@github.com:nomasprime/base16-fzf.git
     update: yes
 
 - name: add config to rc

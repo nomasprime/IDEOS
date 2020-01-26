@@ -1,3 +1,4 @@
 ---
 dependencies:
+  - { role: base16-fzf }
   - { role: brew }
