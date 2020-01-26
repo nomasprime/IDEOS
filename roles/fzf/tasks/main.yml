@@ -7,9 +7,14 @@
     - fzf
     - the_silver_searcher
 
+- name: manage config directory
+  file:
+    path: ~/.fzf
+    state: directory
+
 - name: add config to rc
   blockinfile:
-    block: "[ -f ~/.fzf.{{ item }} ] && source ~/.fzf.{{ item }}"
+    block: "[ -f ~/.fzf/init.{{ item }} ] && source ~/.fzf/init.{{ item }}"
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: ~/.{{ item }}rc
   with_items:
@@ -18,8 +23,13 @@
 
 - name: config
   template:
-    dest: ~/.fzf.{{ item }}
-    src: .fzf.j2
+    dest: ~/.fzf/init.{{ item }}
+    src: init.j2
   with_items:
     - bash
     - zsh
+
+- name: key bindings config
+  template:
+    dest: ~/.fzf/key-bindings.zsh
+    src: key-bindings.zsh.j2

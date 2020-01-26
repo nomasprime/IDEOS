@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == *{{ brew['prefix'] }}/opt/fzf/bin* ]]; then
-  export PATH="$PATH:{{ brew['prefix'] }}/opt/fzf/bin"
+  export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
 fi
 
 # Auto-completion
@@ -11,3 +11,7 @@ fi
 # Key bindings
 # ------------
 source "{{ brew['prefix'] }}/opt/fzf/shell/key-bindings.{{ item }}"
+{% if item == 'zsh' %}
+# Custom
+source "$HOME/.fzf/key-bindings.zsh"
+{% endif %}

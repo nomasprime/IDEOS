@@ -1,0 +1,5 @@
+---
+fzf:
+  bindkey_cd_widget:
+  bindkey_file_widget:
+  bindkey_history_widget:

@@ -7,6 +7,10 @@ exercism:
   config:
     token: 3dd7e081-f84a-49ec-98d0-087b8b74807b
     workspace: Organisations/nomas_prime/exercism
+fzf:
+  bindkey_cd_widget: ^@d
+  bindkey_file_widget: ^@f
+  bindkey_history_widget: ^@c
 git:
   config:
     core:

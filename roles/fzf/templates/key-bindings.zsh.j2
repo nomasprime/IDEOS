@@ -1,0 +1,12 @@
+{% if fzf['bindkey_cd_widget'] != None %}
+bindkey '^[c' capitilize-word
+bindkey "{{ fzf['bindkey_cd_widget'] }}" fzf-cd-widget
+{% endif %}
+{% if fzf['bindkey_file_widget'] != None %}
+bindkey '^T' transpose-chars
+bindkey "{{ fzf['bindkey_file_widget'] }}" fzf-file-widget
+{% endif %}
+{% if fzf['bindkey_history_widget'] != None %}
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey "{{ fzf['bindkey_history_widget'] }}" fzf-history-widget
+{% endif %}
