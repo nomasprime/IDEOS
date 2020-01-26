@@ -79,7 +79,6 @@ set timeoutlen=500
 
 " Lines
 set breakindent
-set breakindentopt=sbr
 set formatoptions=cqt
 set nofixeol
 set linebreak
