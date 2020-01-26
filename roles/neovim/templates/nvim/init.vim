@@ -88,9 +88,6 @@ let &showbreak='↪' " U+21AA
 set nostartofline
 set wrapmargin=0
 
-" Misc
-set cpoptions=aABceFns
-
 " Registers
 set clipboard=unnamed
 
