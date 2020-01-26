@@ -6,7 +6,7 @@
   with_items:
     - fd
     - fzf
-    - the_silver_searcher
+    - tree
 
 - name: manage config directory
   file:

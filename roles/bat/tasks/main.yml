@@ -1,0 +1,15 @@
+---
+- name: install bat
+  homebrew:
+    name: bat
+    state: present
+
+- name: config directory
+  file:
+    path: ~/.config/bat
+    state: directory
+
+- name: config
+  template:
+    dest: ~/.config/bat/config
+    src: config.j2

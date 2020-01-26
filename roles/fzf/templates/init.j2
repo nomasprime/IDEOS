@@ -21,9 +21,14 @@ source "$HOME/.fzf/key-bindings.zsh"
 {% if fzf['alt_c_command'] != None %}
 FZF_ALT_C_COMMAND+="{{ fzf['alt_c_command'] }}"
 {% endif %}
+{% if fzf['alt_c_opts'] != None %}
+FZF_ALT_C_OPTS+="{{ fzf['alt_c_opts'] }}"
 {% endif %}
 {% if fzf['ctrl_t_command'] != None %}
 FZF_CTRL_T_COMMAND+="{{ fzf['ctrl_t_command'] }}"
+{% endif %}
+{% if fzf['ctrl_t_opts'] != None %}
+FZF_CTRL_T_OPTS+="{{ fzf['ctrl_t_opts'] }}"
 {% endif %}
 {% if fzf['default_command'] != None %}
 FZF_DEFAULT_COMMAND+="{{ fzf['default_command'] }}"

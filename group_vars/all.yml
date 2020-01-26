@@ -3,17 +3,21 @@ base16_fzf:
   theme: base16-helios
 base16_shell:
   theme: base16_helios
+bat:
+  style: header,numbers
 exercism:
   config:
     token: 3dd7e081-f84a-49ec-98d0-087b8b74807b
     workspace: Organisations/nomas_prime/exercism
 fzf:
   alt_c_command: fd --type d --exclude .git --follow --hidden
+  alt_c_opts: --preview 'tree -C {} | head -200'
   bindkey_cd_widget: ^@d
   bindkey_file_widget: ^@f
   bindkey_history_widget: ^@c
   default_command: &default_command fd --type f --exclude .git --follow --hidden
   ctrl_t_command: *default_command
+  ctrl_t_opts: --preview '(bat --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'
   default_opts: --inline-info --layout=reverse --preview-window='66%'
   other_opts: |
     _fzf_compgen_path() {

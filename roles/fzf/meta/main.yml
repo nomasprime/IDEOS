@@ -1,4 +1,5 @@
 ---
 dependencies:
   - { role: base16-fzf }
+  - { role: bat }
   - { role: brew }
