@@ -298,8 +298,8 @@ nmap <Leader>c :Denite command_history<CR>
 nmap <Leader>C :Denite command<CR>
 nmap <Leader>d :DeniteProjectDir directory_rec<CR>
 nmap <Leader>f :DeniteProjectDir file/rec<CR>
-nnoremap <Leader>g :<C-u>DeniteCursorWord grep:.<CR>
-nnoremap <Leader>G :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
 nmap <Leader>l :Denite line<CR>
 nmap <Leader>m :Denite mark<CR>
 nmap <Leader>r :Denite register<CR>
