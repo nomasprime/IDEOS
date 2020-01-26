@@ -60,9 +60,10 @@
 
 - name: install vim plug plugins
   expect:
-    command: "{{ brew['prefix'] }}/bin/nvim --headless +PlugClean +y +qa && {{ brew['prefix'] }}/bin/nvim --headless +PlugInstall +qa"
+    command: "{{ brew['prefix'] }}/bin/nvim --headless +PlugInstall +qa && {{ brew['prefix'] }}/bin/nvim --headless +PlugClean +y +qa"
     responses:
       Delete all directories\? \(y/N\): "y\n"
+  ignore_errors: true
   when: config.changed
 
 - name: install coc-pairs
