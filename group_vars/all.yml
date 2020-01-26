@@ -8,10 +8,21 @@ exercism:
     token: 3dd7e081-f84a-49ec-98d0-087b8b74807b
     workspace: Organisations/nomas_prime/exercism
 fzf:
+  alt_c_command: fd --type d --exclude .git --follow --hidden
   bindkey_cd_widget: ^@d
   bindkey_file_widget: ^@f
   bindkey_history_widget: ^@c
+  default_command: &default_command fd --type f --exclude .git --follow --hidden
+  ctrl_t_command: *default_command
   default_opts: --inline-info --layout=reverse --preview-window='66%'
+  other_opts: |
+    _fzf_compgen_path() {
+      fd --exclude ".git" --follow --hidden . "$1"
+    }
+
+    _fzf_compgen_dir() {
+      fd --exclude ".git" --follow --hidden --type d . "$1"
+    }
 git:
   config:
     core:

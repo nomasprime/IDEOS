@@ -18,6 +18,20 @@ source "$HOME/.fzf/key-bindings.zsh"
 
 # Options
 # -------
+{% if fzf['alt_c_command'] != None %}
+FZF_ALT_C_COMMAND+="{{ fzf['alt_c_command'] }}"
+{% endif %}
+{% endif %}
+{% if fzf['ctrl_t_command'] != None %}
+FZF_CTRL_T_COMMAND+="{{ fzf['ctrl_t_command'] }}"
+{% endif %}
+{% if fzf['default_command'] != None %}
+FZF_DEFAULT_COMMAND+="{{ fzf['default_command'] }}"
+{% endif %}
 {% if fzf['default_opts'] != None %}
 FZF_DEFAULT_OPTS+="  {{ fzf['default_opts'] }}"
+{% endif %}
+{% if fzf['other_opts'] != None %}
+
+{{ fzf['other_opts'] }}
 {% endif %}
