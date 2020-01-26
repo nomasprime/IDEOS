@@ -15,3 +15,9 @@ source "{{ brew['prefix'] }}/opt/fzf/shell/key-bindings.{{ item }}"
 # Custom
 source "$HOME/.fzf/key-bindings.zsh"
 {% endif %}
+
+# Options
+# -------
+{% if fzf['default_opts'] != None %}
+FZF_DEFAULT_OPTS+="  {{ fzf['default_opts'] }}"
+{% endif %}

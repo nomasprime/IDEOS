@@ -11,6 +11,7 @@ fzf:
   bindkey_cd_widget: ^@d
   bindkey_file_widget: ^@f
   bindkey_history_widget: ^@c
+  default_opts: --inline-info --layout=reverse --preview-window='66%'
 git:
   config:
     core:
