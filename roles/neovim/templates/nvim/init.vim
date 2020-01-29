@@ -297,16 +297,16 @@ call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nmap <Leader>b :Denite buffer<CR>
-nmap <Leader>c :Denite command_history<CR>
-nmap <Leader>C :Denite command<CR>
-nmap <Leader>d :DeniteProjectDir directory_rec<CR>
-nmap <Leader>f :DeniteProjectDir file/rec<CR>
-nnoremap <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
-nnoremap <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
-nmap <Leader>l :Denite line<CR>
-nmap <Leader>m :Denite mark<CR>
-nmap <Leader>r :Denite register<CR>
+nnoremap <silent> <Leader>" :Denite register<CR>
+nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <silent> <Leader>b :Denite buffer<CR>
+nnoremap <silent> <Leader>c :Denite command<CR>
+nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
+nnoremap <silent> <Leader>g :Denite line<CR>
+nnoremap <silent> <Leader>r :Denite command_history<CR>
+nnoremap <silent> <Leader>t :DeniteProjectDir file/rec<CR>
+nnoremap <silent> <Leader>m :Denite mark<CR>
 
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
@@ -321,14 +321,14 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action')
   nnoremap <silent><buffer><expr> <Esc>
   \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Tab>
-  \ denite#do_map('toggle_select').'j'
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
   nnoremap <silent><buffer><expr> p
   \ denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> i
   \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> m
+  \ denite#do_map('toggle_select').'k'
 endfunction
 
 " Denite filter buffer maps
