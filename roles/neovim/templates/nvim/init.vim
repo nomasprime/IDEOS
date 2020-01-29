@@ -301,12 +301,12 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Shougo/denite.nvim
 let s:denite_options = {
-      \ 'auto_resize': 1,
-      \ 'reversed': 1,
-      \ 'source_names': 'short',
-      \ 'start_filter': 1,
-      \ 'statusline': 0,
-      \ }
+  \ 'auto_resize': 1,
+  \ 'reversed': 1,
+  \ 'source_names': 'short',
+  \ 'start_filter': 1,
+  \ 'statusline': 0,
+  \ }
 
 call denite#custom#option('default', s:denite_options)
 
