@@ -36,7 +36,7 @@ set directory=~/.nvim/temp
 set encoding=utf-8
 set hidden
 set list
-set listchars=tab:⮕\ , " U+2B95
+set listchars=tab:⭢\ , " U+2B62
 set fillchars=fold:-
 set shortmess=acFIT
 set showmatch
@@ -84,7 +84,7 @@ set nofixeol
 set linebreak
 set number
 set numberwidth=4
-let &showbreak='⮩ ' " U+2BA9
+let &showbreak='⮑ ' " U+2B91
 set nostartofline
 set wrapmargin=0
 
