@@ -4,6 +4,11 @@
     name: zsh
     state: present
 
+- name: install coreutils
+  homebrew:
+    name: coreutils
+    state: present
+
 - name: enable zsh
   become: true
   lineinfile:

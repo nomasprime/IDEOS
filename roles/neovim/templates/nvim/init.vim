@@ -280,6 +280,8 @@ augroup dirvish_config
   autocmd FileType dirvish xnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
 augroup END
 
+let g:dirvish_mode = ':sort | sort ,^.*/,'
+
 " justinmk/vim-sneak
 let g:sneak#streak = 1
 let g:sneak#use_ic_scs = 1
