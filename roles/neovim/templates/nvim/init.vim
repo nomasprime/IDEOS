@@ -202,6 +202,10 @@ Plug 'tpope/vim-eunuch'
 " Shell wrapper
 " https://github.com/tpope/vim-eunuch
 
+Plug 'tpope/vim-fugitive'
+" Shell wrapper
+" https://github.com/tpope/vim-fugitive
+
 Plug 'tpope/vim-projectionist'
 " Granular project configuration using projections
 " https://github.com/tpope/vim-projectionist
