@@ -7,6 +7,8 @@ bindkey '^T' transpose-chars
 bindkey "{{ fzf['bindkey_file_widget'] }}" fzf-file-widget
 {% endif %}
 {% if fzf['bindkey_history_widget'] != None %}
+{% if fzf['clobber_history_incremental_pattern_search_backward'] != true %}
 bindkey '^R' history-incremental-pattern-search-backward
+{% endif %}
 bindkey "{{ fzf['bindkey_history_widget'] }}" fzf-history-widget
 {% endif %}

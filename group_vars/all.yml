@@ -15,6 +15,7 @@ fzf:
   bindkey_cd_widget: ^@d
   bindkey_file_widget: ^@t
   bindkey_history_widget: ^@r
+  clobber_history_incremental_pattern_search_backward: true
   default_command: &default_command fd --type f --exclude .git --follow --hidden
   ctrl_t_command: *default_command
   ctrl_t_opts: --preview '(bat --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'
