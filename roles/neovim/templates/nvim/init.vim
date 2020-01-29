@@ -265,6 +265,21 @@ endfunction
 let g:test#custom_transformations = {'docker': function('DockerTransform')}
 let g:test#transformation = 'docker'
 
+" justinmk/vim-dirvish
+
+augroup dirvish_config
+  autocmd!
+
+  autocmd FileType dirvish silent! unmap <buffer> o
+  autocmd FileType dirvish nnoremap <silent><buffer> <C-s> :call dirvish#open('split', 1)<CR>
+  autocmd FileType dirvish silent! unmap <buffer> O
+  autocmd FileType dirvish xnoremap <silent><buffer> <C-s> :call dirvish#open('split', 1)<CR>
+  autocmd FileType dirvish silent! unmap <buffer> a
+  autocmd FileType dirvish nnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
+  autocmd FileType dirvish silent! unmap <buffer> A
+  autocmd FileType dirvish xnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
+augroup END
+
 " justinmk/vim-sneak
 let g:sneak#streak = 1
 let g:sneak#use_ic_scs = 1
