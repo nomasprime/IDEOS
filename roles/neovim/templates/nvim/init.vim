@@ -282,6 +282,8 @@ augroup END
 
 let g:dirvish_mode = ':sort | sort ,^.*/,'
 
+hi Directory cterm=bold gui=bold
+
 " justinmk/vim-sneak
 let g:sneak#streak = 1
 let g:sneak#use_ic_scs = 1
