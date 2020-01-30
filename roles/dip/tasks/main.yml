@@ -1,0 +1,16 @@
+---
+- name: tap dip repository
+  homebrew_tap:
+    name: bibendi/dip
+    state: present
+
+- name: install dip
+  homebrew:
+    name: dip
+    state: present
+
+- name: add config to zprofile
+  blockinfile:
+    block: eval "$(dip console)"
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: ~/.zprofile

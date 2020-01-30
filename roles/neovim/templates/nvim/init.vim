@@ -88,6 +88,10 @@ let &showbreak='⮑ ' " U+2B91
 set nostartofline
 set wrapmargin=0
 
+" Local Configuration
+set exrc
+set secure
+
 " Registers
 set clipboard=unnamed
 
@@ -111,6 +115,7 @@ set tags+=.tags
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
+set shell=$HOME/.config/nvim/shell_wrapper.sh
 
 " Widows
 set winwidth=80
@@ -139,7 +144,12 @@ Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
 
-Plug 'janko-m/vim-test'
+Plug 'tpope/vim-dispatch'
+" Commenting
+" https://github.com/tpope/vim-dispatch
+
+Plug 'nomasprime/vim-test'
+" Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
 
@@ -184,6 +194,10 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Intellisense engine
 " https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc-denite'
+
+Plug 'neomake/neomake'
+" Asynchronous linting and make framework
+" https://github.com/neomake/neomake
 
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
@@ -259,20 +273,12 @@ nmap <silent> <Leader>ts :TestSuite<CR>
 nmap <silent> <Leader>tl :TestLast<CR>
 nmap <silent> <Leader>tv :TestVisit<CR>
 
-let test#strategy = "neovim"
-
-function! DockerTransform(cmd) abort
-  return 'cd inf/development && docker-compose run -e "RAILS_ENV=test" web '.a:cmd.''
-endfunction
-
-let g:test#custom_transformations = {'docker': function('DockerTransform')}
-let g:test#transformation = 'docker'
+let g:test#ruby#bundle_exec = 0
+let test#strategy = "neomake"
 
 " justinmk/vim-dirvish
-
 augroup dirvish_config
   autocmd!
-
   autocmd FileType dirvish silent! unmap <buffer> o
   autocmd FileType dirvish nnoremap <silent><buffer> <C-s> :call dirvish#open('split', 1)<CR>
   autocmd FileType dirvish silent! unmap <buffer> O
@@ -305,6 +311,9 @@ omap T <Plug>Sneak_T
 
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
+
+" neomake/neomake
+call neomake#configure#automake('nw', 500)
 
 " Shougo/denite.nvim
 let s:denite_options = {
