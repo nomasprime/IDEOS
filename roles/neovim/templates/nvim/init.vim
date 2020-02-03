@@ -109,6 +109,9 @@ set signcolumn=yes
 " Tags
 set tags+=.tags
 
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+
 " Widows
 set winwidth=80
 
