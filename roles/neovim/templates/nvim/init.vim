@@ -348,8 +348,6 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'vsplit')
   nnoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
   nnoremap <silent><buffer><expr> p
@@ -358,12 +356,14 @@ function! s:denite_my_settings() abort
   \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> m
   \ denite#do_map('toggle_select').'k'
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
 endfunction
 
 " Denite filter buffer maps
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+  imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
   inoremap <silent><buffer><expr> <C-s>
         \ denite#do_map('do_action', 'split')
   inoremap <silent><buffer><expr> <C-t>
@@ -372,8 +372,6 @@ function! s:denite_filter_my_settings() abort
         \ denite#do_map('do_action', 'vsplit')
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
-  inoremap <silent><buffer><expr> <Esc>
-        \ denite#do_map('quit')
 endfunction
 
 " vim-airline/vim-airline
