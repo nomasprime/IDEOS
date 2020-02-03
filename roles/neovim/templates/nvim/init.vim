@@ -115,7 +115,6 @@ set tags+=.tags
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
-set shell=$HOME/.config/nvim/shell_wrapper.sh
 
 " Widows
 set winwidth=80
@@ -144,12 +143,7 @@ Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
 
-Plug 'tpope/vim-dispatch'
-" Commenting
-" https://github.com/tpope/vim-dispatch
-
-Plug 'nomasprime/vim-test'
-" Plug 'janko-m/vim-test'
+Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
 
@@ -273,8 +267,8 @@ nmap <silent> <Leader>ts :TestSuite<CR>
 nmap <silent> <Leader>tl :TestLast<CR>
 nmap <silent> <Leader>tv :TestVisit<CR>
 
-let g:test#ruby#bundle_exec = 0
-let test#strategy = "neomake"
+let test#neovim#term_position = 'vertical belowright'
+let test#strategy = 'neovim'
 
 " justinmk/vim-dirvish
 augroup dirvish_config

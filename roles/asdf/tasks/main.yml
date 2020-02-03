@@ -1,0 +1,16 @@
+---
+- name: install asdf
+  homebrew:
+    name: asdf
+    state: present
+
+- name: add config to rc
+  blockinfile:
+    block: source {{ brew['prefix'] }}/opt/asdf/asdf.sh
+    marker: "# {mark} {{ role_path|basename }} add config to rc"
+    path: ~/.zshrc
+
+- name: manage config
+  template:
+    dest: ~/.asdfrc
+    src: .asdfrc.j2
