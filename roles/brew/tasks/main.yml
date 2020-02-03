@@ -7,13 +7,3 @@
 
 - include: debian.yml
   when: ansible_os_family == 'Debian'
-
-- name: add path to rc
-  blockinfile:
-    block: export PATH="{{ brew['prefix'] }}/bin:{{ brew['prefix'] }}/sbin':$PATH"
-    create: yes
-    marker: "# {mark} {{ role_path|basename }} add config to rc"
-    path: "~/.{{ item }}"
-  with_items:
-    - bashrc
-    - zshrc
