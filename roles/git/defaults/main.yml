@@ -28,7 +28,5 @@ git:
     - \#*\#
     - /tags
     - /.bundle/
-    - .nvimrc
-    - .vimrc
 ideos:
   editor: vim

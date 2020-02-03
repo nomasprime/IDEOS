@@ -87,10 +87,6 @@ let &showbreak='⮑ ' " U+2B91
 set nostartofline
 set wrapmargin=0
 
-" Local Configuration
-set exrc
-set secure
-
 " Registers
 set clipboard=unnamed
 
