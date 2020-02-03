@@ -257,7 +257,7 @@ nmap <silent> <Leader>ts :TestSuite<CR>
 nmap <silent> <Leader>tl :TestLast<CR>
 nmap <silent> <Leader>tv :TestVisit<CR>
 
-let test#neovim#term_position = 'vertical belowright'
+let test#neovim#term_position = 'vertical botright'
 let test#strategy = 'neovim'
 
 " justinmk/vim-dirvish
