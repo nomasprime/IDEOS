@@ -8,7 +8,6 @@
 set termguicolors " ✓
 
 " Command and Status
-set cmdheight=2 " (see coc.nvim)
 set history=9999
 set laststatus=2
 set showcmd
@@ -183,11 +182,6 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'michaeljsmith/vim-indent-object'
 " Defines new text object based on indentation levels
 " https://github.com/michaeljsmith/vim-indent-object
-
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Intellisense engine
-" https://github.com/neoclide/coc.nvim
-Plug 'neoclide/coc-denite'
 
 Plug 'neomake/neomake'
 " Asynchronous linting and make framework

@@ -66,19 +66,6 @@
   ignore_errors: true
   when: config.changed
 
-- name: instal solargraph
-  gem:
-    name: solargraph
-    state: present
-
-- name: install CoC plug-ins
-  command:
-    cmd: "{{ brew['prefix'] }}/bin/nvim --headless +CocInstall\ coc-{{ item }} +qa"
-    creates: ~/.config/coc/extensions/node_modules/coc-pairs
-  with_items:
-    - pairs
-    - solargraph
-
   # TODO: Denite dependency
 - name: install pynim
   pip:
