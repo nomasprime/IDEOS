@@ -5,20 +5,18 @@ if ! type python3 &> /dev/null; then
   exit 1
 fi
 
-bin_path=/usr/local/bin
+pip3 install --upgrade pip
 
-${bin_path}/pip3 install --upgrade pip
-
-if ! ${bin_path}/pip3 list | grep ansible &> /dev/null; then
+if ! pip3 list | grep ansible &> /dev/null; then
   echo 'Installing ansible...'
-  ${bin_path}/pip3 install ansible
+  pip3 install ansible
 else
   echo 'Already installed ansible'
 fi
 
-if ! ${bin_path}/pip3 list | grep pexpect &> /dev/null; then
+if ! pip3 list | grep pexpect &> /dev/null; then
   echo 'Installing pexpect...'
-  ${bin_path}/pip3 install pexpect
+  pip3 install pexpect
 else
   echo 'Already installed pexpect'
 fi
@@ -32,4 +30,4 @@ else
   echo 'Already initialized inventory'
 fi
 
-${bin_path}/ansible-playbook --ask-become-pass --diff site.yml
+ansible-playbook --ask-become-pass --diff site.yml
