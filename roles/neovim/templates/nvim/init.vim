@@ -87,6 +87,12 @@ let &showbreak='⮑ ' " U+2B91
 set nostartofline
 set wrapmargin=0
 
+" Providers
+let g:node_host_prog="/usr/local/bin/neovim-node-host"
+let g:python_host_prog="/usr/local/bin/python2"
+let g:python3_host_prog="/usr/local/bin/python3"
+let g:ruby_host_prog="~/.gem/ruby/2.6.0/bin/neovim-ruby-host"
+
 " Registers
 set clipboard=unnamed
 
