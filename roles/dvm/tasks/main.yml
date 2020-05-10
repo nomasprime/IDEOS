@@ -1,0 +1,5 @@
+---
+- name: manage vagrantfile
+  template:
+    dest: "{{ playbook_dir }}/{{ global['build_dir'] }}"
+    src: Vagrantfile.j2
