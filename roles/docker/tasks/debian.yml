@@ -1,14 +1,13 @@
 ---
 - name: install dependencies
   apt:
-    name: "{{ item }}"
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
     state: present
   become: true
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
 
 - name: add repo apt key
   apt_key:

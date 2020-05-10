@@ -1,7 +1,9 @@
 ---
-- name: install git
+- name: install packages
   homebrew:
-    name: git
+    name:
+      - bfg
+      - git
     state: present
 
 - name: manage config
