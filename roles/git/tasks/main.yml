@@ -6,6 +6,12 @@
       - git
     state: present
 
+- name: install git-wip
+  get_url:
+    dest: "{{ brew['prefix'] }}/bin"
+    mode: 0755
+    url: https://raw.githubusercontent.com/nomasprime/git_wip/master/git-wip
+
 - name: manage config
   blockinfile:
     block: "{{ lookup('template', 'templates/.gitconfig.j2') }}"
