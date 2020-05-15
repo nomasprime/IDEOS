@@ -2,8 +2,8 @@
 - name: install packages
   homebrew:
     name:
-      - bfg
       - git
+      - git-filter-repo
     state: present
 
 - name: install git-wip
