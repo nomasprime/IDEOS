@@ -47,17 +47,6 @@
     global: true
     state: present
 
-- name: install python 2
-  homebrew:
-    name: python@2
-    state: present
-
-- name: install python 2 provider
-  pip:
-    executable: pip2
-    name: neovim
-    state: present
-
 - name: install python 3 provider
   pip:
     executable: pip3
