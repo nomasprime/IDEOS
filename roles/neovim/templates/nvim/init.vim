@@ -150,6 +150,10 @@ Plug 'haorenW1025/completion-nvim'
 " Autocompletion for NeoVim's built-in LSP
 " https://github.com/haorenW1025/completion-nvim
 
+Plug 'honza/vim-snippets'
+" Default snippets
+" https://github.com/honza/vim-snippets
+
 Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
@@ -211,6 +215,10 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Like a fuzzy finder but more generic
 " https://github.com/Shougo/denite.nvim
 
+Plug 'SirVer/ultisnips'
+" The ultimate snippet solution
+" https://github.com/sirver/UltiSnips
+
 Plug 'tpope/vim-abolish'
 " Working with word variants
 " https://github.com/tomtom/tlib_vim
@@ -269,6 +277,11 @@ hi! link WildMenu IncSearch
 hi! link Sneak IncSearch
 hi! link SneakLabel IncSearch
 hi! link SneakScope Visual
+
+" haorenW1025/completion-nvim
+let g:completion_enable_auto_paren = 0
+let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_timer_cycle = 200
 
 " janko-m/vim-test
 nmap <silent> <Leader>tn :TestNearest<CR>
@@ -392,6 +405,9 @@ function! s:denite_filter_my_settings() abort
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
 endfunction
+
+" SirVer/ultisnips
+let g:UltiSnipsEditSplit='vertical'
 
 " vim-airline/vim-airline
 let g:airline_left_alt_sep=''
