@@ -14,3 +14,25 @@
   template:
     dest: ~/.asdfrc
     src: .asdfrc.j2
+
+- name: install plugins
+  shell: asdf plugin add {{ item.name }}
+  args:
+    creates: "~/.asdf/plugins/{{ item.name }}"
+  with_items: "{{ asdf['plugins'] }}"
+
+- name: install versions
+  shell: asdf install {{ item.name }} {{ asdf['globals'][item.name] }}
+  args:
+    creates: "~/.asdf/installs/{{ item.name }}/{{ item.version | default(asdf['globals'][item.name]) }}"
+  with_items:
+    - "{{ asdf['plugins'] }}"
+
+- name: set global versions
+  lineinfile:
+    create: yes
+    path: ~/.tool-versions
+    regexp: "^{{ item.name }}"
+    line: "{{ item.name }} {{ asdf['globals'][item.name] }}"
+  with_items:
+    - "{{ asdf['plugins'] }}"

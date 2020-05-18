@@ -88,10 +88,9 @@ set nostartofline
 set wrapmargin=0
 
 " Providers
-let g:node_host_prog="/usr/local/bin/neovim-node-host"
-let g:python_host_prog="/usr/local/bin/python2"
-let g:python3_host_prog="/usr/local/bin/python3"
-let g:ruby_host_prog="~/.gem/ruby/2.6.0/bin/neovim-ruby-host"
+let g:node_host_prog="~/.asdf/installs/nodejs/14.2.0/.npm/bin/neovim-node-host"
+let g:python3_host_prog="~/.asdf/installs/python/3.8.3/bin/python"
+let g:ruby_host_prog="~/.asdf/installs/ruby/2.7.0/bin/neovim-ruby-host"
 
 " Registers
 set clipboard=unnamed

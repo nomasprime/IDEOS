@@ -1,5 +1,10 @@
 ---
 dependencies:
-  - { role: base16-shell }
-  - { role: brew }
-  - { role: fzf }
+  - role: asdf
+    vars:
+      asdf:
+        plugins:
+          - name: nodejs
+          - name: python
+          - name: ruby
+  - role: base16-shell
