@@ -192,6 +192,10 @@ Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
 " https://github.com/michaeljsmith/vim-indent-object
 
+Plug 'sheerun/vim-polyglot'
+" https://github.com/sheerun/vim-polyglot
+" A solid language pack
+
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Like a fuzzy finder but more generic
 " https://github.com/Shougo/denite.nvim
@@ -306,6 +310,9 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 " neomake/neomake
 call neomake#configure#automake('nw', 500)
+
+" sheerun/vim-polyglot
+let g:polyglot_disabled = ['latex']
 
 " Shougo/denite.nvim
 let s:denite_options = {
