@@ -320,7 +320,7 @@ omap T <Plug>Sneak_T
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " neomake/neomake
-call neomake#configure#automake('nw', 500)
+call neomake#configure#automake('nrwi', 500)
 
 " sheerun/vim-polyglot
 let g:polyglot_disabled = ['latex']
