@@ -61,3 +61,9 @@
       Delete all directories\? \(y/N\): "y\n"
   ignore_errors: true
   when: config.changed
+
+- name: install solargraph
+  gem:
+    name: solargraph
+    state: present
+    user_install: no

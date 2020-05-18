@@ -15,6 +15,9 @@ set visualbell
 set wildmenu
 set wildmode=full
 
+" Completion
+set completeopt=menuone,noinsert,noselect
+
 " Cursor
 set cursorline
 set guicursor=
@@ -143,6 +146,10 @@ Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
 
+Plug 'haorenW1025/completion-nvim'
+" Autocompletion for NeoVim's built-in LSP
+" https://github.com/haorenW1025/completion-nvim
+
 Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
@@ -187,6 +194,10 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'neomake/neomake'
 " Asynchronous linting and make framework
 " https://github.com/neomake/neomake
+
+Plug 'neovim/nvim-lsp'
+" Collection of common configurations for the Nvim LSP client
+" https://github.com/neovim/nvim-lsp
 
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
@@ -434,3 +445,5 @@ nnoremap [l :lprev<cr>zz
 " Tabs
 nnoremap ]t :tabn<cr>
 nnoremap [t :tabp<cr>
+
+luafile ~/.config/nvim/init.lua
