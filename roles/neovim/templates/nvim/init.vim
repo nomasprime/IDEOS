@@ -259,7 +259,7 @@ Plug 'vim-scripts/ExplainPattern'
 " Explains regex pattern
 " https://github.com/vim-scripts/ExplainPattern
 
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 " https://github.com/ryanoasis/vim-devicons
 call plug#end()
 
