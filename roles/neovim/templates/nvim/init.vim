@@ -15,9 +15,6 @@ set visualbell
 set wildmenu
 set wildmode=full
 
-" Completion
-set completeopt=menuone,noinsert,noselect
-
 " Cursor
 set cursorline
 set guicursor=
@@ -91,9 +88,9 @@ set nostartofline
 set wrapmargin=0
 
 " Providers
-let g:node_host_prog="~/.asdf/installs/nodejs/14.2.0/.npm/bin/neovim-node-host"
-let g:python3_host_prog="~/.asdf/installs/python/3.8.3/bin/python"
-let g:ruby_host_prog="~/.asdf/installs/ruby/2.7.0/bin/neovim-ruby-host"
+let g:node_host_prog=expand("~/.asdf/installs/nodejs/14.2.0/.npm/bin/neovim-node-host")
+let g:python3_host_prog=expand("~/.asdf/installs/python/3.8.3/bin/python")
+let g:ruby_host_prog=expand("~/.asdf/installs/ruby/2.7.0/bin/neovim-ruby-host")
 
 " Registers
 set clipboard=unnamed
@@ -145,10 +142,6 @@ Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
-
-Plug 'haorenW1025/completion-nvim'
-" Autocompletion for NeoVim's built-in LSP
-" https://github.com/haorenW1025/completion-nvim
 
 Plug 'honza/vim-snippets'
 " Default snippets
@@ -215,6 +208,11 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Like a fuzzy finder but more generic
 " https://github.com/Shougo/denite.nvim
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete-lsp'
+" Like a fuzzy finder but more generic
+" https://github.com/Shougo/deoplete.nvim
+
 Plug 'SirVer/ultisnips'
 " The ultimate snippet solution
 " https://github.com/sirver/UltiSnips
@@ -277,11 +275,6 @@ hi! link WildMenu IncSearch
 hi! link Sneak IncSearch
 hi! link SneakLabel IncSearch
 hi! link SneakScope Visual
-
-" haorenW1025/completion-nvim
-let g:completion_enable_auto_paren = 0
-let g:completion_enable_snippet = 'UltiSnips'
-let g:completion_timer_cycle = 200
 
 " janko-m/vim-test
 nmap <silent> <Leader>tn :TestNearest<CR>
@@ -395,6 +388,7 @@ endfunction
 " Denite filter buffer maps
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
+  call deoplete#custom#buffer_option('auto_complete', v:false)
   imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
   inoremap <silent><buffer><expr> <C-s>
         \ denite#do_map('do_action', 'split')
@@ -405,6 +399,9 @@ function! s:denite_filter_my_settings() abort
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
 endfunction
+
+" Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
 
 " SirVer/ultisnips
 let g:UltiSnipsEditSplit='vertical'
