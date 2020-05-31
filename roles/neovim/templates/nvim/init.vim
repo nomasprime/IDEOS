@@ -351,16 +351,16 @@ call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
+nnoremap <silent> <Leader>: :Denite command<CR>
+nnoremap <silent> <Leader>` :Denite mark<CR>
 nnoremap <silent> <Leader>" :Denite register<CR>
+nnoremap <silent> <Leader>- :DeniteProjectDir directory_rec<CR>
 nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <silent> <Leader>b :Denite buffer<CR>
-nnoremap <silent> <Leader>c :Denite command<CR>
-nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
+nnoremap <silent> <Leader>e :DeniteProjectDir file/rec<CR>
 nnoremap <silent> <Leader>g :Denite line<CR>
 nnoremap <silent> <Leader>r :Denite command_history<CR>
-nnoremap <silent> <Leader>t :DeniteProjectDir file/rec<CR>
-nnoremap <silent> <Leader>m :Denite mark<CR>
 
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
