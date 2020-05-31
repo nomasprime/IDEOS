@@ -82,7 +82,7 @@ set formatoptions=cqt
 set nofixeol
 set linebreak
 set number
-set numberwidth=4
+set numberwidth=3
 let &showbreak='⮑ ' " U+2B91
 set nostartofline
 set wrapmargin=0
@@ -108,7 +108,7 @@ set sidescrolloff=10
 set t_ti= t_te=
 
 " Sign Column
-set signcolumn=yes
+set signcolumn=yes:2
 
 " Tags
 set tags+=.tags
@@ -183,6 +183,10 @@ Plug 'mattn/gist-vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " History visualizer
 " https://github.com/mbbill/undotree
+
+Plug 'mhinz/vim-signify'
+" Show a diff in sign column
+" https://github.com/mhinz/vim-signify
 
 Plug 'michaeljsmith/vim-indent-object'
 " Defines new text object based on indentation levels
