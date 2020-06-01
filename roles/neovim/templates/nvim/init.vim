@@ -41,7 +41,6 @@ set shortmess=acFIT
 set showmatch
 set undodir=~/.nvim/undo
 set undofile
-set updatetime=300 " (see coc.nvim)
 silent !mkdir ~/.nvim/backup > /dev/null 2>&1
 silent !mkdir ~/.nvim/temp > /dev/null 2>&1
 silent !mkdir ~/.nvim/undo > /dev/null 2>&1
@@ -330,7 +329,26 @@ omap T <Plug>Sneak_T
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " neomake/neomake
-call neomake#configure#automake('nrwi', 500)
+function! s:on_battery()
+  if has('macunix')
+    return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
+  elseif has('unix')
+    return readfile('/sys/class/power_supply/AC/online') == ['0']
+  endif
+
+  return 0
+endfunction
+
+function! s:energy_saver(timer)
+  if s:on_battery()
+    call neomake#configure#automake('rw')
+  else
+    call neomake#configure#automake('nrw', 80)
+  endif
+endfunction
+
+call s:energy_saver(0)
+call timer_start(15000, function('s:energy_saver'), {'repeat': -1})
 
 " sheerun/vim-polyglot
 let g:polyglot_disabled = ['latex']
