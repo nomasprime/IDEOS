@@ -109,9 +109,6 @@ set t_ti= t_te=
 " Sign Column
 set signcolumn=yes:2
 
-" Tags
-set tags+=.tags
-
 " Terminal
 tnoremap <Esc> <C-\><C-n>
 
@@ -324,6 +321,9 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+" ludovicchabant/vim-gutentags
+g:gutentags_ctags_tagfile = '.tags'
 
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
