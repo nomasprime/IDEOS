@@ -188,9 +188,17 @@ Plug 'michaeljsmith/vim-indent-object'
 " Defines new text object based on indentation levels
 " https://github.com/michaeljsmith/vim-indent-object
 
+Plug 'milkypostman/vim-togglelist'
+" Bind a key to toggle the Location List and the Quickfix List
+" https://github.com/milkypostman/vim-togglelist
+
 Plug 'neomake/neomake'
 " Asynchronous linting and make framework
 " https://github.com/neomake/neomake
+
+Plug 'blueyed/vim-qf_resize'
+" Resize location/quickfix windows
+" https://github.com/blueyed/vim-qf_resize
 
 Plug 'neovim/nvim-lsp'
 " Collection of common configurations for the Nvim LSP client
