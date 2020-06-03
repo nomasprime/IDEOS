@@ -457,8 +457,8 @@ let g:airline#extensions#branch#format=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Buffers
-nnoremap ]b :bnext<cr>
-nnoremap [b :bprev<cr>
+nnoremap <silent> ]b :bnext<cr>
+nnoremap <silent> [b :bprev<cr>
 
 " Delete hidden buffers
 function! DeleteHiddenBuffers()
@@ -483,7 +483,7 @@ nnoremap <silent> ]l :Lnext<cr>
 nnoremap <silent> [l :Lprev<cr>
 
 " Tabs
-nnoremap ]t :tabn<cr>
-nnoremap [t :tabp<cr>
+nnoremap <silent> ]t :tabn<cr>
+nnoremap <silent> [t :tabp<cr>
 
 luafile ~/.config/nvim/init.lua
