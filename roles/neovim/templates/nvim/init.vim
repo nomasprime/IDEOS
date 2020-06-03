@@ -368,24 +368,28 @@ call timer_start(15000, function('s:energy_saver'), {'repeat': -1})
 let g:polyglot_disabled = ['latex']
 
 " Shougo/denite.nvim
-let s:denite_options = {
+call denite#custom#option('default', {
   \ 'auto_resize': 1,
+  \ 'highlight_matched_char': 'gitcommitBranch',
+  \ 'highlight_matched_range': 'SpellLocal',
+  \ 'match_highlight': 1,
   \ 'reversed': 1,
   \ 'source_names': 'short',
   \ 'start_filter': 1,
   \ 'statusline': 0,
-  \ }
-
-call denite#custom#option('default', s:denite_options)
+  \ })
 
 call denite#custom#kind('directory', 'default_action', 'open')
 call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--hidden'])
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+
+call denite#custom#var('grep', {
+  \ 'command': ['rg'],
+  \ 'default_opts': ['-i', '--vimgrep', '--no-heading', '--hidden'],
+  \ 'recursive_opts': [],
+  \ 'pattern_opt': ['--regexp'],
+  \ 'separator': ['--'],
+  \ 'final_opts': [],
+  \ })
 
 nnoremap <silent> <Leader>: :Denite command<CR>
 nnoremap <silent> <Leader>` :Denite mark<CR>
