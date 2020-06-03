@@ -12,8 +12,8 @@ exercism:
 fzf:
   alt_c_command: fd --type d --exclude .git --follow --hidden
   alt_c_opts: --preview 'tree -C {} | head -200'
-  bindkey_cd_widget: ^@d
-  bindkey_file_widget: ^@t
+  bindkey_cd_widget: ^@-
+  bindkey_file_widget: ^@e
   bindkey_history_widget: ^@r
   clobber_history_incremental_pattern_search_backward: true
   default_command: &default_command fd --type f --exclude .git --follow --hidden

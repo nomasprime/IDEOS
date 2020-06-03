@@ -1,0 +1,81 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+//	roles/neovim/templates/nvim/init.vim	/^nmap <silent> \/\/ :nohlsearch<CR>$/;"	m
+<C-h>	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <C-h> <<$/;"	m
+<C-j>	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <C-j> :move+<cr>$/;"	m
+<C-k>	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <C-k> :move-2<cr>$/;"	m
+<C-l>	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <C-l> >>$/;"	m
+<Down>	roles/neovim/templates/nvim/init.vim	/^inoremap <Down> <Nop>$/;"	m
+<Down>	roles/neovim/templates/nvim/init.vim	/^noremap <Down> <Nop>$/;"	m
+<Leader>"	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>" :Denite register<CR>$/;"	m
+<Leader>*	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>$/;"	m
+<Leader>-	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>- :DeniteProjectDir directory_rec<CR>$/;"	m
+<Leader>/	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>\/ :<C-u>Denite grep:. -no-empty<CR>$/;"	m
+<Leader>:	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>: :Denite command<CR>$/;"	m
+<Leader>`	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>` :Denite mark<CR>$/;"	m
+<Leader>b	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>b :Denite buffer<CR>$/;"	m
+<Leader>e	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>e :DeniteProjectDir file\/rec<CR>$/;"	m
+<Leader>g	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>g :Denite line<CR>$/;"	m
+<Leader>r	roles/neovim/templates/nvim/init.vim	/^nnoremap <silent> <Leader>r :Denite command_history<CR>$/;"	m
+<Leader>tf	roles/neovim/templates/nvim/init.vim	/^nmap <silent> <Leader>tf :TestFile<CR>$/;"	m
+<Leader>tl	roles/neovim/templates/nvim/init.vim	/^nmap <silent> <Leader>tl :TestLast<CR>$/;"	m
+<Leader>tn	roles/neovim/templates/nvim/init.vim	/^nmap <silent> <Leader>tn :TestNearest<CR>$/;"	m
+<Leader>ts	roles/neovim/templates/nvim/init.vim	/^nmap <silent> <Leader>ts :TestSuite<CR>$/;"	m
+<Leader>tv	roles/neovim/templates/nvim/init.vim	/^nmap <silent> <Leader>tv :TestVisit<CR>$/;"	m
+<Leader>u	roles/neovim/templates/nvim/init.vim	/^nnoremap <Leader>u :UndotreeToggle<CR>$/;"	m
+<Left>	roles/neovim/templates/nvim/init.vim	/^inoremap <Left> <Nop>$/;"	m
+<Left>	roles/neovim/templates/nvim/init.vim	/^noremap <Left> <Nop>$/;"	m
+<Right>	roles/neovim/templates/nvim/init.vim	/^inoremap <Right> <Nop>$/;"	m
+<Right>	roles/neovim/templates/nvim/init.vim	/^noremap <Right> <Nop>$/;"	m
+<Up>	roles/neovim/templates/nvim/init.vim	/^inoremap <Up> <Nop>$/;"	m
+<Up>	roles/neovim/templates/nvim/init.vim	/^noremap <Up> <Nop>$/;"	m
+Bdh	roles/neovim/templates/nvim/init.vim	/^command Bdh call DeleteHiddenBuffers()$/;"	c
+DeleteHiddenBuffers	roles/neovim/templates/nvim/init.vim	/^function! DeleteHiddenBuffers()$/;"	f
+F	roles/neovim/templates/nvim/init.vim	/^nmap F <Plug>Sneak_F$/;"	m
+F	roles/neovim/templates/nvim/init.vim	/^omap F <Plug>Sneak_F$/;"	m
+T	roles/neovim/templates/nvim/init.vim	/^nmap T <Plug>Sneak_T$/;"	m
+T	roles/neovim/templates/nvim/init.vim	/^omap T <Plug>Sneak_T$/;"	m
+Y	roles/neovim/templates/nvim/init.vim	/^nnoremap Y y\$$/;"	m
+[b	roles/neovim/templates/nvim/init.vim	/^nnoremap [b :bprev<cr>$/;"	m
+[l	roles/neovim/templates/nvim/init.vim	/^nnoremap [l :lprev<cr>zz$/;"	m
+[q	roles/neovim/templates/nvim/init.vim	/^nnoremap [q :cprev<cr>zz$/;"	m
+[t	roles/neovim/templates/nvim/init.vim	/^nnoremap [t :tabp<cr>$/;"	m
+]b	roles/neovim/templates/nvim/init.vim	/^nnoremap ]b :bnext<cr>$/;"	m
+]l	roles/neovim/templates/nvim/init.vim	/^nnoremap ]l :lnext<cr>zz$/;"	m
+]q	roles/neovim/templates/nvim/init.vim	/^nnoremap ]q :cnext<cr>zz$/;"	m
+]t	roles/neovim/templates/nvim/init.vim	/^nnoremap ]t :tabn<cr>$/;"	m
+base16colorspace	roles/neovim/templates/nvim/init.vim	/^  let base16colorspace=256$/;"	v
+denite_filter_my_settings	roles/neovim/templates/nvim/init.vim	/^function! s:denite_filter_my_settings() abort$/;"	f
+denite_my_settings	roles/neovim/templates/nvim/init.vim	/^function! s:denite_my_settings() abort$/;"	f
+dirvish_config	roles/neovim/templates/nvim/init.vim	/^augroup dirvish_config$/;"	a
+f	roles/neovim/templates/nvim/init.vim	/^nmap f <Plug>Sneak_f$/;"	m
+f	roles/neovim/templates/nvim/init.vim	/^omap f <Plug>Sneak_f$/;"	m
+g:UltiSnipsEditSplit	roles/neovim/templates/nvim/init.vim	/^let g:UltiSnipsEditSplit='vertical'$/;"	v
+g:airline#extensions#branch#displayed_head_limit	roles/neovim/templates/nvim/init.vim	/^let g:airline#extensions#branch#displayed_head_limit=20$/;"	v
+g:airline#extensions#branch#format	roles/neovim/templates/nvim/init.vim	/^let g:airline#extensions#branch#format=2$/;"	v
+g:airline#extensions#tagbar#enabled	roles/neovim/templates/nvim/init.vim	/^let g:airline#extensions#tagbar#enabled=0$/;"	v
+g:airline_left_alt_sep	roles/neovim/templates/nvim/init.vim	/^let g:airline_left_alt_sep=''$/;"	v
+g:airline_left_sep	roles/neovim/templates/nvim/init.vim	/^let g:airline_left_sep=''$/;"	v
+g:airline_powerline_fonts	roles/neovim/templates/nvim/init.vim	/^let g:airline_powerline_fonts=1$/;"	v
+g:airline_right_alt_sep	roles/neovim/templates/nvim/init.vim	/^let g:airline_right_alt_sep=''$/;"	v
+g:airline_right_sep	roles/neovim/templates/nvim/init.vim	/^let g:airline_right_sep=''$/;"	v
+g:airline_theme	roles/neovim/templates/nvim/init.vim	/^let g:airline_theme='base16'$/;"	v
+g:deoplete#enable_at_startup	roles/neovim/templates/nvim/init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
+g:dirvish_mode	roles/neovim/templates/nvim/init.vim	/^let g:dirvish_mode = ':sort | sort ,^.*\/,'$/;"	v
+g:gtfo#terminals	roles/neovim/templates/nvim/init.vim	/^let g:gtfo#terminals = { 'mac': 'iterm' }$/;"	v
+g:node_host_prog	roles/neovim/templates/nvim/init.vim	/^let g:node_host_prog=expand("~\/.asdf\/installs\/nodejs\/14.2.0\/.npm\/bin\/neovim-node-host")$/;"	v
+g:polyglot_disabled	roles/neovim/templates/nvim/init.vim	/^let g:polyglot_disabled = ['latex']$/;"	v
+g:python3_host_prog	roles/neovim/templates/nvim/init.vim	/^let g:python3_host_prog=expand("~\/.asdf\/installs\/python\/3.8.3\/bin\/python")$/;"	v
+g:ruby_host_prog	roles/neovim/templates/nvim/init.vim	/^let g:ruby_host_prog=expand("~\/.asdf\/installs\/ruby\/2.7.0\/bin\/neovim-ruby-host")$/;"	v
+g:sneak#streak	roles/neovim/templates/nvim/init.vim	/^let g:sneak#streak = 1$/;"	v
+g:sneak#use_ic_scs	roles/neovim/templates/nvim/init.vim	/^let g:sneak#use_ic_scs = 1$/;"	v
+mapleader	roles/neovim/templates/nvim/init.vim	/^let mapleader="\\<Space>"$/;"	v
+s:denite_options	roles/neovim/templates/nvim/init.vim	/^let s:denite_options = {$/;"	v
+t	roles/neovim/templates/nvim/init.vim	/^nmap t <Plug>Sneak_t$/;"	m
+t	roles/neovim/templates/nvim/init.vim	/^omap t <Plug>Sneak_t$/;"	m
+test#neovim#term_position	roles/neovim/templates/nvim/init.vim	/^let test#neovim#term_position = 'vertical botright'$/;"	v
+test#strategy	roles/neovim/templates/nvim/init.vim	/^let test#strategy = 'neovim'$/;"	v
