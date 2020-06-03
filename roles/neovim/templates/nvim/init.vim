@@ -472,12 +472,15 @@ endfunction
 
 command Bdh call DeleteHiddenBuffers()
 
-
-" Quickfix
-nnoremap ]q :cnext<cr>zz
-nnoremap [q :cprev<cr>zz
-nnoremap ]l :lnext<cr>zz
-nnoremap [l :lprev<cr>zz
+" Lists
+command! Cnext try | silent! cnext | catch | silent! cfirst | catch | endtry
+command! Cprev try | silent! cprev | catch | silent! clast | catch | endtry
+command! Lnext try | silent! lnext | catch | silent! lfirst | catch | endtry
+command! Lprev try | silent! lprev | catch | silent! llast | catch | endtry
+nnoremap <silent> ]q :Cnext<cr>
+nnoremap <silent> [q :Cprev<cr>
+nnoremap <silent> ]l :Lnext<cr>
+nnoremap <silent> [l :Lprev<cr>
 
 " Tabs
 nnoremap ]t :tabn<cr>
