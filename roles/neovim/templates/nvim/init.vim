@@ -380,6 +380,7 @@ call denite#custom#option('default', {
   \ })
 
 call denite#custom#kind('directory', 'default_action', 'open')
+call denite#custom#source('command_history', 'sorters', [])
 call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--hidden'])
 
 call denite#custom#var('grep', {
