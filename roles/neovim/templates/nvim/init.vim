@@ -107,7 +107,7 @@ set sidescrolloff=10
 set t_ti= t_te=
 
 " Sign Column
-set signcolumn=yes:2
+set signcolumn=yes:3
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
@@ -225,6 +225,10 @@ Plug 'tpope/vim-commentary'
 " Commenting
 " https://github.com/tpope/vim-commentary
 
+Plug 'tpope/vim-dispatch'
+" Commenting
+" https://github.com/tpope/vim-commentary
+
 Plug 'tpope/vim-eunuch'
 " Shell wrapper
 " https://github.com/tpope/vim-eunuch
@@ -283,8 +287,7 @@ nmap <silent> <Leader>ts :TestSuite<CR>
 nmap <silent> <Leader>tl :TestLast<CR>
 nmap <silent> <Leader>tv :TestVisit<CR>
 
-let test#neovim#term_position = 'vertical botright'
-let test#strategy = 'neovim'
+let test#strategy = 'neomake'
 
 " justinmk/vim-dirvish
 augroup dirvish_config
@@ -323,12 +326,15 @@ omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 
 " ludovicchabant/vim-gutentags
-g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_ctags_tagfile = '.tags'
 
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " neomake/neomake
+let g:neomake_echo_current_error = 0
+let g:neomake_postprocess = 'neomake#postprocess#compress_whitespace'
+
 function! s:on_battery()
   if has('macunix')
     return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
