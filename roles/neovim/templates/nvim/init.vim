@@ -81,7 +81,7 @@ set formatoptions=cqt
 set nofixeol
 set linebreak
 set number
-set numberwidth=3
+set numberwidth=4
 let &showbreak='⮑ ' " U+2B91
 set nostartofline
 set wrapmargin=0
@@ -270,9 +270,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ExplainPattern'
 " Explains regex pattern
 " https://github.com/vim-scripts/ExplainPattern
-
-" Plug 'ryanoasis/vim-devicons'
-" https://github.com/ryanoasis/vim-devicons
 call plug#end()
 
 " chriskempson/base16-vim
