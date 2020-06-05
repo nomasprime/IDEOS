@@ -63,6 +63,7 @@ set tabstop=2
 
 " Keys
 let mapleader="\<Space>"
+let maplocalleader="\\"
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
@@ -221,6 +222,10 @@ Plug 'Shougo/deoplete-lsp'
 " Like a fuzzy finder but more generic
 " https://github.com/Shougo/deoplete.nvim
 
+Plug 'Shougo/neoyank.vim'
+" Saves yank history
+" https://github.com/Shougo/neoyank.vim
+
 Plug 'SirVer/ultisnips'
 " The ultimate snippet solution
 " https://github.com/sirver/UltiSnips
@@ -270,6 +275,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ExplainPattern'
 " Explains regex pattern
 " https://github.com/vim-scripts/ExplainPattern
+
+Plug 'weilbith/nvim-lsp-denite'
+" Aditional denite.nvim sources by the Language Server Protocol
+" https://github.com/weilbith/nvim-lsp-denite
 call plug#end()
 
 " chriskempson/base16-vim
@@ -361,6 +370,13 @@ endfunction
 call s:energy_saver(0)
 call timer_start(15000, function('s:energy_saver'), {'repeat': -1})
 
+nnoremap <silent> <localleader>* <cmd>lua vim.lsp.buf.document_highlight()<CR>
+nnoremap <silent> <localleader>d <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>] <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>) <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <leader>> <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <leader>ss <cmd>lua vim.lsp.buf.rename()<CR>
+
 " sheerun/vim-polyglot
 let g:polyglot_disabled = ['latex']
 
@@ -391,14 +407,21 @@ call denite#custom#var('grep', {
 
 nnoremap <silent> <Leader>: :Denite command<CR>
 nnoremap <silent> <Leader>` :Denite mark<CR>
+nnoremap <silent> <LocalLeader>] :Denite outline<CR>
 nnoremap <silent> <Leader>" :Denite register<CR>
 nnoremap <silent> <Leader>- :DeniteProjectDir directory_rec<CR>
+nnoremap <silent> <Leader># :Denite lsp_references<CR>
+nnoremap <silent> <LocalLeader>s :Denite lsp_symbols:document<CR>
+" nnoremap <silent> <Leader>s :Denite lsp_symbols:workspace<CR>
 nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
+nnoremap <silent> <LocalLeader>/ :Denite line<CR>
 nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <silent> <Leader>b :Denite buffer<CR>
+nnoremap <silent> <LocalLeader>c :Denite change<CR>
 nnoremap <silent> <Leader>e :DeniteProjectDir file/rec<CR>
-nnoremap <silent> <Leader>g :Denite line<CR>
+nnoremap <silent> <Leader>j :Denite jump<CR>
 nnoremap <silent> <Leader>r :Denite command_history<CR>
+nnoremap <silent> <Leader>y :Denite neoyank<CR>
 
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
