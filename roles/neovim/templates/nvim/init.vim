@@ -352,6 +352,10 @@ nmap <silent> ]H 9999]c
 nmap <silent> [H 9999[c
 nmap <silent> <LocalLeader>h :SignifyHunkDiff<CR>
 nmap <silent> uh :SignifyHunkUndo<CR>
+omap ih <plug>(signify-motion-inner-pending)
+xmap ih <plug>(signify-motion-inner-visual)
+omap ah <plug>(signify-motion-outer-pending)
+xmap ah <plug>(signify-motion-outer-visual)
 
 " neomake/neomake
 let g:neomake_echo_current_error = 0
