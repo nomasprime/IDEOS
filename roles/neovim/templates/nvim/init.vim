@@ -345,6 +345,14 @@ let g:gutentags_ctags_tagfile = '.tags'
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
+" mhinz/vim-signify
+nmap <silent> ]h <plug>(signify-next-hunk)
+nmap <silent> [h <plug>(signify-prev-hunk)
+nmap <silent> ]H 9999]c
+nmap <silent> [H 9999[c
+nmap <silent> <LocalLeader>h :SignifyHunkDiff<CR>
+nmap <silent> uh :SignifyHunkUndo<CR>
+
 " neomake/neomake
 let g:neomake_echo_current_error = 0
 let g:neomake_postprocess = 'neomake#postprocess#compress_whitespace'
