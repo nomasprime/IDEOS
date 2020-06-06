@@ -36,7 +36,7 @@ set encoding=utf-8
 set hidden
 set list
 set listchars=tab:⭢\ , " U+2B62
-set fillchars=fold:-
+set fillchars=fold:-,vert:│
 set shortmess=acFIT
 set showmatch
 set undodir=~/.nvim/undo
@@ -108,7 +108,7 @@ set sidescrolloff=10
 set t_ti= t_te=
 
 " Sign Column
-set signcolumn=auto
+set signcolumn=yes
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
@@ -287,12 +287,29 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-hi Comment cterm=italic gui=italic
-hi! link Search IncSearch
-hi! link WildMenu IncSearch
-hi! link Sneak IncSearch
-hi! link SneakLabel IncSearch
-hi! link SneakScope Visual
+function! s:update_highlights()
+  hi Comment cterm=italic gui=italic
+  call NeoCursorLine(0.66, v:true, v:true)
+  hi CursorLineNr ctermbg=none guibg=none
+  hi LineNr ctermbg=none guibg=none
+  hi SignColumn ctermbg=none guibg=none
+  hi VertSplit ctermbg=none guibg=none
+  hi DiffAdd ctermbg=none guibg=none
+  hi DiffDelete ctermbg=none guibg=none
+  hi DiffChange ctermbg=none guibg=none
+  hi FoldColumn ctermbg=none guibg=none
+  hi Folded ctermbg=none guibg=none
+  hi SignifySignAdd ctermbg=none guibg=none
+  hi SignifySignDelete ctermbg=none guibg=none
+  hi SignifySignChange ctermbg=none guibg=none
+  hi! link Search IncSearch
+  hi! link Sneak IncSearch
+  hi! link SneakLabel IncSearch
+  hi! link SneakScope Visual
+  hi! link WildMenu IncSearch
+endfunction
+
+autocmd User AirlineAfterTheme call s:update_highlights()
 
 " janko-m/vim-test
 nmap <silent> <Leader>tn :TestNearest<CR>
@@ -480,14 +497,26 @@ let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsEditSplit='vertical'
 
 " vim-airline/vim-airline
-let g:airline_left_alt_sep=''
-let g:airline_left_sep=''
-let g:airline_powerline_fonts=1
-let g:airline_right_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_theme='base16'
-let g:airline#extensions#branch#displayed_head_limit=20
-let g:airline#extensions#branch#format=2
+function! WindowNumber(...)
+  let builder = a:1
+  let context = a:2
+  call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())} ')
+
+  return 0
+endfunction
+
+call airline#add_statusline_func('WindowNumber')
+call airline#add_inactive_statusline_func('WindowNumber')
+
+let g:airline_left_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_powerline_fonts = 1
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_theme = 'base16'
+let g:airline#extensions#branch#displayed_head_limit = 20
+let g:airline#extensions#branch#format = 2
+let g:airline#extensions#lsp#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lib
