@@ -367,8 +367,8 @@ nmap <silent> ]h <plug>(signify-next-hunk)
 nmap <silent> [h <plug>(signify-prev-hunk)
 nmap <silent> ]H 9999]c
 nmap <silent> [H 9999[c
-nmap <silent> <LocalLeader>h :SignifyHunkDiff<CR>
-nmap <silent> uh :SignifyHunkUndo<CR>
+nmap <silent> <LocalLeader>hd :SignifyHunkDiff<CR>
+nmap <silent> <LocalLeader>hu :SignifyHunkUndo<CR>
 omap ih <plug>(signify-motion-inner-pending)
 xmap ih <plug>(signify-motion-inner-visual)
 omap ah <plug>(signify-motion-outer-pending)
@@ -399,6 +399,7 @@ endfunction
 call s:energy_saver(0)
 call timer_start(15000, function('s:energy_saver'), {'repeat': -1})
 
+" neovim/nvim-lsp
 nnoremap <silent> <localleader>* <cmd>lua vim.lsp.buf.document_highlight()<CR>
 nnoremap <silent> <localleader>d <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>] <cmd>lua vim.lsp.buf.definition()<CR>
