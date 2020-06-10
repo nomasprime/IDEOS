@@ -67,3 +67,21 @@
     name: solargraph
     state: present
     user_install: no
+
+- name: install flog
+  gem:
+    name: flog
+    state: present
+    user_install: no
+
+- name: install rubocop
+  gem:
+    name: rubocop
+    state: present
+    user_install: no
+
+- name: install reek
+  gem:
+    name: reek
+    state: present
+    user_install: no
