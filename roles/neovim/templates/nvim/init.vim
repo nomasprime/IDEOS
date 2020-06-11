@@ -108,7 +108,7 @@ set sidescrolloff=10
 set t_ti= t_te=
 
 " Sign Column
-set signcolumn=yes
+set signcolumn=auto:4
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
