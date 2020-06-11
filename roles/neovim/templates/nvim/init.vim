@@ -110,6 +110,10 @@ set t_ti= t_te=
 " Sign Column
 set signcolumn=auto:4
 
+" Splits
+set splitbelow
+set splitright
+
 " Terminal
 tnoremap <Esc> <C-\><C-n>
 
