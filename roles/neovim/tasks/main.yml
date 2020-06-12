@@ -85,3 +85,21 @@
     name: reek
     state: present
     user_install: no
+
+- name: install python-language-server
+  pip:
+    executable: pip3
+    name: python-language-server
+    state: present
+
+- name: install flake8
+  pip:
+    executable: pip3
+    name: flake8
+    state: present
+
+- name: install mypy
+  pip:
+    executable: pip3
+    name: mypy
+    state: present
