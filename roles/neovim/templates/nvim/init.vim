@@ -545,6 +545,17 @@ endfunction
 
 command Bdh call DeleteHiddenBuffers()
 
+" Line Numbers
+set number relativenumber
+
+augroup number_toggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+nnoremap <silent> <C-n> :set relativenumber!<CR>
+
 " Lists
 command! Cnext try | silent! cnext | catch | silent! cfirst | catch | endtry
 command! Cprev try | silent! cprev | catch | silent! clast | catch | endtry
