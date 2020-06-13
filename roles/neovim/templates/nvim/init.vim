@@ -530,6 +530,9 @@ let g:airline#extensions#lsp#enabled = 1
 nnoremap <silent> ]b :bnext<cr>
 nnoremap <silent> [b :bprev<cr>
 
+" Copy/past/move
+autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Visual', 500)
+
 " Delete hidden buffers
 function! DeleteHiddenBuffers()
   let tpbl=[]
