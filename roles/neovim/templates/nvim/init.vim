@@ -306,11 +306,10 @@ function! s:update_highlights()
   hi SignifySignAdd ctermbg=none guibg=none
   hi SignifySignDelete ctermbg=none guibg=none
   hi SignifySignChange ctermbg=none guibg=none
-  hi! link Search IncSearch
   hi! link Sneak IncSearch
   hi! link SneakLabel IncSearch
   hi! link SneakScope Visual
-  hi! link WildMenu IncSearch
+  hi! link WildMenu Search
 endfunction
 
 autocmd User AirlineAfterTheme call s:update_highlights()
