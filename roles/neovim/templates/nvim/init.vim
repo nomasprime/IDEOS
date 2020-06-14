@@ -213,6 +213,9 @@ Plug 'neovim/nvim-lsp'
 " Collection of common configurations for the Nvim LSP client
 " https://github.com/neovim/nvim-lsp
 
+Plug 'nomasprime/neocursorline.nvim', { 'do': { -> neocursorline#install() } }
+" https://github.com/nomasprime/neocursorline.nvim
+
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
 " https://github.com/michaeljsmith/vim-indent-object
@@ -297,7 +300,7 @@ endif
 
 function! s:update_highlights()
   hi Comment cterm=italic gui=italic
-  call NeoCursorLine(0.66, v:true, v:true)
+  call NeoCursorLine(6, v:true, v:true)
   hi CursorLineNr ctermbg=none guibg=none
   hi LineNr ctermbg=none guibg=none
   hi SignColumn ctermbg=none guibg=none
