@@ -388,27 +388,6 @@ xmap ah <plug>(signify-motion-outer-visual)
 let g:neomake_echo_current_error = 0
 let g:neomake_postprocess = 'neomake#postprocess#compress_whitespace'
 
-function! s:on_battery()
-  if has('macunix')
-    return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
-  elseif has('unix')
-    return readfile('/sys/class/power_supply/AC/online') == ['0']
-  endif
-
-  return 0
-endfunction
-
-function! s:energy_saver(timer)
-  if s:on_battery()
-    call neomake#configure#automake('rw')
-  else
-    call neomake#configure#automake('nrw', 80)
-  endif
-endfunction
-
-call s:energy_saver(0)
-call timer_start(15000, function('s:energy_saver'), {'repeat': -1})
-
 " neovim/nvim-lsp
 nnoremap <silent> <localleader>* <cmd>lua vim.lsp.buf.document_highlight()<CR>
 nnoremap <silent> <localleader>d <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -537,10 +516,6 @@ let g:airline#extensions#lsp#enabled = 1
 nnoremap <silent> ]b :bnext<cr>
 nnoremap <silent> [b :bprev<cr>
 
-" Copy/past/move
-autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Visual', 500)
-
-" Delete hidden buffers
 function! DeleteHiddenBuffers()
   let tpbl=[]
   call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
@@ -551,6 +526,33 @@ function! DeleteHiddenBuffers()
 endfunction
 
 command Bdh call DeleteHiddenBuffers()
+
+" Copy/Paste/Move
+autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Visual', 500)
+
+" Energy Saver
+function! s:on_battery()
+  if has('macunix')
+    return match(system('pmset -g batt'), "Now drawing from 'Battery Power'") != -1
+  elseif has('unix')
+    return readfile('/sys/class/power_supply/AC/online') == ['0']
+  endif
+
+  return 0
+endfunction
+
+function! s:energy_saver(timer)
+  if s:on_battery()
+    set updatetime=2500
+    call neomake#configure#automake('rw')
+  else
+    set updatetime=500
+    call neomake#configure#automake('nrw', 500)
+  endif
+endfunction
+
+call s:energy_saver(0)
+call timer_start(15000, function('s:energy_saver'), {'repeat': -1})
 
 " Line Numbers
 set number relativenumber
