@@ -18,11 +18,11 @@ set wildmode=full
 " Cursor
 set cursorline
 
-set guicursor=n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50
+au VimEnter,VimResume * set guicursor=n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50
   \,a:blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
   \,sm:block-blinkwait175-blinkoff150-blinkon175
 
-au VimLeave * set guicursor=a:ver25
+au VimLeave,VimSuspend * set guicursor=a:ver25
 
 set selection=inclusive
 set virtualedit=block
