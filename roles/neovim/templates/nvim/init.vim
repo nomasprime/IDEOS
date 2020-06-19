@@ -154,13 +154,13 @@ Plug 'honza/vim-snippets'
 " Default snippets
 " https://github.com/honza/vim-snippets
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Markdown
+" https://github.com/iamcco/markdown-preview.nvim
+
 Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
-
-Plug 'junegunn/vim-xmark', { 'do': 'make' }
-" Markdown preview in Chrome
-" https://github.com/junegunn/vim-xmark
 
 Plug 'justinmk/vim-dirvish'
 " Directory viewer (netrw alternative)
@@ -322,6 +322,10 @@ function! s:update_highlights()
 endfunction
 
 autocmd User AirlineAfterTheme call s:update_highlights()
+
+" iamcco/markdown-preview.nvim
+let g:mkdp_page_title = '${name}'
+nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
 
 " janko-m/vim-test
 nmap <silent> <Leader>tn :TestNearest<CR>
