@@ -15,6 +15,9 @@ set visualbell
 set wildmenu
 set wildmode=full
 
+" Completion
+set completeopt-=preview
+
 " Cursor
 set cursorline
 
