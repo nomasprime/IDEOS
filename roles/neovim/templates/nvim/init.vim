@@ -190,6 +190,10 @@ Plug 'mattn/gist-vim'
 " Create Gists
 " https://github.com/mattn/gist-vim
 
+Plug 'mattn/webapi-vim'
+" Web API interface
+" https://github.com/mattn/webapi-vim
+
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " History visualizer
 " https://github.com/mbbill/undotree

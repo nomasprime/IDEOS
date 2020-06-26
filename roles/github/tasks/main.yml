@@ -27,6 +27,8 @@
 - name: manage gitconfig
   blockinfile:
     block: |
+      [github]
+        user = {{ github['users'][0]['name'] }}
       [hub]
         protocol = {{ github['config']['hub']['protocol'] }}
     marker: "# {mark} {{ role_path|basename }} manage config"
