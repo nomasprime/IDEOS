@@ -1,3 +1,5 @@
 ---
 base16_fzf:
-  theme: base16-default-dark
+  themes:
+    alt: base16-default-light
+    default: base16-default-dark

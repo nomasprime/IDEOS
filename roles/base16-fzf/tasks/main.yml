@@ -9,7 +9,11 @@
 - name: add config to rc
   blockinfile:
     block: |
-      source "$HOME/.config/base16-fzf/bash/{{ base16_fzf['theme'] }}.config"
+      if [ $ITERM_PROFILE = "Alt" ]; then
+        source "$HOME/.config/base16-fzf/bash/{{ base16_fzf['themes']['alt'] }}.config"
+      else
+        source "$HOME/.config/base16-fzf/bash/{{ base16_fzf['themes']['default'] }}.config"
+      fi
     create: yes
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: ~/.{{ item }}rc

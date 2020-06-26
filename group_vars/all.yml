@@ -1,8 +1,12 @@
 ---
 base16_fzf:
-  theme: base16-helios
+  themes:
+    alt: base16-mexico-light
+    default: base16-helios
 base16_shell:
-  theme: base16_helios
+  themes:
+    alt: base16_mexico-light
+    default: base16_helios
 bat:
   style: header,numbers
 exercism:

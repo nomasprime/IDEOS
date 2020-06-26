@@ -11,7 +11,12 @@
     block: |
       BASE16_SHELL="$HOME/.config/base16-shell"
       [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-      {{ base16_shell['theme'] }}
+
+      if [ $ITERM_PROFILE = "Alt" ]; then
+        {{ base16_shell['themes']['alt'] }}
+      else
+        {{ base16_shell['themes']['default'] }}
+      fi
     create: yes
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: ~/.{{ item }}rc

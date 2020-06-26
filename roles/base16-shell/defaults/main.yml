@@ -1,3 +1,5 @@
 ---
 base16_shell:
-  theme: base16_default-dark
+  themes:
+    alt: base16_default-light
+    default: base16_default-dark
