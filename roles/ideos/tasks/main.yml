@@ -3,3 +3,19 @@
   file:
     path: "{{ ideos['build_dir'] }}"
     state: directory
+
+- name: create bin directory
+  file:
+    path: "{{ ideos['bin_dir'] }}"
+    state: directory
+
+- name: add bin directory to path
+  blockinfile:
+    block: |
+      export PATH={{ ideos['bin_dir'] }}:$PATH
+    create: yes
+    marker: "# {mark} {{ role_path|basename }} add bin directory to path"
+    path: ~/.{{ item }}rc
+  with_items:
+    - bash
+    - zsh

@@ -1,2 +1,3 @@
 ideos:
+  bin_dir: ~/.bin
   build_dir: "{{ playbook_dir }}/.ideos"
