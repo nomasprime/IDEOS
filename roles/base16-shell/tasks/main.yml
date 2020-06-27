@@ -23,3 +23,28 @@
   with_items:
     - bash
     - zsh
+
+- name: add toggle
+  blockinfile:
+    block: |
+      base16_toggle()
+      {
+        default_theme={{ base16_shell['themes']['default']|replace("base16_", "") }}
+        alt_theme={{ base16_shell['themes']['alt']|replace("base16_", "") }}
+
+        if [ $BASE16_THEME = $default_theme ]; then
+          _base16 ~/.config/base16-shell/scripts/base16-$alt_theme.sh $alt_theme
+          source "$HOME/.config/base16-fzf/bash/base16-$alt_theme.config"
+        else
+          _base16 ~/.config/base16-shell/scripts/base16-$default_theme.sh $default_theme
+          source "$HOME/.config/base16-fzf/bash/base16-$default_theme.config"
+        fi
+
+        source ~/.fzf/init.{{ item }}
+      }
+    create: yes
+    marker: "# {mark} {{ role_path|basename }} add toggle"
+    path: ~/.{{ item }}rc
+  with_items:
+    - bash
+    - zsh
