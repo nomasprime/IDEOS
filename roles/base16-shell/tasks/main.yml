@@ -42,6 +42,8 @@
 
         source ~/.fzf/init.{{ item }}
       }
+
+      alias tt=base16_toggle
     create: yes
     marker: "# {mark} {{ role_path|basename }} add toggle"
     path: ~/.{{ item }}rc
