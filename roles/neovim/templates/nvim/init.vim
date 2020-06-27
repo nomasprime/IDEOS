@@ -302,10 +302,15 @@ Plug 'weilbith/nvim-lsp-denite'
 call plug#end()
 
 " chriskempson/base16-vim
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+function! s:base16_theme()
+  if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+  endif
+endfunction
+
+call s:base16_theme()
+autocmd VimResume * call s:base16_theme()
 
 function! s:update_highlights()
   hi Comment cterm=italic gui=italic
@@ -329,6 +334,7 @@ function! s:update_highlights()
 endfunction
 
 autocmd User AirlineAfterTheme call s:update_highlights()
+autocmd ColorScheme * call s:update_highlights()
 
 " iamcco/markdown-preview.nvim
 let g:mkdp_page_title = '${name}'
