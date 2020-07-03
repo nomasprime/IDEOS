@@ -573,8 +573,14 @@ function! s:on_battery()
   return 0
 endfunction
 
+let s:energy_saver_on_battery = -1
+
 function! s:energy_saver(timer)
-  if s:on_battery()
+  let s:on_battery = s:on_battery()
+  if s:energy_saver_on_battery == s:on_battery | return | endif
+  let s:energy_saver_on_battery = s:on_battery
+
+  if s:energy_saver_on_battery
     set updatetime=2500
     call neomake#configure#automake('rw')
   else
