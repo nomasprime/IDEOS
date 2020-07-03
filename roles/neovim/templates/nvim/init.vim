@@ -19,6 +19,7 @@ set wildmode=full
 set completeopt-=preview
 
 " Cursor
+set cursorcolumn
 set cursorline
 
 augroup nomasprime_cursor
@@ -322,7 +323,14 @@ augroup END
 
 function! s:update_highlights()
   hi Comment cterm=italic gui=italic
-  call NeoCursorLine(6, v:true, v:true)
+
+  call NeoCursorLine({
+  \ 'dim': 6,
+  \ 'cursor_column_dim': 3,
+  \ 'pop': 1,
+  \ 'visual': 1,
+  \ })
+
   hi CursorLineNr ctermbg=none guibg=none
   hi LineNr ctermbg=none guibg=none
   hi SignColumn ctermbg=none guibg=none
