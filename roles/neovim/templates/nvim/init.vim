@@ -21,11 +21,15 @@ set completeopt-=preview
 " Cursor
 set cursorline
 
-au VimEnter,VimResume * set guicursor=n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50
-  \,a:blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
-  \,sm:block-blinkwait175-blinkoff150-blinkon175
+augroup nomasprime_cursor
+  autocmd!
 
-au VimLeave,VimSuspend * set guicursor=a:ver25
+  autocmd VimEnter,VimResume * set guicursor=n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50
+    \,a:blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
+    \,sm:block-blinkwait175-blinkoff150-blinkon175
+
+  autocmd VimLeave,VimSuspend * set guicursor=a:ver25
+augroup END
 
 set selection=inclusive
 set virtualedit=block
@@ -310,7 +314,11 @@ function! s:base16_theme()
 endfunction
 
 call s:base16_theme()
-autocmd VimResume * call s:base16_theme()
+
+augroup nomasprime_theme
+  autocmd!
+  autocmd VimResume * call s:base16_theme()
+augroup END
 
 function! s:update_highlights()
   hi Comment cterm=italic gui=italic
@@ -333,8 +341,11 @@ function! s:update_highlights()
   hi! link WildMenu Search
 endfunction
 
-autocmd User AirlineAfterTheme call s:update_highlights()
-autocmd ColorScheme * call s:update_highlights()
+augroup nomasprime_update_highlights
+  autocmd!
+  autocmd User AirlineAfterTheme call s:update_highlights()
+  autocmd ColorScheme * call s:update_highlights()
+augroup END
 
 " iamcco/markdown-preview.nvim
 let g:mkdp_page_title = '${name}'
@@ -546,7 +557,10 @@ endfunction
 command Bdh call DeleteHiddenBuffers()
 
 " Copy/Paste/Move
-autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Visual', 500)
+augroup nomasprime_text_yank_post
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Visual', 500)
+augroup END
 
 " Energy Saver
 function! s:on_battery()
