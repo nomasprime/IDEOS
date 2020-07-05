@@ -541,9 +541,19 @@ let g:airline_left_sep = ''
 let g:airline_powerline_fonts = 1
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
 let g:airline_theme = 'base16'
-let g:airline#extensions#branch#displayed_head_limit = 20
-let g:airline#extensions#branch#format = 2
+
+let g:airline#extensions#branch#displayed_head_limit = 16
+let g:airline#extensions#branch#format = 0
+let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
+let g:airline#extensions#wordcount#formatter#default#fmt_short = '%sW'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lib
