@@ -170,6 +170,10 @@ Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
 
+Plug 'jiangmiao/auto-pairs'
+" Insert or delete brackets, parens, quotes in pair.
+" https://github.com/jiangmiao/auto-pairs
+
 Plug 'justinmk/vim-dirvish'
 " Directory viewer (netrw alternative)
 " https://github.com/justinmk/vim-dirvish
