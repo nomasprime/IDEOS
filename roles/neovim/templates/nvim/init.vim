@@ -283,6 +283,10 @@ Plug 'tpope/vim-projectionist'
 " Granular project configuration using projections
 " https://github.com/tpope/vim-projectionist
 
+Plug 'tpope/vim-ragtag'
+" A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more (formerly allml)
+" https://github.com/tpope/vim-ragtag
+
 Plug 'tpope/vim-repeat'
 " Remaps . to repeat entire map rather than the last native command inside the
 " map
