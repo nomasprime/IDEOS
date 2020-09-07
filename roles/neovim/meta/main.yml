@@ -7,4 +7,6 @@ dependencies:
           - name: nodejs
           - name: python
           - name: ruby
+          - name: yarn
   - role: base16-shell
+  - role: solargraph

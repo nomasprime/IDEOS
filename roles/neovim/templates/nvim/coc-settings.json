@@ -1,0 +1,13 @@
+{
+  "diagnostic.errorSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "python.jediEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "~/.asdf/shims/flake8",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "~/.asdf/shims/mypy",
+  "python.linting.pylintEnabled": false,
+  "solargraph.diagnostics": true
+}

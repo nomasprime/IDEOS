@@ -1,0 +1,6 @@
+plugins:
+  - solargraph-reek
+reporters:
+  - reek
+  - require_not_found
+  - rubocop

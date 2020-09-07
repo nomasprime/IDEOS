@@ -1,0 +1,29 @@
+---
+- name: install solargraph
+  gem:
+    name: solargraph
+    state: present
+    user_install: no
+
+- name: install rubocop
+  gem:
+    name: rubocop
+    state: present
+    user_install: no
+
+- name: install solargraph-reek
+  gem:
+    name: solargraph-reek
+    state: present
+    user_install: no
+
+- name: manage config directory
+  file:
+    path: ~/.config/solargraph
+    state: directory
+
+- name: manage config files
+  copy:
+    dest: ~/.config/solargraph/config.yml
+    force: yes
+    src: config.yml

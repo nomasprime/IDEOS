@@ -8,6 +8,7 @@
 set termguicolors " ✓
 
 " Command and Status
+set cmdheight=2
 set history=9999
 set laststatus=2
 set showcmd
@@ -44,12 +45,13 @@ set nojoinspaces
 " Files and Syntax
 set autoread
 set backup
-set backupdir=~/.nvim/backup
 set directory=~/.nvim/temp
 set encoding=utf-8
 set hidden
 set list
 set listchars=tab:┄\ , " U+2504
+set nobackup
+set nowritebackup
 set fillchars=fold:-,vert:│
 set shortmess=acFIT
 set showmatch
@@ -158,7 +160,7 @@ Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
 
-Plug 'honza/vim-snippets'
+Plug 'nomasprime/vim-snippets'
 " Default snippets
 " https://github.com/honza/vim-snippets
 
@@ -169,10 +171,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
-
-Plug 'jiangmiao/auto-pairs'
-" Insert or delete brackets, parens, quotes in pair.
-" https://github.com/jiangmiao/auto-pairs
 
 Plug 'justinmk/vim-dirvish'
 " Directory viewer (netrw alternative)
@@ -223,13 +221,19 @@ Plug 'neomake/neomake'
 " Asynchronous linting and make framework
 " https://github.com/neomake/neomake
 
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Make your Vim/Neovim as smart as VSCode
+" https://github.com/neoclide/coc.nvim
+Plug 'nomasprime/coc-denite'
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
+
 Plug 'blueyed/vim-qf_resize'
 " Resize location/quickfix windows
 " https://github.com/blueyed/vim-qf_resize
-
-Plug 'neovim/nvim-lsp'
-" Collection of common configurations for the Nvim LSP client
-" https://github.com/neovim/nvim-lsp
 
 Plug 'nomasprime/neocursorline.nvim', { 'do': { -> neocursorline#install() } }
 " https://github.com/nomasprime/neocursorline.nvim
@@ -246,18 +250,9 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Like a fuzzy finder but more generic
 " https://github.com/Shougo/denite.nvim
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-lsp'
-" Like a fuzzy finder but more generic
-" https://github.com/Shougo/deoplete.nvim
-
 Plug 'Shougo/neoyank.vim'
 " Saves yank history
 " https://github.com/Shougo/neoyank.vim
-
-Plug 'SirVer/ultisnips'
-" The ultimate snippet solution
-" https://github.com/sirver/UltiSnips
 
 Plug 'tpope/vim-abolish'
 " Working with word variants
@@ -308,10 +303,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ExplainPattern'
 " Explains regex pattern
 " https://github.com/vim-scripts/ExplainPattern
-
-Plug 'weilbith/nvim-lsp-denite'
-" Aditional denite.nvim sources by the Language Server Protocol
-" https://github.com/weilbith/nvim-lsp-denite
 call plug#end()
 
 " chriskempson/base16-vim
@@ -430,17 +421,97 @@ xmap ih <plug>(signify-motion-inner-visual)
 omap ah <plug>(signify-motion-outer-pending)
 xmap ah <plug>(signify-motion-outer-visual)
 
+" neoclide/coc.nvim
+nmap <silent> [n <Plug>(coc-diagnostic-prev)
+nmap <silent> ]n <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>] <Plug>(coc-definition)
+nmap <silent> <Leader>[ <Plug>(coc-type-definition)
+nmap <silent> <Leader>{ <Plug>(coc-implementation)
+nmap <silent> <Leader>} <Plug>(coc-references)
+
+nnoremap <silent> <LocalLeader>] :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+hi! link CocHighlightText CursorLine
+
+nmap <leader>%s <Plug>(coc-rename)
+
+xmap <LocalLeader>=  <Plug>(coc-format-selected)
+nmap <LocalLeader>=  <Plug>(coc-format-selected)
+command! -nargs=0 Format :call CocAction('format')
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+xmap <silent> <LocalLeader>a <Plug>(coc-codeaction-selected)
+nmap <silent> <LocalLeader>a <Plug>(coc-codeaction-selected)
+nmap <silent> <LocalLeader>A <Plug>(coc-codeaction)
+
+nmap <silent> <LocalLeader>n <Plug>(coc-fix-current)
+
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+nmap <silent> <LocalLeader>v <Plug>(coc-range-select)
+xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
+
+" neoclide/coc-denite
+nnoremap <silent> <Leader>c :Denite coc-command<CR>
+nnoremap <silent> <Leader>C :Denite coc-source<CR> (local)
+nnoremap <silent> <Leader>l :Denite coc-service<CR>
+nnoremap <silent> <Leader>n :Denite coc-diagnostic<CR> (local)
+nnoremap <silent> <LocalLeader>s :Denite coc-symbols<CR>
+nnoremap <silent> <Leader>s :Denite coc-workspace<CR>
+
+" neoclide/coc-snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 " neomake/neomake
 let g:neomake_echo_current_error = 0
+
+let g:neomake_error_sign = {
+  \ 'text': '',
+  \ 'texthl': 'NeomakeErrorSign',
+  \ }
+
+let g:neomake_info_sign = {
+  \ 'text': '',
+  \ 'texthl': 'NeomakeInfoSign'
+  \ }
+
+let g:neomake_message_sign = {
+  \   'text': '',
+  \   'texthl': 'NeomakeMessageSign',
+  \ }
+
 let g:neomake_postprocess = 'neomake#postprocess#compress_whitespace'
 
-" neovim/nvim-lsp
-nnoremap <silent> <localleader>* <cmd>lua vim.lsp.buf.document_highlight()<CR>
-nnoremap <silent> <localleader>d <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <leader>] <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>) <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <leader>> <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <leader>ss <cmd>lua vim.lsp.buf.rename()<CR>
+let g:neomake_warning_sign = {
+  \   'text': '',
+  \   'texthl': 'NeomakeWarningSign',
+  \ }
 
 " sheerun/vim-polyglot
 let g:polyglot_disabled = ['latex']
@@ -475,9 +546,6 @@ nnoremap <silent> <Leader>` :Denite mark<CR>
 nnoremap <silent> <LocalLeader>] :Denite outline<CR>
 nnoremap <silent> <Leader>" :Denite register<CR>
 nnoremap <silent> <Leader>- :DeniteProjectDir directory_rec<CR>
-nnoremap <silent> <Leader># :Denite lsp_references<CR>
-nnoremap <silent> <LocalLeader>s :Denite lsp_symbols:document<CR>
-" nnoremap <silent> <Leader>s :Denite lsp_symbols:workspace<CR>
 nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <LocalLeader>/ :Denite line<CR>
 nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
@@ -514,7 +582,6 @@ endfunction
 " Denite filter buffer maps
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
-  call deoplete#custom#buffer_option('auto_complete', v:false)
   imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
   inoremap <silent><buffer><expr> <C-s>
         \ denite#do_map('do_action', 'split')
@@ -525,12 +592,6 @@ function! s:denite_filter_my_settings() abort
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
 endfunction
-
-" Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-
-" SirVer/ultisnips
-let g:UltiSnipsEditSplit='vertical'
 
 " vim-airline/vim-airline
 function! WindowNumber(...)
@@ -607,11 +668,9 @@ function! s:energy_saver(timer)
   let s:energy_saver_on_battery = s:on_battery
 
   if s:energy_saver_on_battery
-    set updatetime=2500
-    call neomake#configure#automake('rw')
+    set updatetime=1500
   else
-    set updatetime=500
-    call neomake#configure#automake('nrw', 500)
+    set updatetime=300
   endif
 endfunction
 
@@ -642,5 +701,3 @@ nnoremap <silent> [l :Lprev<cr>
 " Tabs
 nnoremap <silent> ]t :tabn<cr>
 nnoremap <silent> [t :tabp<cr>
-
-luafile ~/.config/nvim/init.lua
