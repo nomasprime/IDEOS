@@ -1,6 +1,18 @@
-plugins:
-  - solargraph-reek
+---
+include:
+  - "**/*.rb"
+exclude:
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+require: []
+domains: []
 reporters:
   - reek
-  - require_not_found
   - rubocop
+  - require_not_found
+require_paths: []
+plugins:
+  - solargraph-reek
+max_files: 5000
