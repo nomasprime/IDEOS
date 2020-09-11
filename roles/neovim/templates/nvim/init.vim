@@ -224,12 +224,15 @@ Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Make your Vim/Neovim as smart as VSCode
 " https://github.com/neoclide/coc.nvim
+Plug 'fannheyward/coc-react-refactor', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'nomasprime/coc-denite'
+Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
 
 Plug 'blueyed/vim-qf_resize'
 " Resize location/quickfix windows
@@ -359,6 +362,7 @@ let g:mkdp_page_title = '${name}'
 nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
 
 " janko-m/vim-test
+let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
 nmap <silent> <Leader>tn :TestNearest<CR>
 nmap <silent> <Leader>tf :TestFile<CR>
 nmap <silent> <Leader>ts :TestSuite<CR>
@@ -483,10 +487,10 @@ nnoremap <silent> <Leader>s :Denite coc-workspace<CR>
 
 " neoclide/coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 vmap <C-j> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
-imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " neomake/neomake
 let g:neomake_echo_current_error = 0
