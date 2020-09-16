@@ -26,3 +26,10 @@
     - zprofile
     - zshenv
     - zshrc
+
+- name: add ctrl-z toggle
+  blockinfile:
+    block: "{{ lookup('file', 'files/ctrl_z_toggle.zsh') }}"
+    create: yes
+    marker: "# {mark} {{ role_path|basename }} manage config"
+    path: ~/.zshrc
