@@ -176,6 +176,10 @@ Plug 'fannheyward/coc-styled-components', { 'do': 'yarn install --frozen-lockfil
 " Styled components for coc.nvim as a tsserver plugin
 " https://github.com/fannheyward/coc-styled-components
 
+Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
+" GraphQL Language Service extension for coc.nvim
+" https://github.com/felippepuhle/coc-graphql
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Markdown
 " https://github.com/iamcco/markdown-preview.nvim
