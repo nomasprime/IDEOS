@@ -192,6 +192,10 @@ Plug 'janko-m/vim-test'
 " Test runner
 " https://github.com/janko/vim-test
 
+Plug 'josa42/coc-sh'
+" SH language server extension using bash-language-server for coc.nvim
+" https://github.com/josa42/coc-sh
+
 Plug 'justinmk/vim-dirvish'
 " Directory viewer (netrw alternative)
 " https://github.com/justinmk/vim-dirvish
