@@ -176,6 +176,10 @@ Plug 'fannheyward/coc-react-refactor', { 'do': 'yarn install --frozen-lockfile' 
 " React refactor extension for coc.nvim
 " https://github.com/fannheyward/coc-react-refactor
 
+Plug 'fannheyward/coc-sql', { 'do': 'yarn install --frozen-lockfile' }
+" SQL extension for coc.nvim
+" https://github.com/fannheyward/coc-sql
+
 Plug 'fannheyward/coc-styled-components', { 'do': 'yarn install --frozen-lockfile' }
 " Styled components for coc.nvim as a tsserver plugin
 " https://github.com/fannheyward/coc-styled-components
