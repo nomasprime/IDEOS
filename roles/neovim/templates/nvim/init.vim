@@ -187,6 +187,10 @@ Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
 " GraphQL Language Service extension for coc.nvim
 " https://github.com/felippepuhle/coc-graphql
 
+Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
+" vim-language-server extension for coc.nvim
+" https://github.com/iamcco/coc-vimlsp
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Markdown
 " https://github.com/iamcco/markdown-preview.nvim
@@ -260,6 +264,7 @@ Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
 
 Plug 'nomasprime/coc-denite'
 " https://github.com/nomasprime/coc-denite
