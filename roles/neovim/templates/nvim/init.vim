@@ -333,6 +333,10 @@ Plug 'tpope/vim-repeat'
 " map
 " https://github.com/tpope/vim-repeat
 
+Plug 'tpope/vim-rsi'
+" Readline mappings in insert and command line mode
+" https://github.com/tpope/vim-rsi
+
 Plug 'tpope/vim-surround'
 " Delete, change, and add surroundings in pairs
 " (N.B. Insert mode for brackets, quotes, etc.)
