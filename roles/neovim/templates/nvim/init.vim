@@ -349,6 +349,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ExplainPattern'
 " Explains regex pattern
 " https://github.com/vim-scripts/ExplainPattern
+
+Plug 'wincent/terminus'
+" Terminus enhances Vim's and Neovim's integration with the terminal
+" https://github.com/wincent/terminus
 call plug#end()
 
 " chriskempson/base16-vim
@@ -670,6 +674,9 @@ let g:airline#extensions#branch#displayed_head_limit = 16
 let g:airline#extensions#branch#format = 0
 let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
 let g:airline#extensions#wordcount#formatter#default#fmt_short = '%sW'
+
+" wincent/terminus
+let g:TerminusCursorShape=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lib
