@@ -414,11 +414,11 @@ nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
 
 " janko-m/vim-test
 let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
-nmap <silent> <Leader>tn :TestNearest<CR>
-nmap <silent> <Leader>tf :TestFile<CR>
-nmap <silent> <Leader>ts :TestSuite<CR>
-nmap <silent> <Leader>tl :TestLast<CR>
-nmap <silent> <Leader>tv :TestVisit<CR>
+nmap <silent> <Leader>tn :up<CR> <Bar> :TestNearest<CR>
+nmap <silent> <Leader>tf :up<CR> <Bar> :TestFile<CR>
+nmap <silent> <Leader>ts :up<CR> <Bar> :TestSuite<CR>
+nmap <silent> <Leader>tl :up<CR> <Bar> :TestLast<CR>
+nmap <silent> <Leader>tv :up<CR> <Bar> :TestVisit<CR>
 
 let test#strategy = 'neomake'
 
