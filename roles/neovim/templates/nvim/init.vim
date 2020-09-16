@@ -676,11 +676,6 @@ let g:airline#extensions#wordcount#formatter#default#fmt_short = '%sW'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Buffers
-nnoremap <silent> [b :bprev<cr>
-nnoremap <silent> [<c-b> :bfirst<cr>
-nnoremap <silent> ]b :bnext<cr>
-nnoremap <silent> ]<c-b> :blast<cr>
-
 function! DeleteHiddenBuffers()
   let tpbl=[]
   call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
