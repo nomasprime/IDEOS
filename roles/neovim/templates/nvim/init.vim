@@ -457,10 +457,10 @@ let g:gutentags_ctags_tagfile = '.tags'
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " mhinz/vim-signify
-nmap <silent> ]h <plug>(signify-next-hunk)
 nmap <silent> [h <plug>(signify-prev-hunk)
-nmap <silent> ]H 9999]c
-nmap <silent> [H 9999[c
+nmap <silent> [<c-h> 9999[h
+nmap <silent> ]h <plug>(signify-next-hunk)
+nmap <silent> ]<c-h> 9999]h
 nmap <silent> <LocalLeader>hd :SignifyHunkDiff<CR>
 nmap <silent> <LocalLeader>hu :SignifyHunkUndo<CR>
 omap ih <plug>(signify-motion-inner-pending)
@@ -676,8 +676,10 @@ let g:airline#extensions#wordcount#formatter#default#fmt_short = '%sW'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Buffers
-nnoremap <silent> ]b :bnext<cr>
 nnoremap <silent> [b :bprev<cr>
+nnoremap <silent> [<c-b> :bfirst<cr>
+nnoremap <silent> ]b :bnext<cr>
+nnoremap <silent> ]<c-b> :blast<cr>
 
 function! DeleteHiddenBuffers()
   let tpbl=[]
@@ -740,11 +742,17 @@ command! Cnext try | silent! cnext | catch | silent! cfirst | catch | endtry
 command! Cprev try | silent! cprev | catch | silent! clast | catch | endtry
 command! Lnext try | silent! lnext | catch | silent! lfirst | catch | endtry
 command! Lprev try | silent! lprev | catch | silent! llast | catch | endtry
-nnoremap <silent> ]q :Cnext<cr>
 nnoremap <silent> [q :Cprev<cr>
-nnoremap <silent> ]l :Lnext<cr>
+nnoremap <silent> [<c-q> :cfirst<cr>
+nnoremap <silent> ]q :Cnext<cr>
+nnoremap <silent> ]<c-q> :clast<cr>
 nnoremap <silent> [l :Lprev<cr>
+nnoremap <silent> [<c-l> :lfirst<cr>
+nnoremap <silent> ]l :Lnext<cr>
+nnoremap <silent> ]<c-l> :llast<cr>
 
 " Tabs
-nnoremap <silent> ]t :tabn<cr>
-nnoremap <silent> [t :tabp<cr>
+nnoremap <silent> [t :tprev<cr>
+nnoremap <silent> [<c-t> :tfirst<cr>
+nnoremap <silent> ]t :tnext<cr>
+nnoremap <silent> ]<c-t> :tlast<cr>
