@@ -238,6 +238,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
