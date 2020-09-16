@@ -191,6 +191,10 @@ Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
 " GraphQL Language Service extension for coc.nvim
 " https://github.com/felippepuhle/coc-graphql
 
+Plug 'iamcco/coc-svg', { 'do': 'yarn install --frozen-lockfile' }
+" A Powerful SVG Language Support Extension for coc.nvim. Almost all the features you need to handle SVG
+" https://github.com/iamcco/coc-svg
+
 Plug 'iamcco/coc-vimlsp', { 'do': 'yarn install --frozen-lockfile' }
 " vim-language-server extension for coc.nvim
 " https://github.com/iamcco/coc-vimlsp
