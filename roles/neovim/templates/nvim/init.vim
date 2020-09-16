@@ -168,6 +168,10 @@ Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
 
+Plug 'fannheyward/coc-markdownlint', { 'do': 'yarn install --frozen-lockfile' }
+" Markdown linter
+" https://github.com/fannheyward/coc-markdownlint
+
 Plug 'fannheyward/coc-react-refactor', { 'do': 'yarn install --frozen-lockfile' }
 " React refactor extension for coc.nvim
 " https://github.com/fannheyward/coc-react-refactor
