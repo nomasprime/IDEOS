@@ -44,8 +44,8 @@ set nojoinspaces
 
 " Files and Syntax
 set autoread
-set backup
-set directory=~/.nvim/temp
+silent !mkdir ~/.nvim/swap > /dev/null 2>&1
+set directory=~/.nvim/swap
 set encoding=utf-8
 set hidden
 set list
@@ -55,11 +55,9 @@ set nowritebackup
 set fillchars=fold:-,vert:│
 set shortmess=acFIT
 set showmatch
+silent !mkdir ~/.nvim/undo > /dev/null 2>&1
 set undodir=~/.nvim/undo
 set undofile
-silent !mkdir ~/.nvim/backup > /dev/null 2>&1
-silent !mkdir ~/.nvim/temp > /dev/null 2>&1
-silent !mkdir ~/.nvim/undo > /dev/null 2>&1
 syntax on
 
 " Folding
@@ -320,6 +318,13 @@ Plug 'tpope/vim-fugitive'
 " Shell wrapper
 " https://github.com/tpope/vim-fugitive
 
+Plug 'tpope/vim-obsession'
+" Maintain current state
+" https://github.com/tpope/vim-obsession
+Plug 'dhruvasagar/vim-prosession'
+" Handle sessions like a pro
+" https://github.com/dhruvasagar/vim-prosession
+
 Plug 'tpope/vim-projectionist'
 " Granular project configuration using projections
 " https://github.com/tpope/vim-projectionist
@@ -407,6 +412,9 @@ augroup nomasprime_update_highlights
   autocmd User AirlineAfterTheme call s:update_highlights()
   autocmd ColorScheme * call s:update_highlights()
 augroup END
+
+" dhruvasagar/vim-prosession
+let g:prosession_dir = '~/.nvim/session'
 
 " iamcco/markdown-preview.nvim
 let g:mkdp_page_title = '${name}'
