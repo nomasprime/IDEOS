@@ -180,6 +180,9 @@ Plug 'fannheyward/coc-styled-components', { 'do': 'yarn install --frozen-lockfil
 " Styled components for coc.nvim as a tsserver plugin
 " https://github.com/fannheyward/coc-styled-components
 
+Plug 'fannheyward/coc-xml', { 'do': 'yarn install --frozen-lockfile' }
+" https://github.com/fannheyward/coc-xml
+
 Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
 " GraphQL Language Service extension for coc.nvim
 " https://github.com/felippepuhle/coc-graphql
