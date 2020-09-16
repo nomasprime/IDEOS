@@ -148,6 +148,14 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Single/multi-line switching
 " https://github.com/AndrewRadev/splitjoin.vim
 
+Plug 'antonk52/coc-cssmodules', { 'do': 'yarn install --frozen-lockfile' }
+" Autocompletion and go-to-definition functionality for css modules
+" https://github.com/antonk52/coc-cssmodules
+
+Plug 'blueyed/vim-qf_resize'
+" Resize location/quickfix windows
+" https://github.com/blueyed/vim-qf_resize
+
 Plug 'chaoren/vim-wordmotion'
 " More useful word motions
 " https://github.com/chaoren/vim-wordmotion
@@ -160,9 +168,13 @@ Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
 
-Plug 'nomasprime/vim-snippets'
-" Default snippets
-" https://github.com/honza/vim-snippets
+Plug 'fannheyward/coc-react-refactor', { 'do': 'yarn install --frozen-lockfile' }
+" React refactor extension for coc.nvim
+" https://github.com/fannheyward/coc-react-refactor
+
+Plug 'fannheyward/coc-styled-components', { 'do': 'yarn install --frozen-lockfile' }
+" Styled components for coc.nvim as a tsserver plugin
+" https://github.com/fannheyward/coc-styled-components
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Markdown
@@ -224,8 +236,7 @@ Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Make your Vim/Neovim as smart as VSCode
 " https://github.com/neoclide/coc.nvim
-Plug 'fannheyward/coc-react-refactor', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'nomasprime/coc-denite'
+Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
@@ -234,12 +245,15 @@ Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
 
-Plug 'blueyed/vim-qf_resize'
-" Resize location/quickfix windows
-" https://github.com/blueyed/vim-qf_resize
+Plug 'nomasprime/coc-denite'
+" https://github.com/nomasprime/coc-denite
 
 Plug 'nomasprime/neocursorline.nvim', { 'do': { -> neocursorline#install() } }
 " https://github.com/nomasprime/neocursorline.nvim
+
+Plug 'nomasprime/vim-snippets'
+" Default snippets
+" https://github.com/nomasprime/vim-snippets
 
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
