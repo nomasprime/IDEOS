@@ -745,9 +745,3 @@ nnoremap <silent> [l :Lprev<cr>
 nnoremap <silent> [<c-l> :lfirst<cr>
 nnoremap <silent> ]l :Lnext<cr>
 nnoremap <silent> ]<c-l> :llast<cr>
-
-" Tabs
-nnoremap <silent> [t :tprev<cr>
-nnoremap <silent> [<c-t> :tfirst<cr>
-nnoremap <silent> ]t :tnext<cr>
-nnoremap <silent> ]<c-t> :tlast<cr>
