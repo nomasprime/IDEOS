@@ -427,14 +427,23 @@ let g:mkdp_page_title = '${name}'
 nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
 
 " janko-m/vim-test
-let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
-nmap <silent> <Leader>tn :up<CR> <Bar> :TestNearest<CR>
-nmap <silent> <Leader>tf :up<CR> <Bar> :TestFile<CR>
-nmap <silent> <Leader>ts :up<CR> <Bar> :TestSuite<CR>
-nmap <silent> <Leader>tl :up<CR> <Bar> :TestLast<CR>
-nmap <silent> <Leader>tv :up<CR> <Bar> :TestVisit<CR>
+function! s:TestSwitchStrategy()
+  if exists('g:test#strategy') && g:test#strategy == 'neomake'
+    let g:test#strategy = 'neovim'
+    unlet g:test#javascript#jest#options
+  else
+    let g:test#strategy = 'neomake'
+    let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
+  endif
+endfunction
+call s:TestSwitchStrategy()
 
-let test#strategy = 'neomake'
+nmap <silent> <Leader>tn :up <Bar> :TestNearest<CR>
+nmap <silent> <Leader>tf :up <Bar> :TestFile<CR>
+nmap <silent> <Leader>ts :up <Bar> :TestSuite<CR>
+nmap <silent> <Leader>tS :up <Bar> :call <SID>TestSwitchStrategy() <Bar> :echo 'Test strategy: ' . g:test#strategy<CR>
+nmap <silent> <Leader>tl :up <Bar> :TestLast<CR>
+nmap <silent> <Leader>tv :up <Bar> :TestVisit<CR>
 
 " justinmk/vim-dirvish
 augroup dirvish_config
