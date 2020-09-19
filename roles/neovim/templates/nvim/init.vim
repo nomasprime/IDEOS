@@ -292,10 +292,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
 " https://github.com/michaeljsmith/vim-indent-object
 
-Plug 'psliwka/vim-smoothie'
-" Smooth scrolling for Vim done right
-" https://github.com/psliwka/vim-smoothie
-
 Plug 'sheerun/vim-polyglot'
 " https://github.com/sheerun/vim-polyglot
 " A solid language pack
