@@ -164,10 +164,6 @@ Plug 'chaoren/vim-wordmotion'
 " More useful word motions
 " https://github.com/chaoren/vim-wordmotion
 
-Plug 'chrisbra/Colorizer'
-" Colour hex codes and colour names
-" https://github.com/chrisbra/Colorizer
-
 Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
@@ -269,6 +265,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-highlight', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
@@ -553,11 +550,15 @@ xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 
 " neoclide/coc-denite
 nnoremap <silent> <Leader>c :Denite coc-command<CR>
-nnoremap <silent> <Leader>C :Denite coc-source<CR> (local)
+nnoremap <silent> <Leader>C :Denite coc-source<CR>
 nnoremap <silent> <Leader>l :Denite coc-service<CR>
-nnoremap <silent> <Leader>n :Denite coc-diagnostic<CR> (local)
+nnoremap <silent> <Leader>n :Denite coc-diagnostic<CR>
 nnoremap <silent> <LocalLeader>s :Denite coc-symbols<CR>
 nnoremap <silent> <Leader>s :Denite coc-workspace<CR>
+
+" neoclide/coc-highlight
+nnoremap <silent> <LocalLeader>cp :call CocAction('pickColor')<CR>
+nnoremap <silent> <LocalLeader>cr :call CocAction('colorPresentation')<CR>
 
 " neoclide/coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -627,8 +628,8 @@ nnoremap <silent> <Leader>- :DeniteProjectDir directory_rec<CR>
 nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <LocalLeader>/ :Denite line<CR>
 nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <silent> <Leader>b :Denite buffer<CR>
 nnoremap <silent> <LocalLeader>c :Denite change<CR>
+nnoremap <silent> <Leader>b :Denite buffer<CR>
 nnoremap <silent> <Leader>e :DeniteProjectDir file/rec<CR>
 nnoremap <silent> <Leader>j :Denite jump<CR>
 nnoremap <silent> <Leader>r :Denite command_history<CR>
