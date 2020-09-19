@@ -124,6 +124,12 @@ set t_ti= t_te=
 " Sign Column
 set signcolumn=auto:4
 
+" Spelling
+set dictionary=/usr/share/dict/words
+set spelllang=en_gb
+silent !mkdir ~/.nvim/spell > /dev/null 2>&1
+set spellfile=~/.nvim/spell/en_gb.utf-8.add
+
 " Splits
 set splitbelow
 set splitright
@@ -768,3 +774,9 @@ nnoremap <silent> [l :Lprev<cr>
 nnoremap <silent> [<c-l> :lfirst<cr>
 nnoremap <silent> ]l :Lnext<cr>
 nnoremap <silent> ]<c-l> :llast<cr>
+
+" Spelling
+nnoremap <silent> <LocalLeader>S :setlocal spell!<cr>
+inoremap <silent> <LocalLeader>S <C-O>:setlocal spell!<cr>
+nnoremap <silent> <Leader>S :set spell!<cr>
+inoremap <silent> <Leader>S <C-O>:set spell!<cr>
