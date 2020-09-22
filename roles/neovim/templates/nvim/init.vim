@@ -211,6 +211,10 @@ Plug 'josa42/coc-sh'
 " SH language server extension using bash-language-server for coc.nvim
 " https://github.com/josa42/coc-sh
 
+Plug 'junkblocker/patchreview-vim'
+" Easy single or multipatch code or diff reviews
+" https://github.com/junkblocker/patchreview-vim
+
 Plug 'justinmk/vim-dirvish'
 " Directory viewer (netrw alternative)
 " https://github.com/justinmk/vim-dirvish
@@ -316,10 +320,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 " Shell wrapper
 " https://github.com/tpope/vim-eunuch
-
-Plug 'tpope/vim-fugitive'
-" Shell wrapper
-" https://github.com/tpope/vim-fugitive
 
 Plug 'tpope/vim-obsession'
 " Maintain current state
