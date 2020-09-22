@@ -498,7 +498,9 @@ xmap ah <plug>(signify-motion-outer-visual)
 
 " neoclide/coc.nvim
 nmap <silent> [n <Plug>(coc-diagnostic-prev)
+nmap <silent> [<c-n> 9999[n
 nmap <silent> ]n <Plug>(coc-diagnostic-next)
+nmap <silent> ]<c-n> 9999]n
 nmap <silent> <Leader>] <Plug>(coc-definition)
 nmap <silent> <Leader>[ <Plug>(coc-type-definition)
 nmap <silent> <Leader>{ <Plug>(coc-implementation)
