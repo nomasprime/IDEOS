@@ -624,6 +624,7 @@ call denite#custom#var('grep', {
   \ 'final_opts': [],
   \ })
 
+nnoremap <silent> <Leader>. :Denite -resume<CR>
 nnoremap <silent> <Leader>: :Denite command<CR>
 nnoremap <silent> <Leader>` :Denite mark<CR>
 nnoremap <silent> <LocalLeader>] :Denite outline<CR>
