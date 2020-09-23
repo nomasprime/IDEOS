@@ -291,7 +291,7 @@ Plug 'nomasprime/vim-snippets'
 
 Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
-" https://github.com/michaeljsmith/vim-indent-object
+" https://github.com/ntpeters/vim-better-whitespace
 
 Plug 'sheerun/vim-polyglot'
 " https://github.com/sheerun/vim-polyglot
