@@ -458,6 +458,7 @@ augroup dirvish_config
   autocmd FileType dirvish nnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
   autocmd FileType dirvish silent! unmap <buffer> A
   autocmd FileType dirvish xnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
+  autocmd FileType dirvish setlocal nocursorcolumn
 augroup END
 
 let g:dirvish_mode = ':sort | sort ,^.*/,'
