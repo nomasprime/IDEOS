@@ -525,8 +525,8 @@ hi! link CocHighlightText CursorLine
 
 nmap <leader>%s <Plug>(coc-rename)
 
-xmap <LocalLeader>=  <Plug>(coc-format-selected)
-nmap <LocalLeader>=  <Plug>(coc-format-selected)
+xmap <LocalLeader>gq  <Plug>(coc-format-selected)
+nmap <LocalLeader>gq  <Plug>(coc-format-selected)
 command! -nargs=0 Format :call CocAction('format')
 
 augroup mygroup
