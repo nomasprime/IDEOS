@@ -144,6 +144,11 @@ set winwidth=80
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" sheerun/vim-polyglot
+let g:polyglot_disabled = [
+  \ 'latex',
+  \]
+
 " Was at the top but moved to the bottom because some settings depend on
 " general Vim settings.
 call plug#begin('~/.config/nvim/plugged')
@@ -593,9 +598,6 @@ let g:neomake_warning_sign = {
   \   'text': '',
   \   'texthl': 'NeomakeWarningSign',
   \ }
-
-" sheerun/vim-polyglot
-let g:polyglot_disabled = ['latex']
 
 " Shougo/denite.nvim
 call denite#custom#option('default', {
