@@ -5,7 +5,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Colours
-set termguicolors " ✓
+set termguicolors
 
 " Command and Status
 set cmdheight=2
