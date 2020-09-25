@@ -789,6 +789,4 @@ nnoremap <silent> ]<c-l> :llast<cr>
 
 " Spelling
 nnoremap <silent> <LocalLeader>S :setlocal spell!<cr>
-inoremap <silent> <LocalLeader>S <C-O>:setlocal spell!<cr>
 nnoremap <silent> <Leader>S :set spell!<cr>
-inoremap <silent> <Leader>S <C-O>:set spell!<cr>
