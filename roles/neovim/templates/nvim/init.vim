@@ -679,16 +679,16 @@ function! s:denite_filter_my_settings() abort
 endfunction
 
 " vim-airline/vim-airline
-function! WindowNumber(...)
+function! WindowBufferMap(...)
   let builder = a:1
   let context = a:2
-  call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())} ')
+  call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())}\%{winbufnr(winnr())} ')
 
   return 0
 endfunction
 
-call airline#add_statusline_func('WindowNumber')
-call airline#add_inactive_statusline_func('WindowNumber')
+call airline#add_statusline_func('WindowBufferMap')
+call airline#add_inactive_statusline_func('WindowBufferMap')
 
 let g:airline_left_alt_sep = ''
 let g:airline_left_sep = ''
