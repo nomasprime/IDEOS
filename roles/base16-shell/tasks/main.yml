@@ -18,6 +18,7 @@
         {{ base16_shell['themes']['default'] }}
       fi
     create: yes
+    insertbefore: BOF
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: ~/.{{ item }}rc
   with_items:

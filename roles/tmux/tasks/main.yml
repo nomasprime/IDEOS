@@ -1,0 +1,11 @@
+---
+- name: instal tmux
+  homebrew:
+    name: tmux
+    state: present
+
+- name : manage config
+  copy:
+    dest: ~/.tmux.conf
+    force: yes
+    src: .tmux.conf

@@ -30,7 +30,7 @@ augroup nomasprime_cursor
     \,a:blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
     \,sm:block-blinkwait175-blinkoff150-blinkon175
 
-  autocmd VimLeave,VimSuspend * set guicursor=a:ver25
+  autocmd VimLeave,VimSuspend * set guicursor=a:ver25-blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
 augroup END
 
 set selection=inclusive
@@ -503,10 +503,10 @@ omap ah <plug>(signify-motion-outer-pending)
 xmap ah <plug>(signify-motion-outer-visual)
 
 " neoclide/coc.nvim
-nmap <silent> [n <Plug>(coc-diagnostic-prev)
-nmap <silent> [<c-n> 9999[n
-nmap <silent> ]n <Plug>(coc-diagnostic-next)
-nmap <silent> ]<c-n> 9999]n
+nmap <silent> [a <Plug>(coc-diagnostic-prev)
+nmap <silent> [<c-a> 9999[a
+nmap <silent> ]a <Plug>(coc-diagnostic-next)
+nmap <silent> ]<c-a> 9999]a
 nmap <silent> <Leader>] <Plug>(coc-definition)
 nmap <silent> <Leader>[ <Plug>(coc-type-definition)
 nmap <silent> <Leader>{ <Plug>(coc-implementation)
@@ -560,7 +560,7 @@ xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 nnoremap <silent> <Leader>c :Denite coc-command<CR>
 nnoremap <silent> <Leader>C :Denite coc-source<CR>
 nnoremap <silent> <Leader>l :Denite coc-service<CR>
-nnoremap <silent> <Leader>n :Denite coc-diagnostic<CR>
+nnoremap <silent> <Leader>a :Denite coc-diagnostic<CR>
 nnoremap <silent> <LocalLeader>s :Denite coc-symbols<CR>
 nnoremap <silent> <Leader>s :Denite coc-workspace<CR>
 
@@ -630,13 +630,13 @@ nnoremap <silent> <Leader>: :Denite command<CR>
 nnoremap <silent> <Leader>` :Denite mark<CR>
 nnoremap <silent> <LocalLeader>] :Denite outline<CR>
 nnoremap <silent> <Leader>" :Denite register<CR>
-nnoremap <silent> <Leader>- :DeniteProjectDir directory_rec<CR>
+nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
 nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <LocalLeader>/ :Denite line<CR>
 nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <silent> <LocalLeader>c :Denite change<CR>
 nnoremap <silent> <Leader>b :Denite buffer<CR>
-nnoremap <silent> <Leader>e :DeniteProjectDir file/rec<CR>
+nnoremap <silent> <Leader>f :DeniteProjectDir file/rec<CR>
 nnoremap <silent> <Leader>j :Denite jump<CR>
 nnoremap <silent> <Leader>r :Denite command_history<CR>
 nnoremap <silent> <Leader>y :Denite neoyank<CR>
