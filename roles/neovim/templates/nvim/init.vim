@@ -138,6 +138,7 @@ set splitright
 tnoremap <Esc> <C-\><C-n>
 
 " Widows
+autocmd VimResized * :wincmd =
 set winwidth=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,6 +173,10 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'chriskempson/base16-vim'
 " Base16 themes
 " https://github.com/chriskempson/base16-vim
+
+Plug 'christoomey/vim-tmux-runner'
+" A simple, vimscript only, command runner for sending commands from vim to tmux
+" https://github.com/christoomey/vim-tmux-runner
 
 Plug 'fannheyward/coc-markdownlint', { 'do': 'yarn install --frozen-lockfile' }
 " Markdown linter
@@ -421,6 +426,19 @@ augroup nomasprime_update_highlights
   autocmd ColorScheme * call s:update_highlights()
 augroup END
 
+" christoomey/vim-tmux-runner
+nnoremap <Leader>ea :VtrAttachToPane<cr>
+nnoremap <Leader>ed :VtrDetachRunner<cr>
+nnoremap <Leader>eu :VtrFlushCommand<cr>
+nnoremap <Leader>e: :VtrSendCommandToRunner<cr>
+nnoremap <Leader>el :VtrClearRunner<cr>
+nnoremap <Leader>ez :VtrFocusRunner<cr>
+nnoremap <Leader>ec :VtrKillRunner<cr>
+nnoremap <Leader>en :VtrOpenRunner<cr>
+nnoremap <LocalLeader>e% :VtrSendFile<cr>
+nnoremap <LocalLeader>e. :VtrSendLinesToRunner<cr>
+vnoremap <LocalLeader>e :VtrSendLinesToRunner<cr>
+
 " dhruvasagar/vim-prosession
 let g:prosession_dir = '~/.nvim/session'
 
@@ -431,7 +449,7 @@ nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
 " janko-m/vim-test
 function! s:TestSwitchStrategy()
   if exists('g:test#strategy') && g:test#strategy == 'neomake'
-    let g:test#strategy = 'neovim'
+    let g:test#strategy = 'vtr'
     unlet g:test#javascript#jest#options
   else
     let g:test#strategy = 'neomake'
@@ -440,12 +458,12 @@ function! s:TestSwitchStrategy()
 endfunction
 call s:TestSwitchStrategy()
 
-nmap <silent> <Leader>tn :up <Bar> :TestNearest<CR>
-nmap <silent> <Leader>tf :up <Bar> :TestFile<CR>
-nmap <silent> <Leader>ts :up <Bar> :TestSuite<CR>
-nmap <silent> <Leader>tS :up <Bar> :call <SID>TestSwitchStrategy() <Bar> :echo 'Test strategy: ' . g:test#strategy<CR>
-nmap <silent> <Leader>tl :up <Bar> :TestLast<CR>
-nmap <silent> <Leader>tv :up <Bar> :TestVisit<CR>
+nmap <silent> <Leader>td :up <Bar> :TestSuite<CR>
+nmap <silent> <Leader>te :up <Bar> :TestVisit<CR>
+nmap <silent> <Leader>tp :up <Bar> :TestLast<CR>
+nmap <silent> <Leader>ts :up <Bar> :call <SID>TestSwitchStrategy() <Bar> :echo 'Test strategy: ' . g:test#strategy<CR>
+nmap <silent> <LocalLeader>t% :up <Bar> :TestFile<CR>
+nmap <silent> <LocalLeader>t. :up <Bar> :TestNearest<CR>
 
 " justinmk/vim-dirvish
 augroup dirvish_config
@@ -538,11 +556,10 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-xmap <silent> <LocalLeader>a <Plug>(coc-codeaction-selected)
-nmap <silent> <LocalLeader>a <Plug>(coc-codeaction-selected)
-nmap <silent> <LocalLeader>A <Plug>(coc-codeaction)
+xmap <silent> <LocalLeader>ca <Plug>(coc-codeaction-selected)
+nmap <silent> <LocalLeader>ca <Plug>(coc-codeaction)
 
-nmap <silent> <LocalLeader>n <Plug>(coc-fix-current)
+nmap <silent> <LocalLeader>aq <Plug>(coc-fix-current)
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -557,9 +574,9 @@ nmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 
 " neoclide/coc-denite
-nnoremap <silent> <Leader>c :Denite coc-command<CR>
-nnoremap <silent> <Leader>C :Denite coc-source<CR>
-nnoremap <silent> <Leader>l :Denite coc-service<CR>
+nnoremap <silent> <Leader>cc :Denite coc-command<CR>
+nnoremap <silent> <Leader>cs :Denite coc-source<CR>
+nnoremap <silent> <Leader>ce :Denite coc-service<CR>
 nnoremap <silent> <Leader>a :Denite coc-diagnostic<CR>
 nnoremap <silent> <LocalLeader>s :Denite coc-symbols<CR>
 nnoremap <silent> <Leader>s :Denite coc-workspace<CR>
@@ -634,6 +651,7 @@ nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
 nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <LocalLeader>/ :Denite line<CR>
 nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
+
 nnoremap <silent> <LocalLeader>c :Denite change<CR>
 nnoremap <silent> <Leader>b :Denite buffer<CR>
 nnoremap <silent> <Leader>f :DeniteProjectDir file/rec<CR>
