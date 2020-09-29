@@ -617,6 +617,9 @@ let g:neomake_warning_sign = {
   \   'texthl': 'NeomakeWarningSign',
   \ }
 
+" ntpeters/vim-better-whitespace
+let g:better_whitespace_operator = '<LocalLeader>dh'
+
 " Shougo/denite.nvim
 call denite#custom#option('default', {
   \ 'auto_resize': 1,
