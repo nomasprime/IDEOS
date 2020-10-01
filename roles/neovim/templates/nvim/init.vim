@@ -703,7 +703,7 @@ endfunction
 function! WindowBufferMap(...)
   let builder = a:1
   let context = a:2
-  call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())}\%{winbufnr(winnr())} ')
+  call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())}/%{winbufnr(winnr())} ')
 
   return 0
 endfunction
