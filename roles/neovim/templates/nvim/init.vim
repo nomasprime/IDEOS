@@ -158,6 +158,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Single/multi-line switching
 " https://github.com/AndrewRadev/splitjoin.vim
 
+Plug 'antoinemadec/FixCursorHold.nvim'
+" Fix CursorHold Performance
+" https://github.com/antoinemadec/FixCursorHold.nvim
+
 Plug 'antonk52/coc-cssmodules', { 'do': 'yarn install --frozen-lockfile' }
 " Autocompletion and go-to-definition functionality for css modules
 " https://github.com/antonk52/coc-cssmodules
@@ -777,9 +781,9 @@ function! s:energy_saver(timer)
   let s:energy_saver_on_battery = s:on_battery
 
   if s:energy_saver_on_battery
-    set updatetime=1500
+    let g:cursorhold_updatetime = 500
   else
-    set updatetime=300
+    let g:cursorhold_updatetime = 100
   endif
 endfunction
 
