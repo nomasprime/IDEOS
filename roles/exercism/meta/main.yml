@@ -1,4 +1,4 @@
 ---
 dependencies:
   - { role: brew }
-  - { role: github }
+  - { role: hub }

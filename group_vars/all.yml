@@ -39,7 +39,7 @@ git:
     user:
       name: Rick Jones
       email: rick.jones@playtimestudios.com
-github:
+hub:
   users:
     - name: nomasprime
       token: !vault |

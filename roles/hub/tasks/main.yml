@@ -13,11 +13,11 @@
   template:
     dest: "~/.config/hub/{{ item.name }}"
     src: config.j2
-  with_items: "{{ github['users'] }}"
+  with_items: "{{ hub['users'] }}"
 
 - name: add config to rc
   blockinfile:
-    block: "export HUB_CONFIG=~/.config/hub/{{ github['users'][0]['name'] }}"
+    block: "export HUB_CONFIG=~/.config/hub/{{ hub['users'][0]['name'] }}"
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: ~/.{{ item }}rc
   with_items:
@@ -27,14 +27,14 @@
 - name: manage gitconfig
   blockinfile:
     block: |
-      [github]
-        user = {{ github['users'][0]['name'] }}
       [hub]
-        protocol = {{ github['config']['hub']['protocol'] }}
+        user = {{ hub['users'][0]['name'] }}
+      [hub]
+        protocol = {{ hub['config']['hub']['protocol'] }}
     marker: "# {mark} {{ role_path|basename }} manage config"
     path: ~/.gitconfig
 
-- name: add github to known hosts
+- name: add hub to known hosts
   lineinfile:
     dest: "{{ ansible_env.HOME }}/.ssh/known_hosts"
     create: yes

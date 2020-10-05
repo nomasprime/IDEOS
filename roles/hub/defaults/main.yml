@@ -1,5 +1,5 @@
 ---
-github:
+hub:
   config:
     hub:
       protocol: git
