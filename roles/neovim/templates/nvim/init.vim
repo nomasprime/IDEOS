@@ -520,6 +520,9 @@ xmap ih <plug>(signify-motion-inner-visual)
 omap ah <plug>(signify-motion-outer-pending)
 xmap ah <plug>(signify-motion-outer-visual)
 
+" milkypostman/vim-togglelist
+let g:toggle_list_copen_command="botright copen"
+
 " neoclide/coc.nvim
 nmap <silent> [a <Plug>(coc-diagnostic-prev)
 nmap <silent> [<c-a> 9999[a
