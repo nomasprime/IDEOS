@@ -528,10 +528,10 @@ nmap <silent> [a <Plug>(coc-diagnostic-prev)
 nmap <silent> [<c-a> 9999[a
 nmap <silent> ]a <Plug>(coc-diagnostic-next)
 nmap <silent> ]<c-a> 9999]a
-nmap <silent> <Leader>] <Plug>(coc-definition)
-nmap <silent> <Leader>[ <Plug>(coc-type-definition)
-nmap <silent> <Leader>{ <Plug>(coc-implementation)
-nmap <silent> <Leader>} <Plug>(coc-references)
+nmap <silent> <Leader>gd <Plug>(coc-definition)
+nmap <silent> <Leader>gD <Plug>(coc-type-definition)
+nmap <silent> <Leader>gi <Plug>(coc-implementation)
+nmap <silent> <Leader>gr <Plug>(coc-references)
 
 nnoremap <silent> <LocalLeader>] :call <SID>show_documentation()<CR>
 function! s:show_documentation()
