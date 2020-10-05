@@ -376,6 +376,10 @@ Plug 'vim-scripts/ExplainPattern'
 " Explains regex pattern
 " https://github.com/vim-scripts/ExplainPattern
 
+Plug 'wincent/ferret'
+" Ferret improves Vim's multi-file search in four ways
+" https://github.com/wincent/ferret
+
 Plug 'wincent/terminus'
 " Terminus enhances Vim's and Neovim's integration with the terminal
 " https://github.com/wincent/terminus
@@ -549,7 +553,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 hi! link CocHighlightText CursorLine
 
-nmap <leader>%s <Plug>(coc-rename)
+nmap <leader>cr <Plug>(coc-rename)
 
 xmap <LocalLeader>gq  <Plug>(coc-format-selected)
 nmap <LocalLeader>gq  <Plug>(coc-format-selected)
@@ -582,15 +586,15 @@ xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 
 " neoclide/coc-denite
 nnoremap <silent> <Leader>cc :Denite coc-command<CR>
-nnoremap <silent> <Leader>cs :Denite coc-source<CR>
+nnoremap <silent> <Leader>cC :Denite coc-source<CR>
 nnoremap <silent> <Leader>ce :Denite coc-service<CR>
-nnoremap <silent> <Leader>a :Denite coc-diagnostic<CR>
-nnoremap <silent> <LocalLeader>s :Denite coc-symbols<CR>
-nnoremap <silent> <Leader>s :Denite coc-workspace<CR>
+nnoremap <silent> <Leader>ca :Denite coc-diagnostic<CR>
+nnoremap <silent> <LocalLeader>cs :Denite coc-symbols<CR>
+nnoremap <silent> <Leader>cs :Denite coc-workspace<CR>
 
 " neoclide/coc-highlight
 nnoremap <silent> <LocalLeader>cp :call CocAction('pickColor')<CR>
-nnoremap <silent> <LocalLeader>cr :call CocAction('colorPresentation')<CR>
+nnoremap <silent> <LocalLeader>cP :call CocAction('colorPresentation')<CR>
 
 " neoclide/coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -658,10 +662,7 @@ nnoremap <silent> <Leader>` :Denite mark<CR>
 nnoremap <silent> <LocalLeader>] :Denite outline<CR>
 nnoremap <silent> <Leader>" :Denite register<CR>
 nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
-nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <LocalLeader>/ :Denite line<CR>
-nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
-
 nnoremap <silent> <LocalLeader>c :Denite change<CR>
 nnoremap <silent> <Leader>b :Denite buffer<CR>
 nnoremap <silent> <Leader>f :DeniteProjectDir file/rec<CR>
@@ -736,6 +737,13 @@ let g:airline#extensions#branch#displayed_head_limit = 16
 let g:airline#extensions#branch#format = 0
 let g:airline#extensions#wordcount#formatter#default#fmt = '%sW'
 let g:airline#extensions#wordcount#formatter#default#fmt_short = '%sW'
+
+" wincent/ferret
+let g:FerretMap = 0
+
+nmap <leader>/ <Plug>(FerretAck)
+nmap <Leader>* <Plug>(FerretAckWord)
+nmap <leader>s <Plug>(FerretAcks)
 
 " wincent/terminus
 let g:TerminusCursorShape=0
