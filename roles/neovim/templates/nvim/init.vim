@@ -434,17 +434,17 @@ augroup nomasprime_update_highlights
 augroup END
 
 " christoomey/vim-tmux-runner
-nnoremap <Leader>ea :VtrAttachToPane<cr>
-nnoremap <Leader>ed :VtrDetachRunner<cr>
-nnoremap <Leader>eu :VtrFlushCommand<cr>
-nnoremap <Leader>e: :VtrSendCommandToRunner<cr>
-nnoremap <Leader>el :VtrClearRunner<cr>
-nnoremap <Leader>ez :VtrFocusRunner<cr>
-nnoremap <Leader>ec :VtrKillRunner<cr>
-nnoremap <Leader>en :VtrOpenRunner<cr>
-nnoremap <LocalLeader>e% :VtrSendFile<cr>
-nnoremap <LocalLeader>e. :VtrSendLinesToRunner<cr>
-vnoremap <LocalLeader>e :VtrSendLinesToRunner<cr>
+nnoremap <Leader>xa :VtrAttachToPane<cr>
+nnoremap <Leader>xd :VtrDetachRunner<cr>
+nnoremap <Leader>xu :VtrFlushCommand<cr>
+nnoremap <Leader>x: :VtrSendCommandToRunner<cr>
+nnoremap <Leader>xl :VtrClearRunner<cr>
+nnoremap <Leader>xz :VtrFocusRunner<cr>
+nnoremap <Leader>xc :VtrKillRunner<cr>
+nnoremap <Leader>xn :VtrOpenRunner<cr>
+nnoremap <LocalLeader>x% :VtrSendFile<cr>
+nnoremap <LocalLeader>x. :VtrSendLinesToRunner<cr>
+vnoremap <LocalLeader>x :VtrSendLinesToRunner<cr>
 
 " dhruvasagar/vim-prosession
 let g:prosession_dir = '~/.nvim/session'
@@ -473,16 +473,29 @@ nmap <silent> <LocalLeader>t% :up <Bar> :TestFile<CR>
 nmap <silent> <LocalLeader>t. :up <Bar> :TestNearest<CR>
 
 " justinmk/vim-dirvish
+nmap <silent> <Leader>e <Plug>(dirvish_up)
+
 augroup dirvish_config
   autocmd!
+  autocmd FileType dirvish nmap <buffer> <Leader>e <Nop>
+  autocmd FileType dirvish nmap <buffer> - <Plug>(dirvish_up)
+  autocmd FileType dirvish silent! unmap <buffer> gq
+  autocmd FileType dirvish nmap <buffer> q <Plug>(dirvish_quit)
   autocmd FileType dirvish silent! unmap <buffer> o
-  autocmd FileType dirvish nnoremap <silent><buffer> <C-s> :call dirvish#open('split', 1)<CR>
+  autocmd FileType dirvish nnoremap <silent><buffer> os :call dirvish#open('split', 1)<CR>
   autocmd FileType dirvish silent! unmap <buffer> O
-  autocmd FileType dirvish xnoremap <silent><buffer> <C-s> :call dirvish#open('split', 1)<CR>
+  autocmd FileType dirvish xnoremap <silent><buffer> os :call dirvish#open('split', 1)<CR>
   autocmd FileType dirvish silent! unmap <buffer> a
-  autocmd FileType dirvish nnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
+  autocmd FileType dirvish nnoremap <silent><buffer> ov :call dirvish#open('vsplit', 1)<CR>
   autocmd FileType dirvish silent! unmap <buffer> A
-  autocmd FileType dirvish xnoremap <silent><buffer> <C-v> :call dirvish#open('vsplit', 1)<CR>
+  autocmd FileType dirvish xnoremap <silent><buffer> ov :call dirvish#open('vsplit', 1)<CR>
+  autocmd FileType dirvish silent! unmap <buffer> x
+  autocmd FileType dirvish nmap <buffer> s <Plug>(dirvish_arg)
+  autocmd FileType dirvish xmap <buffer> s <Plug>(dirvish_arg)
+  autocmd FileType dirvish silent! unmap <buffer> dax
+  autocmd FileType dirvish nnoremap <silent><buffer> ds :<C-U>arglocal<Bar>silent! argdelete *<Bar>echo "arglist: cleared"<Bar>Dirvish %<CR>
+  autocmd FileType dirvish silent! unmap <buffer> R
+  autocmd FileType dirvish nnoremap <silent><buffer> <C-l> :<C-U><C-R>=v:count ? ':let g:dirvish_mode='.v:count.'<Bar>' : ''<CR>Dirvish %<CR>
   autocmd FileType dirvish setlocal nocursorcolumn
 augroup END
 
@@ -658,47 +671,50 @@ nnoremap <silent> <Leader>` :Denite mark<CR>
 nnoremap <silent> <LocalLeader>] :Denite outline<CR>
 nnoremap <silent> <Leader>" :Denite register<CR>
 nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
+nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
 nnoremap <silent> <LocalLeader>/ :Denite line<CR>
+nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <silent> <LocalLeader>c :Denite change<CR>
 nnoremap <silent> <Leader>b :Denite buffer<CR>
 nnoremap <silent> <Leader>f :DeniteProjectDir file/rec<CR>
 nnoremap <silent> <Leader>j :Denite jump<CR>
+nnoremap <silent> <Leader>o :Denite file/old<CR>
 nnoremap <silent> <Leader>r :Denite command_history<CR>
 nnoremap <silent> <Leader>y :Denite neoyank<CR>
 
 " Denite buffer maps
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <C-s>
-  \ denite#do_map('do_action', 'split')
-  nnoremap <silent><buffer><expr> <C-t>
-  \ denite#do_map('do_action', 'tabopen')
-  nnoremap <silent><buffer><expr> <C-v>
-  \ denite#do_map('do_action', 'vsplit')
   nnoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> a
+  \ denite#do_map('choose_action')
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> i
   \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> m
-  \ denite#do_map('toggle_select').'k'
+  nnoremap <silent><buffer><expr> oq
+  \ denite#do_map('do_action', 'quickfix')
+  nnoremap <silent><buffer><expr> os
+  \ denite#do_map('do_action', 'split')
+  nnoremap <silent><buffer><expr> ot
+  \ denite#do_map('do_action', 'tabopen')
+  nnoremap <silent><buffer><expr> ov
+  \ denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> s
+  \ denite#do_map('toggle_select').'k'
+  nnoremap <silent><buffer><expr> S
+  \ denite#do_map('toggle_select_all')
 endfunction
 
 " Denite filter buffer maps
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
-  inoremap <silent><buffer><expr> <C-s>
-        \ denite#do_map('do_action', 'split')
-  inoremap <silent><buffer><expr> <C-t>
-        \ denite#do_map('do_action', 'tabopen')
-  inoremap <silent><buffer><expr> <C-v>
-        \ denite#do_map('do_action', 'vsplit')
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
 endfunction
