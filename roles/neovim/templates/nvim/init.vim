@@ -106,6 +106,9 @@ let g:node_host_prog=expand("~/.asdf/installs/nodejs/14.2.0/.npm/bin/neovim-node
 let g:python3_host_prog=expand("~/.asdf/installs/python/3.8.3/bin/python")
 let g:ruby_host_prog=expand("~/.asdf/installs/ruby/2.7.0/bin/neovim-ruby-host")
 
+" Quickfix
+autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
+
 " Registers
 set clipboard=unnamed
 
@@ -527,9 +530,6 @@ omap ih <plug>(signify-motion-inner-pending)
 xmap ih <plug>(signify-motion-inner-visual)
 omap ah <plug>(signify-motion-outer-pending)
 xmap ah <plug>(signify-motion-outer-visual)
-
-" milkypostman/vim-togglelist
-let g:toggle_list_copen_command="botright copen"
 
 " neoclide/coc.nvim
 nmap <silent> [a <Plug>(coc-diagnostic-prev)
