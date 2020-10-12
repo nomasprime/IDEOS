@@ -772,7 +772,9 @@ command Bdh call DeleteHiddenBuffers()
 " Copy/Paste/Move
 augroup nomasprime_text_yank_post
   autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Visual', 500)
+  if exists('##TextYankPost')
+    autocmd TextYankPost * silent! lua return (not vim.v.event.visual) and require'vim.highlight'.on_yank {higroup='Visual', timeout=500}
+  endif
 augroup END
 
 " Energy Saver
