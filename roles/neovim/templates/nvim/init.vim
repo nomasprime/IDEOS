@@ -441,9 +441,9 @@ nnoremap <Leader>xl :VtrClearRunner<cr>
 nnoremap <Leader>xz :VtrFocusRunner<cr>
 nnoremap <Leader>xc :VtrKillRunner<cr>
 nnoremap <Leader>xn :VtrOpenRunner<cr>
-nnoremap <LocalLeader>x% :VtrSendFile<cr>
-nnoremap <LocalLeader>x. :VtrSendLinesToRunner<cr>
-vnoremap <LocalLeader>x :VtrSendLinesToRunner<cr>
+nnoremap <LocalLeader>x% :up <Bar> :VtrSendFile<cr>
+nnoremap <LocalLeader>x. :up <Bar> :VtrSendLinesToRunner<cr>
+vnoremap <LocalLeader>x :up <Bar> :VtrSendLinesToRunner<cr>
 
 " dhruvasagar/vim-prosession
 let g:prosession_dir = '~/.nvim/session'
