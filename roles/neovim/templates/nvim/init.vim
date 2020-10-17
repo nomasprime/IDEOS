@@ -88,7 +88,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 noremap <Up> <Nop>
 set backspace=indent,eol,start
-set timeoutlen=500
+set timeoutlen=1000
 
 " Lines
 set breakindent
