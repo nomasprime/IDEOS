@@ -22,8 +22,14 @@
     path: ~/.config/solargraph
     state: directory
 
-- name: manage config files
+- name: manage config file
   copy:
     dest: ~/.config/solargraph/config.yml
     force: yes
     src: config.yml
+
+- name: manage rubocop config file
+  copy:
+    dest: ~/.rubocop.yml
+    force: yes
+    src: .rubocop.yml
