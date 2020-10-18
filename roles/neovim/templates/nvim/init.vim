@@ -634,6 +634,7 @@ let g:neomake_message_sign = {
   \   'texthl': 'NeomakeMessageSign',
   \ }
 
+let g:neomake_open_list = 1
 let g:neomake_postprocess = 'neomake#postprocess#compress_whitespace'
 
 let g:neomake_warning_sign = {
