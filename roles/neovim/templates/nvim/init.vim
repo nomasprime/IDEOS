@@ -611,6 +611,11 @@ vmap <C-j> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
+" milkypostman/vim-togglelist
+let g:toggle_list_no_mappings = 1
+nmap <script> <silent> <localleader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+
 " neomake/neomake
 let g:neomake_echo_current_error = 0
 
