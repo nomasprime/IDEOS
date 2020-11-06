@@ -823,7 +823,7 @@ augroup number_toggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-nnoremap <silent> <C-n> :set relativenumber!<CR>
+nnoremap <silent> <LocalLeader>n :set relativenumber!<CR>
 
 " Lists
 command! Cnext try | silent! cnext | catch | silent! cfirst | catch | endtry
