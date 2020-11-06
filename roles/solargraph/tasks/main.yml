@@ -33,3 +33,9 @@
     dest: ~/.rubocop.yml
     force: yes
     src: .rubocop.yml
+
+- name: manage reek config file
+  copy:
+    dest: ~/.reek.yml
+    force: yes
+    src: .reek.yml
