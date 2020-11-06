@@ -10,5 +10,6 @@
   "python.linting.mypyEnabled": true,
   "python.linting.mypyPath": "~/.asdf/shims/mypy",
   "python.linting.pylintEnabled": false,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true
 }
