@@ -147,11 +147,6 @@ autocmd VimResized * :wincmd =
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" sheerun/vim-polyglot
-let g:polyglot_disabled = [
-  \ 'latex',
-  \]
-
 " Was at the top but moved to the bottom because some settings depend on
 " general Vim settings.
 call plug#begin('~/.config/nvim/plugged')
@@ -309,9 +304,8 @@ Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
 " https://github.com/ntpeters/vim-better-whitespace
 
-Plug 'sheerun/vim-polyglot'
-" https://github.com/sheerun/vim-polyglot
-" A solid language pack
+Plug 'nvim-treesitter/nvim-treesitter'
+" https://github.com/nvim-treesitter/nvim-treesitter
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Like a fuzzy finder but more generic
@@ -644,6 +638,16 @@ let g:neomake_warning_sign = {
 
 " ntpeters/vim-better-whitespace
 let g:better_whitespace_operator = '<LocalLeader>dh'
+
+" nvim-treesitter/nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",
+  highlight = {
+    enable = true,
+  },
+}
+EOF
 
 " Shougo/denite.nvim
 call denite#custom#option('default', {
