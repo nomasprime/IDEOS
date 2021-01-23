@@ -271,10 +271,6 @@ Plug 'milkypostman/vim-togglelist'
 " Bind a key to toggle the Location List and the Quickfix List
 " https://github.com/milkypostman/vim-togglelist
 
-Plug 'neomake/neomake'
-" Asynchronous linting and make framework
-" https://github.com/neomake/neomake
-
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Make your Vim/Neovim as smart as VSCode
 " https://github.com/neoclide/coc.nvim
@@ -447,21 +443,10 @@ let g:mkdp_page_title = '${name}'
 nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
 
 " janko-m/vim-test
-function! s:TestSwitchStrategy()
-  if exists('g:test#strategy') && g:test#strategy == 'neomake'
-    let g:test#strategy = 'vtr'
-    unlet g:test#javascript#jest#options
-  else
-    let g:test#strategy = 'neomake'
-    let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
-  endif
-endfunction
-call s:TestSwitchStrategy()
-
+let g:test#strategy = 'vtr'
 nmap <silent> <Leader>td :up <Bar> :TestSuite<CR>
 nmap <silent> <Leader>te :up <Bar> :TestVisit<CR>
 nmap <silent> <Leader>tp :up <Bar> :TestLast<CR>
-nmap <silent> <Leader>ts :up <Bar> :call <SID>TestSwitchStrategy() <Bar> :echo 'Test strategy: ' . g:test#strategy<CR>
 nmap <silent> <LocalLeader>t% :up <Bar> :TestFile<CR>
 nmap <silent> <LocalLeader>t. :up <Bar> :TestNearest<CR>
 
@@ -609,32 +594,6 @@ let g:coc_snippet_prev = '<c-k>'
 let g:toggle_list_no_mappings = 1
 nmap <script> <silent> <localleader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
-
-" neomake/neomake
-let g:neomake_echo_current_error = 0
-
-let g:neomake_error_sign = {
-  \ 'text': '',
-  \ 'texthl': 'NeomakeErrorSign',
-  \ }
-
-let g:neomake_info_sign = {
-  \ 'text': '',
-  \ 'texthl': 'NeomakeInfoSign'
-  \ }
-
-let g:neomake_message_sign = {
-  \   'text': '',
-  \   'texthl': 'NeomakeMessageSign',
-  \ }
-
-let g:neomake_open_list = 1
-let g:neomake_postprocess = 'neomake#postprocess#compress_whitespace'
-
-let g:neomake_warning_sign = {
-  \   'text': '',
-  \   'texthl': 'NeomakeWarningSign',
-  \ }
 
 " ntpeters/vim-better-whitespace
 let g:better_whitespace_operator = '<LocalLeader>dh'
