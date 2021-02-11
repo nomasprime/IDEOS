@@ -1,0 +1,5 @@
+---
+- name: install overmind
+  homebrew:
+    name: overmind
+    state: present
