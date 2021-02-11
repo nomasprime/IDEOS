@@ -520,13 +520,21 @@ omap ah <plug>(signify-motion-outer-pending)
 xmap ah <plug>(signify-motion-outer-visual)
 
 " neoclide/coc.nvim
+function! s:coc_jump_definition_with_tags_fallback(jump_definition_action)
+  if CocAction(a:jump_definition_action)
+    return v:true
+  endif
+
+  execute("silent! normal \<C-]>")
+endfunction
+
 nmap <silent> [a <Plug>(coc-diagnostic-prev)
 nmap <silent> [<c-a> 9999[a
 nmap <silent> ]a <Plug>(coc-diagnostic-next)
 nmap <silent> ]<c-a> 9999]a
-nmap <silent> <Leader>gd <Plug>(coc-definition)
-nmap <silent> <Leader>gD <Plug>(coc-type-definition)
-nmap <silent> <Leader>gi <Plug>(coc-implementation)
+nmap <silent> <Leader>gd :call <SID>coc_jump_definition_with_tags_fallback('jumpDefinition')<CR>
+nmap <silent> <Leader>gD :call <SID>coc_jump_definition_with_tags_fallback('jumpTypeDefinition')<CR>
+nmap <silent> <Leader>gi :call <SID>coc_jump_definition_with_tags_fallback('jumpImplementation')<CR>
 nmap <silent> <Leader>gr <Plug>(coc-references)
 
 nnoremap <silent> <LocalLeader>] :call <SID>show_documentation()<CR>
