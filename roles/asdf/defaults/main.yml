@@ -1,6 +1,6 @@
 ---
 asdf:
-  legacy_version_file: 'no'
+  legacy_version_file: 'yes'
   plugins: []
   globals:
     nodejs: 14.2.0
