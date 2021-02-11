@@ -398,7 +398,7 @@ function! s:update_highlights()
   \ 'visual': 1,
   \ })
 
-  hi CursorLineNr ctermbg=none guibg=none
+  hi CursorLineNr cterm=none ctermbg=none gui=none guibg=none
   hi LineNr ctermbg=none guibg=none
   hi SignColumn ctermbg=none guibg=none
   hi VertSplit ctermbg=none guibg=none
