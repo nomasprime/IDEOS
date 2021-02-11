@@ -507,6 +507,7 @@ let g:gutentags_ctags_tagfile = '.tags'
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " mhinz/vim-signify
+let g:signify_sign_change = '~'
 nmap <silent> [h <plug>(signify-prev-hunk)
 nmap <silent> [<c-h> 9999[h
 nmap <silent> ]h <plug>(signify-next-hunk)
