@@ -691,7 +691,7 @@ endfunction
 " Denite filter buffer maps
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
+  imap <silent><buffer> <Esc> <Plug>(denite_filter_update)
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
 endfunction
