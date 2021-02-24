@@ -19,20 +19,32 @@
   shell: asdf plugin add {{ item.name }}
   args:
     creates: "~/.asdf/plugins/{{ item.name }}"
-  with_items: "{{ asdf['plugins'] }}"
+  with_items: "{{ asdf['globals'] }}"
 
-- name: install versions
-  shell: asdf install {{ item.name }} {{ asdf['globals'][item.name] }}
+- name: global versions
+  shell: cat ~/.tool-versions
+  register: global_versions
+
+- name: install latest versions
+  shell: asdf install {{ item.name }} latest
+  with_items:
+    - "{{ asdf['globals'] }}"
+  when:
+    - item.version is not defined
+    - global_versions.stdout.find(item.name) == -1
+
+- name: install specific versions
+  shell: asdf install {{ item.name }} {{ item.version }}
   args:
-    creates: "~/.asdf/installs/{{ item.name }}/{{ item.version | default(asdf['globals'][item.name]) }}"
+    creates: "~/.asdf/installs/{{ item.name }}/{{ item.version }}"
   with_items:
-    - "{{ asdf['plugins'] }}"
+    - "{{ asdf['globals'] }}"
+  when: item.version is defined
 
-- name: set global versions
-  lineinfile:
-    create: yes
-    path: ~/.tool-versions
-    regexp: "^{{ item.name }}"
-    line: "{{ item.name }} {{ asdf['globals'][item.name] }}"
+- name: set global to latest versions
+  shell: asdf global {{ item.name }} latest
   with_items:
-    - "{{ asdf['plugins'] }}"
+    - "{{ asdf['globals'] }}"
+  when:
+    - item.version is not defined
+    - global_versions.stdout.find(item.name) == -1

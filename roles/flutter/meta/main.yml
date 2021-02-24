@@ -1,0 +1,7 @@
+---
+dependencies:
+  - role: asdf
+    vars:
+      asdf:
+        globals:
+          - name: flutter

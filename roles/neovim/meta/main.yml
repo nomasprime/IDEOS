@@ -3,7 +3,7 @@ dependencies:
   - role: asdf
     vars:
       asdf:
-        plugins:
+        globals:
           - name: nodejs
           - name: python
           - name: ruby

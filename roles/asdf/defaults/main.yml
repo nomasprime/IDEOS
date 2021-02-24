@@ -1,9 +1,8 @@
 ---
 asdf:
   legacy_version_file: 'yes'
-  plugins: []
   globals:
-    nodejs: 14.2.0
-    python: 3.8.3
-    ruby: 2.7.0
-    yarn: 1.22.5
+    - name: nodejs
+    - name: python
+    - name: ruby
+    - name: yarn
