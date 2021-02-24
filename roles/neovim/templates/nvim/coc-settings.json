@@ -4,6 +4,8 @@
   "diagnostic.infoSign": "◑",
   "diagnostic.warningSign": "◕",
   "highlight.document.enable": false,
+  "list.source.directories.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
+  "list.source.files.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
   "python.jediEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "~/.asdf/shims/flake8",

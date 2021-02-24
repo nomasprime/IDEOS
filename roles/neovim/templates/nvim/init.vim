@@ -279,15 +279,14 @@ Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-highlight', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'nomasprime/coc-lists', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-pairs', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-python', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-snippets', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-solargraph', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
-
-Plug 'nomasprime/coc-denite'
-" https://github.com/nomasprime/coc-denite
+Plug 'neoclide/coc-yank', { 'do': 'yarn install --frozen-lockfile' }
 
 Plug 'nomasprime/neocursorline.nvim', { 'do': { -> neocursorline#install() } }
 " https://github.com/nomasprime/neocursorline.nvim
@@ -302,14 +301,6 @@ Plug 'ntpeters/vim-better-whitespace'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 " https://github.com/nvim-treesitter/nvim-treesitter
-
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-" Like a fuzzy finder but more generic
-" https://github.com/Shougo/denite.nvim
-
-Plug 'Shougo/neoyank.vim'
-" Saves yank history
-" https://github.com/Shougo/neoyank.vim
 
 Plug 'tpope/vim-abolish'
 " Working with word variants
@@ -410,6 +401,7 @@ function! s:update_highlights()
   hi SignifySignAdd ctermbg=none guibg=none
   hi SignifySignDelete ctermbg=none guibg=none
   hi SignifySignChange ctermbg=none guibg=none
+  hi! link HighlightedyankRegion Visual
   hi! link Sneak IncSearch
   hi! link SneakLabel IncSearch
   hi! link SneakScope Visual
@@ -440,7 +432,7 @@ let g:prosession_dir = '~/.nvim/session'
 
 " iamcco/markdown-preview.nvim
 let g:mkdp_page_title = '${name}'
-nmap <LocalLeader>p <Plug>MarkdownPreviewToggle
+nmap <LocalLeader>mp <Plug>MarkdownPreviewToggle
 
 " janko-m/vim-test
 let g:test#strategy = 'vtr'
@@ -508,16 +500,16 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 " mhinz/vim-signify
 let g:signify_sign_change = '~'
-nmap <silent> [h <plug>(signify-prev-hunk)
-nmap <silent> [<c-h> 9999[h
-nmap <silent> ]h <plug>(signify-next-hunk)
-nmap <silent> ]<c-h> 9999]h
-nmap <silent> <LocalLeader>hd :SignifyHunkDiff<CR>
-nmap <silent> <LocalLeader>hu :SignifyHunkUndo<CR>
-omap ih <plug>(signify-motion-inner-pending)
-xmap ih <plug>(signify-motion-inner-visual)
-omap ah <plug>(signify-motion-outer-pending)
-xmap ah <plug>(signify-motion-outer-visual)
+nmap <silent> [p <plug>(signify-prev-hunk)
+nmap <silent> [<c-p> 9999[p
+nmap <silent> ]p <plug>(signify-next-hunk)
+nmap <silent> ]<c-p> 9999]p
+nmap <silent> <LocalLeader>pd :SignifyHunkDiff<CR>
+nmap <silent> <LocalLeader>pu :SignifyHunkUndo<CR>
+omap ip <plug>(signify-motion-inner-pending)
+xmap ip <plug>(signify-motion-inner-visual)
+omap ap <plug>(signify-motion-outer-pending)
+xmap ap <plug>(signify-motion-outer-visual)
 
 " neoclide/coc.nvim
 function! s:coc_jump_definition_with_tags_fallback(jump_definition_action)
@@ -537,7 +529,7 @@ nmap <silent> <Leader>gD :call <SID>coc_jump_definition_with_tags_fallback('jump
 nmap <silent> <Leader>gi :call <SID>coc_jump_definition_with_tags_fallback('jumpImplementation')<CR>
 nmap <silent> <Leader>gr <Plug>(coc-references)
 
-nnoremap <silent> <LocalLeader>] :call <SID>show_documentation()<CR>
+nnoremap <silent> <LocalLeader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -580,13 +572,31 @@ omap ac <Plug>(coc-classobj-a)
 nmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 
-" neoclide/coc-denite
-nnoremap <silent> <Leader>cc :Denite coc-command<CR>
-nnoremap <silent> <Leader>cC :Denite coc-source<CR>
-nnoremap <silent> <Leader>ce :Denite coc-service<CR>
-nnoremap <silent> <Leader>ca :Denite coc-diagnostic<CR>
-nnoremap <silent> <LocalLeader>cs :Denite coc-symbols<CR>
-nnoremap <silent> <Leader>cs :Denite coc-workspace<CR>
+nnoremap <silent> <Leader>" :<C-u>CocList registers<CR>
+nnoremap <silent> <Leader>* :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+nnoremap <silent> <LocalLeader>* :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+nnoremap <silent> <Leader>. :<C-u>CocListResume<CR>
+nnoremap <silent> <Leader>/ :<C-u>CocList grep<CR>
+nnoremap <silent> <LocalLeader>/ :<C-u>CocList lines<CR>
+nnoremap <silent> <Leader>: :<C-u>CocList vimcommands<CR>
+nnoremap <silent> <LocalLeader>] :<C-u>CocList tags<CR>
+nnoremap <silent> <Leader>` :<C-u>CocList marks<CR>
+nnoremap <silent> <Leader>b :<C-u>CocList buffers<CR>
+nnoremap <silent> <LocalLeader>c :CocList changes<CR>
+nnoremap <silent> <Leader>cc :<C-u>CocList commands<CR>
+nnoremap <silent> <Leader>cC :<C-u>CocList sources<CR>
+nnoremap <silent> <Leader>ce :<C-u>CocList services<CR>
+nnoremap <silent> <Leader>ca :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <LocalLeader>cs :<C-u>CocList outline<CR>
+nnoremap <silent> <Leader>cs :<C-u>CocList -I symbols<CR>
+nnoremap <silent> <Leader>d :<C-u>CocList directories<CR>
+nnoremap <silent> <Leader>f :<C-u>CocList files<CR>
+nnoremap <silent> <Leader>h :<C-u>CocList helptags<CR>
+nnoremap <silent> <Leader>j :<C-u>CocList jumps<CR>
+nnoremap <silent> <Leader>o :<C-u>CocList mru<CR>
+nnoremap <silent> <Leader>r :<C-u>CocList cmdhistory<CR>
+nnoremap <silent> <Leader>R :<C-u>CocList searchhistory<CR>
+nnoremap <silent> <Leader>y :<C-u>CocList -A --normal yank<CR>
 
 " neoclide/coc-highlight
 nnoremap <silent> <LocalLeader>cp :call CocAction('pickColor')<CR>
@@ -616,85 +626,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
-" Shougo/denite.nvim
-call denite#custom#option('default', {
-  \ 'auto_resize': 1,
-  \ 'highlight_matched_char': 'gitcommitBranch',
-  \ 'highlight_matched_range': 'SpellLocal',
-  \ 'match_highlight': 1,
-  \ 'reversed': 1,
-  \ 'source_names': 'short',
-  \ 'start_filter': 1,
-  \ 'statusline': 0,
-  \ })
-
-call denite#custom#kind('directory', 'default_action', 'open')
-call denite#custom#source('command_history', 'sorters', [])
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--hidden'])
-
-call denite#custom#var('grep', {
-  \ 'command': ['rg'],
-  \ 'default_opts': ['-i', '--vimgrep', '--no-heading', '--hidden'],
-  \ 'recursive_opts': [],
-  \ 'pattern_opt': ['--regexp'],
-  \ 'separator': ['--'],
-  \ 'final_opts': [],
-  \ })
-
-nnoremap <silent> <Leader>. :Denite -resume<CR>
-nnoremap <silent> <Leader>: :Denite command<CR>
-nnoremap <silent> <Leader>` :Denite mark<CR>
-nnoremap <silent> <LocalLeader>] :Denite outline<CR>
-nnoremap <silent> <Leader>" :Denite register<CR>
-nnoremap <silent> <Leader>d :DeniteProjectDir directory_rec<CR>
-nnoremap <silent> <Leader>* :<C-u>DeniteCursorWord grep:.<CR>
-nnoremap <silent> <LocalLeader>/ :Denite line<CR>
-nnoremap <silent> <Leader>/ :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <silent> <LocalLeader>c :Denite change<CR>
-nnoremap <silent> <Leader>b :Denite buffer<CR>
-nnoremap <silent> <Leader>f :DeniteProjectDir file/rec<CR>
-nnoremap <silent> <Leader>j :Denite jump<CR>
-nnoremap <silent> <Leader>o :Denite file/old<CR>
-nnoremap <silent> <Leader>r :Denite command_history<CR>
-nnoremap <silent> <Leader>y :Denite neoyank<CR>
-
-" Denite buffer maps
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> a
-  \ denite#do_map('choose_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> oq
-  \ denite#do_map('do_action', 'quickfix')
-  nnoremap <silent><buffer><expr> os
-  \ denite#do_map('do_action', 'split')
-  nnoremap <silent><buffer><expr> ot
-  \ denite#do_map('do_action', 'tabopen')
-  nnoremap <silent><buffer><expr> ov
-  \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> s
-  \ denite#do_map('toggle_select').'k'
-  nnoremap <silent><buffer><expr> S
-  \ denite#do_map('toggle_select_all')
-endfunction
-
-" Denite filter buffer maps
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <Esc> <Plug>(denite_filter_update)
-  inoremap <silent><buffer><expr> <CR>
-        \ denite#do_map('do_action')
-endfunction
 
 " vim-airline/vim-airline
 function! WindowBufferMap(...)
@@ -745,14 +676,6 @@ function! DeleteHiddenBuffers()
 endfunction
 
 command Bdh call DeleteHiddenBuffers()
-
-" Copy/Paste/Move
-augroup nomasprime_text_yank_post
-  autocmd!
-  if exists('##TextYankPost')
-    autocmd TextYankPost * silent! lua return (not vim.v.event.visual) and require'vim.highlight'.on_yank {higroup='Visual', timeout=500}
-  endif
-augroup END
 
 " Energy Saver
 function! s:on_battery()
