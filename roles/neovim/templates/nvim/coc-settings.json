@@ -1,5 +1,8 @@
 {
-  "diagnostic.enableSign": false,
+  "diagnostic.errorSign": "●",
+  "diagnostic.hintSign": "◔",
+  "diagnostic.infoSign": "◑",
+  "diagnostic.warningSign": "◕",
   "highlight.document.enable": false,
   "python.jediEnabled": false,
   "python.linting.flake8Enabled": true,
