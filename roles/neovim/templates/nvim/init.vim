@@ -602,6 +602,10 @@ nnoremap <silent> <Leader>y :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <LocalLeader>cp :call CocAction('pickColor')<CR>
 nnoremap <silent> <LocalLeader>cP :call CocAction('colorPresentation')<CR>
 
+" neoclide/coc-pairs
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " neoclide/coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
