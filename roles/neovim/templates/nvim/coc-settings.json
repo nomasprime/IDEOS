@@ -1,17 +1,118 @@
 {
+  "diagnostic.enable": true,
   "diagnostic.errorSign": "●",
   "diagnostic.hintSign": "◔",
   "diagnostic.infoSign": "◑",
   "diagnostic.warningSign": "◕",
+  "diagnostic-languageserver.filetypes": {
+    "html": ["eslint"],
+    "javascript": ["eslint"],
+    "javascriptreact": ["eslint"],
+    "markdown": ["eslint"],
+    "python": [
+      "flake8",
+      "mypy"
+    ],
+    "ruby": [
+      "reek",
+      "rubocop"
+    ],
+    "typescript": ["eslint"],
+    "typescriptreact": ["eslint"],
+    "vue": ["eslint"]
+  },
+  "diagnostic-languageserver.linters": {
+    "reek": {
+      "command": "bundle",
+      "sourceName": "reek",
+      "debounce": 100,
+      "args": [
+        "exec",
+        "reek",
+        "--format",
+        "json",
+        "--force-exclusion",
+        "--stdin-filename",
+        "%filepath"
+      ],
+      "parseJson": {
+        "line": "lines[0]",
+        "endLine": "lines[1]",
+        "message": "[${smell_type}] ${message}"
+      },
+      "securities": {
+        "undefined": "info"
+      }
+    },
+    "rubocop": {
+      "command": "bundle",
+      "sourceName": "rubocop",
+      "debounce": 100,
+      "args": [
+        "exec",
+        "rubocop",
+        "--format",
+        "json",
+        "--force-exclusion",
+        "--stdin",
+        "%filepath"
+      ],
+      "parseJson": {
+        "errorsRoot": "files[0].offenses",
+        "line": "location.start_line",
+        "endLine": "location.last_line",
+        "column": "location.start_column",
+        "endColumn": "location.end_column",
+        "message": "[${cop_name}] ${message}",
+        "security": "severity"
+      },
+      "securities": {
+        "fatal": "error",
+        "error": "error",
+        "warning": "warning",
+        "convention": "info",
+        "refactor": "info",
+        "info": "info"
+      }
+    },
+    "standardrb": {
+      "command": "bundle",
+      "sourceName": "standardrb",
+      "debounce": 100,
+      "args": [
+        "exec",
+        "standardrb",
+        "--format",
+        "json",
+        "--force-exclusion",
+        "--stdin",
+        "%filepath"
+      ],
+      "parseJson": {
+        "errorsRoot": "files[0].offenses",
+        "line": "location.start_line",
+        "endLine": "location.last_line",
+        "column": "location.start_column",
+        "endColumn": "location.end_column",
+        "message": "[${cop_name}] ${message}",
+        "security": "severity"
+      },
+      "securities": {
+        "fatal": "error",
+        "error": "error",
+        "warning": "warning",
+        "convention": "info",
+        "refactor": "info",
+        "info": "info"
+      }
+    }
+  },
   "highlight.document.enable": false,
   "list.source.directories.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
   "list.source.files.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
   "python.jediEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Path": "~/.asdf/shims/flake8",
-  "python.linting.mypyEnabled": true,
-  "python.linting.mypyPath": "~/.asdf/shims/mypy",
-  "python.linting.pylintEnabled": false,
-  "solargraph.diagnostics": true,
-  "solargraph.formatting": true
+  "python.linting.enabled": false,
+  "solargraph.autoformat": false,
+  "solargraph.diagnostics": false,
+  "solargraph.formatting": false
 }

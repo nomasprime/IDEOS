@@ -202,6 +202,10 @@ Plug 'felippepuhle/coc-graphql', { 'do': 'yarn install --frozen-lockfile' }
 " GraphQL Language Service extension for coc.nvim
 " https://github.com/felippepuhle/coc-graphql
 
+Plug 'iamcco/coc-diagnostic', { 'do': 'yarn install --frozen-lockfile' }
+" Diagnostics for CoC
+" https://github.com/iamcco/coc-diagnostic
+
 Plug 'iamcco/coc-flutter', { 'do': 'yarn install --frozen-lockfile' }
 " Flutter support for coc.nvim
 " https://github.com/iamcco/coc-flutter
@@ -279,7 +283,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Make your Vim/Neovim as smart as VSCode
 " https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-eslint', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-highlight', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
