@@ -28,5 +28,6 @@ git:
     - .tags
     - .bundle
     - .tmuxinator
+    - .vim
 ideos:
   editor: vim
