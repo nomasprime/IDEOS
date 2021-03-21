@@ -383,7 +383,7 @@ call s:base16_theme()
 
 augroup nomasprime_theme
   autocmd!
-  autocmd VimResume * call s:base16_theme()
+  autocmd VimResume * ++nested call s:base16_theme()
 augroup END
 
 function! s:update_highlights()
@@ -418,7 +418,6 @@ endfunction
 augroup nomasprime_update_highlights
   autocmd!
   autocmd User AirlineAfterTheme call s:update_highlights()
-  autocmd ColorScheme * call s:update_highlights()
 augroup END
 
 " christoomey/vim-tmux-runner
