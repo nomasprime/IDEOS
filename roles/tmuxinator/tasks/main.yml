@@ -3,3 +3,7 @@
   homebrew:
     name: tmuxinator
     state: present
+
+- name: manage config
+  file:
+    path: ~/.config/tmuxinator/default.yml
