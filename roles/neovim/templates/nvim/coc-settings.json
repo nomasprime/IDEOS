@@ -110,6 +110,7 @@
   "highlight.document.enable": false,
   "list.source.directories.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
   "list.source.files.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
+  "list.source.grep.args": ["--hidden", "--smart-case", "--ignore-case"],
   "python.jediEnabled": false,
   "python.linting.enabled": false,
   "solargraph.autoformat": false,
