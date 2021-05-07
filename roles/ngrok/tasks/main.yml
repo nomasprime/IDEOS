@@ -1,0 +1,5 @@
+---
+- name: install ngrok
+  homebrew_cask:
+    name: ngrok
+    state: present
