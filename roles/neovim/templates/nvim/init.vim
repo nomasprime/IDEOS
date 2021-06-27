@@ -501,6 +501,9 @@ omap T <Plug>Sneak_T
 " ludovicchabant/vim-gutentags
 let g:gutentags_ctags_tagfile = '.tags'
 
+" mattn/gist-vim
+let g:gist_post_private = 1
+
 " mbbill/undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
