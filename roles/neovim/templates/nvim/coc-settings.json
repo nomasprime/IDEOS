@@ -107,7 +107,7 @@
       }
     }
   },
-  "highlight.document.enable": false,
+  "highlight.document.enable": true,
   "list.source.directories.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
   "list.source.files.args": ["--hidden", "--files", "--smart-case", "--ignore-case"],
   "list.source.grep.args": ["--hidden", "--smart-case", "--ignore-case"],
