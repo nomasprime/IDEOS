@@ -309,6 +309,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvim-treesitter/nvim-treesitter'
 " https://github.com/nvim-treesitter/nvim-treesitter
 
+Plug 'p00f/nvim-ts-rainbow'
+" https://github.com/p00f/nvim-ts-rainbow
+
 Plug 'tpope/vim-abolish'
 " Working with word variants
 " https://github.com/tomtom/tlib_vim
@@ -653,6 +656,10 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+  }
 }
 EOF
 
