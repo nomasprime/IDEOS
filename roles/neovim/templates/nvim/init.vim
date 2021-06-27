@@ -306,6 +306,9 @@ Plug 'ntpeters/vim-better-whitespace'
 " Better whitespace highlighting
 " https://github.com/ntpeters/vim-better-whitespace
 
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+" https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
 Plug 'nvim-treesitter/nvim-treesitter'
 " https://github.com/nvim-treesitter/nvim-treesitter
 
@@ -585,15 +588,6 @@ nmap <silent> <LocalLeader>ca <Plug>(coc-codeaction)
 
 nmap <silent> <LocalLeader>aq <Plug>(coc-fix-current)
 
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
 nmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
 
@@ -659,7 +653,38 @@ require'nvim-treesitter.configs'.setup {
   rainbow = {
     enable = true,
     extended_mode = true,
-  }
+  },
+  textobjects = {
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]c"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]C"] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[c"] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[C"] = "@class.outer",
+      },
+    },
+    select = {
+      enable = true,
+      keymaps = {
+        ["am"] = "@function.outer",
+        ["im"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
 }
 EOF
 
