@@ -552,7 +552,7 @@ nmap <silent> <Leader>gD :call <SID>coc_jump_definition_with_tags_fallback('jump
 nmap <silent> <Leader>gi :call <SID>coc_jump_definition_with_tags_fallback('jumpImplementation')<CR>
 nmap <silent> <Leader>gr <Plug>(coc-references)
 
-nnoremap <silent> <LocalLeader>h :call <SID>show_documentation()<CR>
+nnoremap <silent> <LocalLeader>k :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -616,7 +616,7 @@ nnoremap <silent> <LocalLeader>cs :<C-u>CocList outline<CR>
 nnoremap <silent> <Leader>cs :<C-u>CocList -I symbols<CR>
 nnoremap <silent> <Leader>d :<C-u>CocList directories<CR>
 nnoremap <silent> <Leader>f :<C-u>CocList files<CR>
-nnoremap <silent> <Leader>h :<C-u>CocList helptags<CR>
+nnoremap <silent> <Leader>k :<C-u>CocList helptags<CR>
 nnoremap <silent> <Leader>j :<C-u>CocList jumps<CR>
 nnoremap <silent> <Leader>o :<C-u>CocList mru<CR>
 nnoremap <silent> <Leader>r :<C-u>CocList cmdhistory<CR>
