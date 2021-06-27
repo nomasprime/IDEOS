@@ -656,6 +656,9 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 " vim-airline/vim-airline
 function! WindowBufferMap(...)
   let builder = a:1
