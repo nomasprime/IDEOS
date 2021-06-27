@@ -523,16 +523,16 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 " mhinz/vim-signify
 let g:signify_sign_change = '~'
-nmap <silent> [p <plug>(signify-prev-hunk)
-nmap <silent> [<c-p> 9999[p
-nmap <silent> ]p <plug>(signify-next-hunk)
-nmap <silent> ]<c-p> 9999]p
-nmap <silent> <LocalLeader>pd :SignifyHunkDiff<CR>
-nmap <silent> <LocalLeader>pu :SignifyHunkUndo<CR>
-omap ip <plug>(signify-motion-inner-pending)
-xmap ip <plug>(signify-motion-inner-visual)
-omap ap <plug>(signify-motion-outer-pending)
-xmap ap <plug>(signify-motion-outer-visual)
+nmap <silent> [h <plug>(signify-prev-hunk)
+nmap <silent> [<c-h> 9999[h
+nmap <silent> ]h <plug>(signify-next-hunk)
+nmap <silent> ]<c-h> 9999]h
+nmap <silent> <LocalLeader>hd :SignifyHunkDiff<CR>
+nmap <silent> <LocalLeader>hu :SignifyHunkUndo<CR>
+omap ih <plug>(signify-motion-inner-pending)
+xmap ih <plug>(signify-motion-inner-visual)
+omap ah <plug>(signify-motion-outer-pending)
+xmap ah <plug>(signify-motion-outer-visual)
 
 " neoclide/coc.nvim
 function! s:coc_jump_definition_with_tags_fallback(jump_definition_action)
