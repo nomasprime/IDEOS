@@ -1,0 +1,5 @@
+---
+- name: install macos-trash
+  homebrew:
+    name: macos-trash
+    state: present
