@@ -119,9 +119,9 @@ set ignorecase smartcase
 set incsearch
 
 " Scrolling
-set scrolloff=2
-set sidescroll=1
-set sidescrolloff=10
+set scrolloff=3
+set sidescroll=0
+set sidescrolloff=3
 set t_ti= t_te=
 
 " Sign Column
@@ -314,6 +314,9 @@ Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'p00f/nvim-ts-rainbow'
 " https://github.com/p00f/nvim-ts-rainbow
+
+Plug 'romgrk/nvim-treesitter-context'
+" https://github.com/romgrk/nvim-treesitter-context
 
 Plug 'tpope/vim-abolish'
 " Working with word variants
@@ -690,6 +693,13 @@ EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
+" romgrk/nvim-treesitter-context
+lua <<EOF
+require'treesitter-context.config'.setup {
+    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+}
+EOF
 
 " vim-airline/vim-airline
 function! WindowBufferMap(...)
