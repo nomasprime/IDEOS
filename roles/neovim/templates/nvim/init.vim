@@ -591,9 +591,6 @@ nmap <silent> <LocalLeader>ca <Plug>(coc-codeaction)
 
 nmap <silent> <LocalLeader>aq <Plug>(coc-fix-current)
 
-nmap <silent> <LocalLeader>v <Plug>(coc-range-select)
-xmap <silent> <LocalLeader>v <Plug>(coc-range-select)
-
 nnoremap <silent> <Leader>" :<C-u>CocList registers<CR>
 nnoremap <silent> <Leader>* :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 nnoremap <silent> <LocalLeader>* :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
@@ -649,6 +646,15 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   highlight = {
     enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<LocalLeader>vv",
+      node_incremental = "<LocalLeader>vk",
+      scope_incremental = "<LocalLeader>vK",
+      node_decremental = "<LocalLeader>vj",
+    },
   },
   indent = {
     enable = true,
