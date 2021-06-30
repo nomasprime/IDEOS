@@ -810,3 +810,8 @@ nnoremap <silent> ]<c-l> :llast<cr>
 " Spelling
 nnoremap <silent> <LocalLeader>S :setlocal spell!<cr>
 nnoremap <silent> <Leader>S :set spell!<cr>
+
+" Tabs
+nnoremap <silent> <m-t>n :tabnew<cr>
+nnoremap <silent> <m-t>c :tabclose<cr>
+nnoremap <silent> <m-t>o :tabonly<cr>
