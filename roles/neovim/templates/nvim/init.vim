@@ -657,7 +657,7 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   indent = {
-    enable = true,
+    enable = false,
   },
   rainbow = {
     enable = true,
@@ -696,9 +696,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 
 " romgrk/nvim-treesitter-context
 lua <<EOF
