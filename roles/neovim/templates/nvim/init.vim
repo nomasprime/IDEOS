@@ -808,8 +808,8 @@ nnoremap <silent> ]l :Lnext<cr>
 nnoremap <silent> ]<c-l> :llast<cr>
 
 " Spelling
-nnoremap <silent> <LocalLeader>S :setlocal spell!<cr>
-nnoremap <silent> <Leader>S :set spell!<cr>
+nnoremap <silent> <LocalLeader>s :setlocal spell!<cr>
+nnoremap <silent> <Leader>s :set spell!<cr>
 
 " Tabs
 nnoremap <silent> <m-t>n :tabnew<cr>
