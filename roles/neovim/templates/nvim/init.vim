@@ -210,6 +210,9 @@ Plug 'iamcco/coc-flutter', { 'do': 'yarn install --frozen-lockfile' }
 " Flutter support for coc.nvim
 " https://github.com/iamcco/coc-flutter
 
+Plug 'iamcco/coc-spell-checker', { 'do': 'yarn install --frozen-lockfile' }
+" https://github.com/iamcco/coc-spell-checker
+
 Plug 'iamcco/coc-svg', { 'do': 'yarn install --frozen-lockfile' }
 " A Powerful SVG Language Support Extension for coc.nvim. Almost all the features you need to handle SVG
 " https://github.com/iamcco/coc-svg
@@ -806,10 +809,6 @@ nnoremap <silent> [l :Lprev<cr>
 nnoremap <silent> [<c-l> :lfirst<cr>
 nnoremap <silent> ]l :Lnext<cr>
 nnoremap <silent> ]<c-l> :llast<cr>
-
-" Spelling
-nnoremap <silent> <LocalLeader>s :setlocal spell!<cr>
-nnoremap <silent> <Leader>s :set spell!<cr>
 
 " Tabs
 nnoremap <silent> <m-t>n :tabnew<cr>
