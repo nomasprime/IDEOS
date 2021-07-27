@@ -18,6 +18,7 @@
       "reek",
       "rubocop"
     ],
+    "text": ["languagetool"],
     "typescript": ["eslint"],
     "typescriptreact": ["eslint"],
     "vue": ["eslint"]
