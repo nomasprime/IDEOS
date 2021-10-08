@@ -29,7 +29,6 @@
     block: |
       [hub]
         user = {{ hub['users'][0]['name'] }}
-      [hub]
         protocol = {{ hub['config']['hub']['protocol'] }}
     marker: "# {mark} {{ role_path|basename }} manage config"
     path: ~/.gitconfig
