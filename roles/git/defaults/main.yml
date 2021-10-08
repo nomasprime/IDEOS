@@ -3,6 +3,10 @@ git:
   config:
     apply:
       whitespace: fix
+    blame:
+      color:
+        highlight_recent: brightblack, 3 month ago, cyan, 1 month ago, green
+      coloring: highlightRecent
     core:
       editor: vim
       excludesfile: ~/.gitignore

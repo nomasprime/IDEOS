@@ -2,6 +2,8 @@
   diff = auto
   status = auto
   branch = auto
+[color "blame"]
+  highlightRecent = {{ git['config']['blame']['color']['highlight_recent'] }}
 [core]
   autocrlf = input
   editor = {{ git['config']['core']['editor'] }}
@@ -14,3 +16,5 @@
 [user]
   name = {{ git['config']['user']['name'] }}
   email = {{ git['config']['user']['email'] }}
+[blame]
+  coloring = {{ git['config']['blame']['coloring'] }}
