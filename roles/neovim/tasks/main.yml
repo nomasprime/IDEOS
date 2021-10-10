@@ -98,9 +98,3 @@
     dest: ~/.eslintrc
     force: yes
     src: .eslintrc
-
-- name: install jest-vim-reporter
-  npm:
-    name: jest-vim-reporter
-    path: ~/
-    state: present
