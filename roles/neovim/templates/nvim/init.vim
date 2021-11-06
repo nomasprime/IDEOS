@@ -553,6 +553,7 @@ function! s:coc_jump_definition_with_tags_fallback(jump_definition_action)
   execute("silent! normal \<C-]>")
 endfunction
 
+inoremap <silent><expr> <CR> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 nmap <silent> [a <Plug>(coc-diagnostic-prev)
 nmap <silent> [<c-a> 9999[a
 nmap <silent> ]a <Plug>(coc-diagnostic-next)
@@ -624,10 +625,6 @@ nnoremap <silent> <Leader>y :<C-u>CocList -A --normal yank<CR>
 " neoclide/coc-highlight
 nnoremap <silent> <LocalLeader>cp :call CocAction('pickColor')<CR>
 nnoremap <silent> <LocalLeader>cP :call CocAction('colorPresentation')<CR>
-
-" neoclide/coc-pairs
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " neoclide/coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
