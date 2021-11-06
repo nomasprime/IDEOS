@@ -554,6 +554,8 @@ function! s:coc_jump_definition_with_tags_fallback(jump_definition_action)
 endfunction
 
 inoremap <silent><expr> <CR> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm() : "\<C-y>"
+
 nmap <silent> [a <Plug>(coc-diagnostic-prev)
 nmap <silent> [<c-a> 9999[a
 nmap <silent> ]a <Plug>(coc-diagnostic-next)
