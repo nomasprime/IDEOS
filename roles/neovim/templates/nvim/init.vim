@@ -460,6 +460,7 @@ vnoremap <LocalLeader>x :up <Bar> :VtrSendLinesToRunner<cr>
 let g:prosession_dir = '~/.nvim/session'
 
 " iamcco/markdown-preview.nvim
+let g:mkdp_browser = 'Safari'
 let g:mkdp_page_title = '${name}'
 nmap <LocalLeader>mp <Plug>MarkdownPreviewToggle
 
