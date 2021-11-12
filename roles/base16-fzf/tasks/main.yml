@@ -9,7 +9,7 @@
 - name: add config to rc
   blockinfile:
     block: |
-      if [ $ITERM_PROFILE = "Alt" ]; then
+      if [ "$ITERM_PROFILE" = "Alt" ]; then
         source "$HOME/.config/base16-fzf/bash/{{ base16_fzf['themes']['alt'] }}.config"
       else
         source "$HOME/.config/base16-fzf/bash/{{ base16_fzf['themes']['default'] }}.config"
