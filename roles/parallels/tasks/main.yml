@@ -1,0 +1,5 @@
+---
+- name: install parallels
+  homebrew_cask:
+    name: parallels
+    state: present
