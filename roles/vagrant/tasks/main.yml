@@ -3,3 +3,13 @@
   homebrew_cask:
     name: vagrant
     state: present
+
+- name: installed plugins
+  shell: grep -o {{ item }} ~/.vagrant.d/plugins.json || true
+  register: installed_plugins
+  with_items: "{{ vagrant.plugins }}"
+
+- name: install plugins
+  command: "vagrant plugin install {{ item }}"
+  with_items: "{{ vagrant.plugins }}"
+  when: item not in (installed_plugins | json_query('results[*].stdout'))

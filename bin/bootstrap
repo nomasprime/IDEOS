@@ -22,6 +22,13 @@ else
   echo 'Already installed pexpect'
 fi
 
+if ! python3 -m pip list --user | grep jmespath &> /dev/null; then
+  echo 'Installing jmespath...'
+  python3 -m pip install --user jmespath
+else
+  echo 'Already installed jmespath'
+fi
+
 if [[ ! -d /etc/ansible ]]; then
   echo 'Initializing inventory...'
   sudo mkdir /etc/ansible

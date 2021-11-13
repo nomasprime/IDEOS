@@ -1,3 +1,5 @@
 ---
 dependencies:
-  - { role: brew }
+  - role: brew
+  - role: parallels
+    when: '"vagrant-parallels" in vagrant.plugins'
