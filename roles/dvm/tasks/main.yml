@@ -1,0 +1,50 @@
+---
+- name: manage build directory
+  file:
+    path: "{{ dvm['build_dir'] }}"
+    state: directory
+
+- name: manage vagrantfile
+  template:
+    dest: "{{ dvm['build_dir'] }}/Vagrantfile"
+    src: Vagrantfile.j2
+
+- name: manage bin
+  template:
+    dest: /usr/local/bin/dvm
+    mode: u=rwx,g=rx,o=rx
+    src: dvm
+
+- name: up
+  shell: dvm up
+  args:
+    executable: /bin/bash
+
+- name: add to group
+  add_host:
+    ansible_host: "{{ dvm['ip'] }}"
+    ansible_port: "{{ dvm['port'] }}"
+    ansible_ssh_private_key_file: "{{ dvm['identity_file'] }}"
+    ansible_user: "{{ dvm['user'] }}"
+    groups:
+      - dvms
+    hostname: "{{ dvm['host_name'] }}"
+
+- name: add config to dnsmasq
+  lineinfile:
+    line: "address=/test/{{ dvm['vagrantfile']['ip'] }}"
+    path: /usr/local/etc/dnsmasq.conf
+  notify:
+    - restart dnsmasq
+
+- name: manage resolver directory
+  file:
+    path: /etc/resolver
+    state: directory
+  become: true
+
+- name: manage resolver file
+  copy:
+    dest: /etc/resolver/test
+    content: nameserver 127.0.0.1
+  become: true

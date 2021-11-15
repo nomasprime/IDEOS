@@ -1,0 +1,9 @@
+dvm:
+  vagrantfile:
+    cpus: 1
+    hostname: dvm
+    ip: 192.168.33.10
+    memory: 4096
+    synced_folder:
+      guest: "/home/vagrant/Organisations"
+      host: "#{ENV['HOME']}/Organisations"

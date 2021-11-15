@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-21.04"
+  config.vm.hostname = "{{ dvm['vagrantfile']['hostname'] }}"
+  config.vm.network "private_network", ip: "{{ dvm['vagrantfile']['ip'] }}"
+
+  config.vm.provider :parallels do |parallels|
+    parallels.memory = {{ dvm['vagrantfile']['memory'] }}
+    parallels.cpus = {{ dvm['vagrantfile']['cpus'] }}
+    parallels.update_guest_tools = true
+  end
+
+  config.vm.synced_folder ".", "/vagrant", :disabled => true
+
+  config.vm.synced_folder "{{ dvm['vagrantfile']['synced_folder']['host'] }}", "{{ dvm['vagrantfile']['synced_folder']['guest'] }}"
+
+  config.vm.provision "shell", :inline => "apt-get -y install python python3-pip && chmod -x /etc/update-motd.d/* && pip install pexpect"
+end
