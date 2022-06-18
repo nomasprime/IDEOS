@@ -1,2 +1,2 @@
 brew:
-  prefix: /usr/local
+  prefix: "{{ '/opt/homebrew' if ansible_architecture == 'arm64' else '/usr/local' }}"

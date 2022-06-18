@@ -12,7 +12,7 @@
 - name: enable zsh
   become: true
   lineinfile:
-    line: '/usr/local/bin/zsh'
+    line: "{{ brew['prefix'] }}/bin/zsh"
     path: /etc/shells
 
 - name: test shell
@@ -21,6 +21,6 @@
 
 - name: change shell
   become: true
-  command: chsh -s /usr/local/bin/zsh {{ ansible_user_id }}
+  command: "chsh -s {{ brew['prefix'] }}/bin/zsh {{ ansible_user_id }}"
   when:
     - test_shell_result.stdout.find('/usr/local/bin/zsh') == -1

@@ -1,6 +1,6 @@
 ---
 - name: install homebrew
-  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  command: curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
   args:
     creates: "{{ brew['prefix'] }}/Homebrew"
     executable: /bin/bash
