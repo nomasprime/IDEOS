@@ -3,15 +3,3 @@
   homebrew:
     name: openssl
     state: present
-
-- name: copy private key
-  copy:
-    content: "{{ openssl['private_key'] }}"
-    dest: ~/.ssh/id_rsa
-    mode: 0600
-
-- name: copy public key
-  copy:
-    content: "{{ openssl['public_key'] }}"
-    dest: ~/.ssh/id_rsa.pub
-    mode: 0600
