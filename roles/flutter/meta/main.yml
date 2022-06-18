@@ -1,5 +1,6 @@
 ---
 dependencies:
+  - { role: jq }
   - role: asdf
     vars:
       asdf:

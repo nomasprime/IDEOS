@@ -1,0 +1,5 @@
+---
+- name: install jq
+  homebrew:
+    name: jq
+    state: present
