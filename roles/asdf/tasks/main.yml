@@ -21,7 +21,14 @@
     creates: "~/.asdf/plugins/{{ item.name }}"
   with_items: "{{ asdf['globals'] }}"
 
-- name: global versions
+- name: create global versions
+  file:
+    path: ~/.tool-versions
+    state: touch
+    modification_time: preserve
+    access_time: preserve
+
+- name: get global versions
   shell: cat ~/.tool-versions
   register: global_versions
 
