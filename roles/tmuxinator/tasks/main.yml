@@ -4,6 +4,11 @@
     name: tmuxinator
     state: present
 
+- name: manage config directory
+  file:
+    path: ~/.config/tmuxinator
+    state: directory
+
 - name: manage config
   file:
     path: ~/.config/tmuxinator/default.yml
