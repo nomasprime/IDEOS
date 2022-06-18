@@ -6,7 +6,7 @@
 
 - name: install neovim
   homebrew:
-    install_options: --HEAD
+    install_options: HEAD
     name: neovim
     state: present
 
@@ -54,6 +54,7 @@
   args:
     creates: "{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim"
 
+# Failed
 - name: install vim plug plugins
   expect:
     command: "{{ brew['prefix'] }}/bin/nvim --headless +PlugInstall +qa && {{ brew['prefix'] }}/bin/nvim --headless +PlugClean +y +qa"
