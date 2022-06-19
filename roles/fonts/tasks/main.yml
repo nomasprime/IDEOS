@@ -1,0 +1,5 @@
+---
+- name: install fonts
+  copy:
+    dest: ~/Library/Fonts
+    src: files/
