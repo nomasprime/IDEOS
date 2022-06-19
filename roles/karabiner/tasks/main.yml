@@ -1,0 +1,10 @@
+---
+- name: install karabiner
+  homebrew_cask:
+    name: karabiner-elements
+    state: present
+
+- name: manage config
+  copy:
+    dest: ~/.config/karabiner/assets/complex_modifications/
+    src: config/karabiner/assets/complex_modifications/
