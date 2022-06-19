@@ -1,0 +1,5 @@
+---
+- name: install raycast
+  homebrew_cask:
+    name: raycast
+    state: present
