@@ -1,0 +1,5 @@
+---
+- name: install meetingbar
+  homebrew_cask:
+    name: meetingbar
+    state: present
