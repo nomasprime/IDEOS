@@ -416,12 +416,7 @@ augroup END
 function! s:update_highlights()
   hi Comment cterm=italic gui=italic
 
-  call NeoCursorLine({
-  \ 'dim': 6,
-  \ 'cursor_column_dim': 3,
-  \ 'pop': 1,
-  \ 'visual': 1,
-  \ })
+  lua neocursorline({ dim = 0.04, cursor_column_dim = 0.02, pop = 1, visual = 1 })
 
   hi CursorLineNr cterm=none ctermbg=none gui=none guibg=none
   hi LineNr ctermbg=none guibg=none
