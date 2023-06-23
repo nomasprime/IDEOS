@@ -381,6 +381,10 @@ Plug 'vim-scripts/ExplainPattern'
 Plug 'wincent/terminus'
 " Terminus enhances Vim's and Neovim's integration with the terminal
 " https://github.com/wincent/terminus
+
+Plug 'windwp/nvim-ts-autotag'
+" Use treesitter to autoclose and autorename html tag
+" https://github.com/windwp/nvim-ts-autotag
 call plug#end()
 
 " chaoren/vim-wordmotion
@@ -646,6 +650,9 @@ let g:better_whitespace_operator = '<LocalLeader>dh'
 " nvim-treesitter/nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  },
   ensure_installed = "all",
   ignore_install = { "phpdoc" },
   highlight = {
