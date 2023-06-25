@@ -296,7 +296,7 @@ Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yank', { 'do': 'yarn install --frozen-lockfile' }
 
-Plug 'nomasprime/neocursorline.nvim', { 'do': { -> neocursorline#install() } }
+Plug 'nomasprime/neocursorline.nvim'
 " https://github.com/nomasprime/neocursorline.nvim
 
 Plug 'nomasprime/vim-snippets'
