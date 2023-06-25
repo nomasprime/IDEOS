@@ -33,5 +33,6 @@ git:
     - .bundle
     - .tmuxinator
     - .vim
+    - .idea
 ideos:
   editor: vim
