@@ -102,9 +102,7 @@ set nostartofline
 set wrapmargin=0
 
 " Providers
-let g:node_host_prog=expand("~/.asdf/installs/nodejs/14.2.0/.npm/bin/neovim-node-host")
-let g:python3_host_prog=expand("~/.asdf/installs/python/3.8.3/bin/python")
-let g:ruby_host_prog=expand("~/.asdf/installs/ruby/2.7.0/bin/neovim-ruby-host")
+let g:loaded_perl_provider = 0
 
 " Quickfix
 autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
