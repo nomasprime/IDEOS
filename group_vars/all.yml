@@ -37,8 +37,8 @@ git:
     core:
       editor: nvim
     user:
-      name: Rick Jones
-      email: rick.jones@playtimestudios.com
+      name: Richard Jones
+      email: richard.jones@playtimestudios.com
 hub:
   users:
     - name: nomasprime
