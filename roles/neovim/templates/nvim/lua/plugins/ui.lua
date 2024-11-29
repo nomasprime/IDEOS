@@ -1,5 +1,14 @@
 return {
   {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        section_separators = '',
+        component_separators = ''
+      }
+    }
+  },
+  {
     -- https://github.com/nomasprime/neocursorline.nvim
     "nomasprime/neocursorline.nvim",
     config = function ()
