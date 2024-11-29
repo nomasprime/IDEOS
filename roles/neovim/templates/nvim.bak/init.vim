@@ -19,10 +19,6 @@ set wildmode=full
 " Completion
 set completeopt-=preview
 
-" Cursor
-set cursorcolumn
-set cursorline
-
 augroup nomasprime_cursor
   autocmd!
 
@@ -292,9 +288,6 @@ Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yaml', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-yank', { 'do': 'yarn install --frozen-lockfile' }
 
-Plug 'nomasprime/neocursorline.nvim'
-" https://github.com/nomasprime/neocursorline.nvim
-
 Plug 'nomasprime/vim-snippets'
 " Default snippets
 " https://github.com/nomasprime/vim-snippets
@@ -394,9 +387,6 @@ let g:wordmotion_mappings = {
 
 " chriskempson/base16-vim
 function! s:update_highlights()
-  lua neocursorline({ dim = 0.04, cursor_column_dim = 0.02, pop = 1, visual = 1 })
-  hi CursorLineNr cterm=none ctermbg=none gui=none guibg=none
-
   hi SignifySignAdd ctermbg=none guibg=none
   hi SignifySignDelete ctermbg=none guibg=none
   hi SignifySignChange ctermbg=none guibg=none
