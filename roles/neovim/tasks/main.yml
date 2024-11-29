@@ -1,8 +1,8 @@
 ---
-- name: install ctags
-  homebrew:
-    name: ctags
-    state: present
+#- name: install ctags
+#  homebrew:
+#    name: ctags
+#    state: present
 
 - name: install neovim
   homebrew:
@@ -33,6 +33,11 @@
     name: rg
     state: present
 
+- name: install luarocks
+  homebrew:
+    name: luarocks
+    state: present
+
 - name: manage config directories
   file:
     path: ~/.config/nvim/{{ item.path }}
@@ -49,53 +54,53 @@
   with_filetree: templates/nvim
   when: item.state == 'file'
 
-- name: download vim plug
-  command: curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  args:
-    creates: "{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim"
-
-# Failed
-- name: install vim plug plugins
-  expect:
-    command: "{{ brew['prefix'] }}/bin/nvim --headless +PlugInstall +qa && {{ brew['prefix'] }}/bin/nvim --headless +PlugClean +y +qa"
-    responses:
-      Delete all directories\? \(y/N\): "y\n"
-  ignore_errors: true
-  when: config.changed
-
-- name: install python-language-server
-  pip:
-    executable: pip3
-    name: python-language-server
-    state: present
-
-- name: install flake8
-  pip:
-    executable: pip3
-    name: flake8
-    state: present
-
-- name: install mypy
-  pip:
-    executable: pip3
-    name: mypy
-    state: present
-
-- name: install eslint
-  npm:
-    name: "{{item}}"
-    path: ~/
-    state: present
-  with_items:
-    - eslint
-    - eslint-config-airbnb
-    - eslint-plugin-import
-    - eslint-plugin-react
-    - eslint-plugin-react-hooks
-    - eslint-plugin-jsx-a11y
-
-- name: manage eslint config
-  copy:
-    dest: ~/.eslintrc
-    force: yes
-    src: .eslintrc
+#- name: download vim plug
+#  command: curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#  args:
+#    creates: "{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim"
+#
+## Failed
+#- name: install vim plug plugins
+#  expect:
+#    command: "{{ brew['prefix'] }}/bin/nvim --headless +PlugInstall +qa && {{ brew['prefix'] }}/bin/nvim --headless +PlugClean +y +qa"
+#    responses:
+#      Delete all directories\? \(y/N\): "y\n"
+#  ignore_errors: true
+#  when: config.changed
+#
+#- name: install python-language-server
+#  pip:
+#    executable: pip3
+#    name: python-language-server
+#    state: present
+#
+#- name: install flake8
+#  pip:
+#    executable: pip3
+#    name: flake8
+#    state: present
+#
+#- name: install mypy
+#  pip:
+#    executable: pip3
+#    name: mypy
+#    state: present
+#
+#- name: install eslint
+#  npm:
+#    name: "{{item}}"
+#    path: ~/
+#    state: present
+#  with_items:
+#    - eslint
+#    - eslint-config-airbnb
+#    - eslint-plugin-import
+#    - eslint-plugin-react
+#    - eslint-plugin-react-hooks
+#    - eslint-plugin-jsx-a11y
+#
+#- name: manage eslint config
+#  copy:
+#    dest: ~/.eslintrc
+#    force: yes
+#    src: .eslintrc

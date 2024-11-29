@@ -169,10 +169,6 @@ Plug 'chaoren/vim-wordmotion'
 " More useful word motions
 " https://github.com/chaoren/vim-wordmotion
 
-Plug 'chriskempson/base16-vim'
-" Base16 themes
-" https://github.com/chriskempson/base16-vim
-
 Plug 'christoomey/vim-tmux-runner'
 " A simple, vimscript only, command runner for sending commands from vim to tmux
 " https://github.com/christoomey/vim-tmux-runner
@@ -397,34 +393,10 @@ let g:wordmotion_mappings = {
 \ }
 
 " chriskempson/base16-vim
-function! s:base16_theme()
-  if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-  endif
-endfunction
-
-call s:base16_theme()
-
-augroup nomasprime_theme
-  autocmd!
-  autocmd VimResume * ++nested call s:base16_theme()
-augroup END
-
 function! s:update_highlights()
-  hi Comment cterm=italic gui=italic
-
   lua neocursorline({ dim = 0.04, cursor_column_dim = 0.02, pop = 1, visual = 1 })
-
   hi CursorLineNr cterm=none ctermbg=none gui=none guibg=none
-  hi LineNr ctermbg=none guibg=none
-  hi SignColumn ctermbg=none guibg=none
-  hi VertSplit ctermbg=none guibg=none
-  hi DiffAdd ctermbg=none guibg=none
-  hi DiffDelete ctermbg=none guibg=none
-  hi DiffChange ctermbg=none guibg=none
-  hi FoldColumn ctermbg=none guibg=none
-  hi Folded ctermbg=none guibg=none
+
   hi SignifySignAdd ctermbg=none guibg=none
   hi SignifySignDelete ctermbg=none guibg=none
   hi SignifySignChange ctermbg=none guibg=none
