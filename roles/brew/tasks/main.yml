@@ -2,8 +2,8 @@
 - name: OS vars
   include_vars: "{{ ansible_os_family|lower }}.yml"
 
-- include: darwin.yml
+- include_tasks: darwin.yml
   when: ansible_os_family == 'Darwin'
 
-- include: debian.yml
+- include_tasks: debian.yml
   when: ansible_os_family == 'Debian'

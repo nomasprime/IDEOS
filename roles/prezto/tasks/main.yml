@@ -1,8 +1,8 @@
 ---
-- include: darwin.yml
+- include_tasks: darwin.yml
   when: ansible_os_family == 'Darwin'
 
-- include: debian.yml
+- include_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 
 - name: clone repository
