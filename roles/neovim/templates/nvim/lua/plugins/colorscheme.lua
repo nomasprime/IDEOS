@@ -3,7 +3,7 @@ return {
     "chriskempson/base16-vim",
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       local function base16_theme()
         local background_path = vim.fn.expand("~/.vimrc_background")
 
@@ -18,7 +18,7 @@ return {
       local base16VimGroup = vim.api.nvim_create_augroup("base16", { clear = true })
 
       vim.api.nvim_create_autocmd("VimResume", {
-        pattern = { '*' },
+        pattern = { "*" },
         group = base16VimGroup,
         nested = true,
         callback = function()
@@ -26,15 +26,16 @@ return {
         end,
       })
 
-      vim.cmd[[hi Comment cterm=italic gui=italic]]
-      vim.cmd[[hi LineNr ctermbg=none guibg=none]]
-      vim.cmd[[hi SignColumn ctermbg=none guibg=none]]
-      vim.cmd[[hi VertSplit ctermbg=none guibg=none]]
-      vim.cmd[[hi DiffAdd ctermbg=none guibg=none]]
-      vim.cmd[[hi DiffDelete ctermbg=none guibg=none]]
-      vim.cmd[[hi DiffChange ctermbg=none guibg=none]]
-      vim.cmd[[hi FoldColumn ctermbg=none guibg=none]]
-      vim.cmd[[hi Folded ctermbg=none guibg=none]]
-    end
-  }
+      vim.cmd([[hi Comment cterm=italic gui=italic]])
+      vim.cmd([[hi LineNr ctermbg=none guibg=none]])
+      vim.cmd([[hi SignColumn ctermbg=none guibg=none]])
+      vim.cmd([[hi VertSplit ctermbg=none guibg=none]])
+      vim.cmd([[hi DiffAdd ctermbg=none guibg=none]])
+      vim.cmd([[hi DiffDelete ctermbg=none guibg=none]])
+      vim.cmd([[hi DiffChange ctermbg=none guibg=none]])
+      vim.cmd([[hi FoldColumn ctermbg=none guibg=none]])
+      vim.cmd([[hi Folded ctermbg=none guibg=none]])
+      vim.cmd([[hi! link WinSeparator VertSplit]])
+    end,
+  },
 }
