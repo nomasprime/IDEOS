@@ -19,16 +19,6 @@ set wildmode=full
 " Completion
 set completeopt-=preview
 
-augroup nomasprime_cursor
-  autocmd!
-
-  autocmd VimEnter,VimResume * set guicursor=n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50
-    \,a:blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
-    \,sm:block-blinkwait175-blinkoff150-blinkon175
-
-  autocmd VimLeave,VimSuspend * set guicursor=a:ver25-blinkwait500-blinkoff250-blinkon250-Cursor/lCursor
-augroup END
-
 set selection=inclusive
 set virtualedit=block
 
