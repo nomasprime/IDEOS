@@ -36,5 +36,6 @@ git:
     - .tmuxinator
     - .vim
     - .idea
+    - out
 ideos:
   editor: vim
