@@ -5,4 +5,3 @@ asdf:
     - name: nodejs
     - name: python
     - name: ruby
-    - name: yarn
