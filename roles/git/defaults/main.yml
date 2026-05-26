@@ -13,6 +13,8 @@ git:
       pager: less -r
     hub:
       protocol: git
+    init:
+      default_branch: trunk
   ignores:
     - .DS_Store
     - .DS_Store?
