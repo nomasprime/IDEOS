@@ -15,6 +15,9 @@ git:
       protocol: git
     init:
       default_branch: trunk
+    fetch:
+      prune: true
+      tags: true
   ignores:
     - .DS_Store
     - .DS_Store?
