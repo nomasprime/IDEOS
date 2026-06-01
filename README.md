@@ -63,6 +63,23 @@ Apply changes:
 ansible-playbook -i etc/hosts site.yml --limit SAM --diff
 ```
 
+The playbook installs `Codex.app` on `SAM`. The remaining Codex host setup is
+interactive because it requires the Codex GUI and the intended ChatGPT/Codex
+workspace identity:
+
+1. Open `Codex.app`
+2. Sign in with the intended ChatGPT/Codex workspace identity
+3. Enable Codex remote access in the app
+4. Pair phones from the ChatGPT mobile app using the QR-code flow shown by
+   Codex on `SAM`
+5. Confirm `SAM` remains awake, online, and signed in to Tailscale
+
+Other Macs can still connect to `SAM` over Tailscale for shell access:
+
+```
+ssh sam@SAM
+```
+
 ## Useful Commands
 
 List the inventory:

@@ -1,0 +1,5 @@
+---
+- name: install codex desktop app
+  homebrew_cask:
+    name: codex-app
+    state: present
