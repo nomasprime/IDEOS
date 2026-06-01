@@ -54,13 +54,13 @@ ansible SAM -i etc/hosts -m ping
 Preview changes:
 
 ```
-ansible-playbook -i etc/hosts site.yml --limit SAM --check --diff
+ansible-playbook -i etc/hosts site.yml --limit SAM --check --diff --ask-become-pass
 ```
 
 Apply changes:
 
 ```
-ansible-playbook -i etc/hosts site.yml --limit SAM --diff
+ansible-playbook -i etc/hosts site.yml --limit SAM --diff --ask-become-pass
 ```
 
 The playbook installs `Codex.app` on `SAM`. The remaining Codex host setup is
@@ -97,5 +97,5 @@ ansible-playbook -i etc/hosts site.yml --limit human_workstations --diff
 Run only agent workstations:
 
 ```
-ansible-playbook -i etc/hosts site.yml --limit agent_workstations --diff
+ansible-playbook -i etc/hosts site.yml --limit agent_workstations --diff --ask-become-pass
 ```

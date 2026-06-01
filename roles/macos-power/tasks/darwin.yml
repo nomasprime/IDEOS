@@ -1,0 +1,24 @@
+---
+- name: read system sleep settings
+  shell: pmset -g custom | awk '$1 == "sleep" { print $2 }'
+  register: macos_power_sleep_settings
+  changed_when: false
+  check_mode: false
+
+- name: read power failure restart settings
+  shell: pmset -g custom | awk '$1 == "autorestart" { print $2 }'
+  register: macos_power_autorestart_settings
+  changed_when: false
+  check_mode: false
+
+- name: prevent automatic system sleep and restart after power failure
+  become: yes
+  command: pmset -a sleep 0 autorestart 1
+  when: >
+    macos_power_sleep_settings.stdout_lines | length == 0
+    or
+    macos_power_sleep_settings.stdout_lines | reject('equalto', '0') | list | length > 0
+    or
+    macos_power_autorestart_settings.stdout_lines | length == 0
+    or
+    macos_power_autorestart_settings.stdout_lines | reject('equalto', '1') | list | length > 0

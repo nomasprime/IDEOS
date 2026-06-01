@@ -1,0 +1,10 @@
+---
+- name: include macOS power tasks
+  include_tasks:
+    file: darwin.yml
+    apply:
+      tags:
+        - macos-power
+  when: ansible_os_family == 'Darwin'
+  tags:
+    - macos-power
