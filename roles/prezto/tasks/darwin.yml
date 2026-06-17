@@ -23,4 +23,4 @@
   become: true
   command: "chsh -s {{ brew['prefix'] }}/bin/zsh {{ ansible_user_id }}"
   when:
-    - test_shell_result.stdout.find('/usr/local/bin/zsh') == -1
+    - test_shell_result.stdout.find(brew['prefix'] + '/bin/zsh') == -1

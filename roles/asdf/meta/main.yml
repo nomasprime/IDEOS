@@ -2,4 +2,3 @@
 dependencies:
   - { role: brew }
   - { role: gpg }
-  - { role: prezto }
