@@ -9,25 +9,36 @@ else
   echo 'Skipping Homebrew'
 fi
 
+if ! type brew &> /dev/null; then
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
 if ! type asdf &> /dev/null; then
   echo 'Installing ASDF...'
   brew install asdf
-  "$(brew --prefix asdf)"/libexec/asdf.sh
 else
   echo 'Skipping ASDF'
 fi
 
-if asdf where python 2>&1 | grep 'No such plugin' &> /dev/null; then
+export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+if ! asdf plugin list | grep '^python$' &> /dev/null; then
   echo 'Installing Python plugin...'
   asdf plugin add python
 else
   echo 'Skipping Python plugin'
 fi
 
-if asdf where python | grep 'Version not installed' &> /dev/null; then
+if ! asdf where python &> /dev/null; then
   echo 'Installing Python...'
-  asdf install python latest
-  asdf global python latest
+  python_version="$(asdf latest python)"
+  asdf install python "$python_version"
+  asdf set -u python "$python_version"
 else
   echo 'Skipping Python'
 fi
