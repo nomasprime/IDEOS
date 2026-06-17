@@ -62,7 +62,7 @@
   when: item.version is defined
 
 - name: set global to latest versions
-  command: "{{ brew['prefix'] }}/bin/asdf global {{ item.name }} latest"
+  command: "{{ brew['prefix'] }}/bin/asdf set -u {{ item.name }} latest"
   environment: *asdf_environment
   with_items:
     - "{{ asdf['globals'] }}"
