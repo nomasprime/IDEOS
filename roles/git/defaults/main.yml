@@ -1,5 +1,7 @@
 ---
 git:
+  organisation_email_base: ~/Organisations
+  organisation_emails: {}
   config:
     apply:
       whitespace: fix
@@ -38,5 +40,7 @@ git:
     - .vim
     - .idea
     - out
+    - .junie
+    - .ai
 ideos:
   editor: vim

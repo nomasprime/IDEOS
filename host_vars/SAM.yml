@@ -1,0 +1,13 @@
+---
+git:
+  organisation_emails:
+    nomasprime: sam@nomasprime.com
+    playtimestudios: sam@playtimestudios.com
+    onedarus: sam@onedarus.com
+  config:
+    core:
+      editor: vim
+    user:
+      name: Sam Smith
+github:
+  user: SystemAutomationMachine
