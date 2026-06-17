@@ -11,8 +11,6 @@ git:
       editor: vim
       excludesfile: ~/.gitignore
       pager: less -r
-    hub:
-      protocol: git
     init:
       default_branch: trunk
     fetch:
