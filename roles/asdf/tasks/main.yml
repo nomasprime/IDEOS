@@ -4,10 +4,17 @@
     name: asdf
     state: present
 
+- name: install build dependencies
+  homebrew:
+    name: "{{ asdf['build_dependencies'] }}"
+    state: present
+  when: asdf['build_dependencies'] | length > 0
+
 - name: add config to rc
   blockinfile:
     block: |
-      source {{ brew['prefix'] }}/opt/asdf/libexec/asdf.sh
+      export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+      export PATH="{{ brew['prefix'] }}/bin:$ASDF_DATA_DIR/shims:$PATH"
     marker: "# {mark} {{ role_path|basename }} add config to rc"
     path: ~/.zshrc
 
@@ -17,9 +24,12 @@
     src: .asdfrc.j2
 
 - name: install plugins
-  shell: asdf plugin add {{ item.name }}
+  command: "{{ brew['prefix'] }}/bin/asdf plugin add {{ item.name }}"
   args:
     creates: "~/.asdf/plugins/{{ item.name }}"
+  environment: &asdf_environment
+    ASDF_DATA_DIR: "{{ ansible_env.HOME }}/.asdf"
+    PATH: "{{ brew['prefix'] }}/bin:{{ ansible_env.HOME }}/.asdf/shims:{{ ansible_env.PATH }}"
   with_items: "{{ asdf['globals'] }}"
 
 - name: create global versions
@@ -34,7 +44,8 @@
   register: global_versions
 
 - name: install latest versions
-  shell: asdf install {{ item.name }} latest
+  command: "{{ brew['prefix'] }}/bin/asdf install {{ item.name }} latest"
+  environment: *asdf_environment
   with_items:
     - "{{ asdf['globals'] }}"
   when:
@@ -42,15 +53,17 @@
     - global_versions.stdout.find(item.name) == -1
 
 - name: install specific versions
-  shell: asdf install {{ item.name }} {{ item.version }}
+  command: "{{ brew['prefix'] }}/bin/asdf install {{ item.name }} {{ item.version }}"
   args:
     creates: "~/.asdf/installs/{{ item.name }}/{{ item.version }}"
+  environment: *asdf_environment
   with_items:
     - "{{ asdf['globals'] }}"
   when: item.version is defined
 
 - name: set global to latest versions
-  shell: asdf global {{ item.name }} latest
+  command: "{{ brew['prefix'] }}/bin/asdf set -u {{ item.name }} latest"
+  environment: *asdf_environment
   with_items:
     - "{{ asdf['globals'] }}"
   when:

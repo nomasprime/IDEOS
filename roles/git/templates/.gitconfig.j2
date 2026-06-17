@@ -15,7 +15,6 @@
 {% endif %}
 [user]
   name = {{ git['config']['user']['name'] }}
-  email = {{ git['config']['user']['email'] }}
 [blame]
   coloring = {{ git['config']['blame']['coloring'] }}
 [init]
@@ -23,3 +22,7 @@
 [fetch]
   prune = {{ git['config']['fetch']['prune'] }}
   tags = {{ git['config']['fetch']['tags'] }}
+{% for organisation in git['organisation_emails'] | dict2items %}
+[includeIf "gitdir:{{ git['organisation_email_base'] }}/{{ organisation.key }}/"]
+  path = ~/.gitconfig.d/{{ organisation.key }}.gitconfig
+{% endfor %}

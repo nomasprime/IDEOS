@@ -1,0 +1,5 @@
+---
+- name: install github cli
+  homebrew:
+    name: gh
+    state: present

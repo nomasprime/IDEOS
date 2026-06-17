@@ -12,6 +12,18 @@
     mode: 0755
     url: https://raw.githubusercontent.com/nomasprime/git_wip/master/git-wip
 
+- name: manage conditional config directory
+  file:
+    path: ~/.gitconfig.d
+    state: directory
+  when: git['organisation_emails'] | length > 0
+
+- name: manage conditional user configs
+  template:
+    dest: "~/.gitconfig.d/{{ item.key }}.gitconfig"
+    src: .gitconfig-user.j2
+  loop: "{{ git['organisation_emails'] | dict2items }}"
+
 - name: manage config
   blockinfile:
     block: "{{ lookup('template', 'templates/.gitconfig.j2') }}"

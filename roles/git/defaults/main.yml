@@ -1,5 +1,7 @@
 ---
 git:
+  organisation_email_base: ~/Organisations
+  organisation_emails: {}
   config:
     apply:
       whitespace: fix
@@ -11,8 +13,6 @@ git:
       editor: vim
       excludesfile: ~/.gitignore
       pager: less -r
-    hub:
-      protocol: git
     init:
       default_branch: trunk
     fetch:
@@ -40,5 +40,7 @@ git:
     - .vim
     - .idea
     - out
+    - .junie
+    - .ai
 ideos:
   editor: vim

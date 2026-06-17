@@ -1,5 +1,8 @@
 ---
 asdf:
+  build_dependencies:
+    - libyaml
+    - pkgconf
   legacy_version_file: 'yes'
   globals:
     - name: nodejs
