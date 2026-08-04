@@ -4,6 +4,7 @@
     name:
       - git
       - git-filter-repo
+      - mr
     state: present
 
 - name: install git-wip
@@ -11,6 +12,24 @@
     dest: "{{ brew['prefix'] }}/bin"
     mode: 0755
     url: https://raw.githubusercontent.com/nomasprime/git_wip/master/git-wip
+
+- name: install mr-scan
+  copy:
+    dest: "{{ brew['prefix'] }}/bin/mr-scan"
+    mode: 0755
+    src: mr-scan
+
+- name: manage default git template hooks directory
+  file:
+    mode: 0755
+    path: "{{ brew['prefix'] }}/share/git-core/templates/hooks"
+    state: directory
+
+- name: manage myrepos registration hook
+  copy:
+    dest: "{{ brew['prefix'] }}/share/git-core/templates/hooks/post-checkout"
+    mode: 0755
+    src: post-checkout
 
 - name: manage conditional config directory
   file:
@@ -35,3 +54,11 @@
   template:
     dest: ~/.gitignore
     src: .gitignore.j2
+
+- name: register existing git repositories with myrepos
+  command:
+    argv:
+      - "{{ brew['prefix'] }}/bin/mr-scan"
+      - "{{ git['organisation_email_base'] }}"
+  register: myrepos_scan
+  changed_when: "'Registered 0 repositories' not in myrepos_scan.stdout"
