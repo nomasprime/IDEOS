@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Register only the initial checkout performed by git clone. Ordinary branch
+# checkouts have a non-null previous HEAD and need no work.
+case "${1:-}" in
+  ''|*[!0]*)
+    exit 0
+    ;;
+esac
+
+repo="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+local_env_vars="$(git rev-parse --local-env-vars 2>/dev/null)" || exit 0
+
+# Linked worktrees and submodules use a .git file. Register only primary,
+# non-bare repositories.
+[[ -d "$repo/.git" ]] || exit 0
+command -v mr >/dev/null 2>&1 || exit 0
+git -C "$repo" config --get remote.origin.url >/dev/null 2>&1 || exit 0
+
+config="${MR_CONFIG:-$HOME/.mrconfig}"
+mkdir -p "$(dirname "$config")"
+touch "$config"
+
+# Git exports repository-local variables to hooks, while mr intentionally
+# refuses to run with them set. It can rediscover the repository after chdir.
+unset $local_env_vars
+unset VCSH_COMMAND VCSH_DIRECTORY VCSH_REPO_NAME
+
+if ! mr -q -c "$config" register "$repo" >/dev/null 2>&1; then
+  printf 'warning: could not register %s with myrepos\n' "$repo" >&2
+fi
+
+# Repository registration must never make clone or checkout fail.
+exit 0

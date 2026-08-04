@@ -1,0 +1,93 @@
+#!/bin/bash
+
+set -u
+
+config="${MR_CONFIG:-$HOME/.mrconfig}"
+registered_file="$(mktemp "${TMPDIR:-/tmp}/mr-scan.XXXXXX")"
+registered_count=0
+existing_count=0
+skipped_count=0
+failed_count=0
+
+cleanup() {
+  rm -f "$registered_file"
+}
+
+expand_path() {
+  case "$1" in
+    '~')
+      printf '%s\n' "$HOME"
+      ;;
+    '~/'*)
+      printf '%s/%s\n' "$HOME" "${1#\~/}"
+      ;;
+    *)
+      printf '%s\n' "$1"
+      ;;
+  esac
+}
+
+is_registered() {
+  grep -Fqx "$1" "$registered_file"
+}
+
+register_repo() {
+  local repo="$1"
+
+  if is_registered "$repo"; then
+    existing_count=$((existing_count + 1))
+    return
+  fi
+
+  if ! git -C "$repo" config --get remote.origin.url >/dev/null 2>&1; then
+    printf 'mr-scan: skipping repository without an origin: %s\n' "$repo" >&2
+    skipped_count=$((skipped_count + 1))
+    return
+  fi
+
+  if mr -q -c "$config" register "$repo" >/dev/null 2>&1; then
+    printf 'Registered %s\n' "$repo"
+    printf '%s\n' "$repo" >> "$registered_file"
+    registered_count=$((registered_count + 1))
+  else
+    printf 'mr-scan: failed to register %s\n' "$repo" >&2
+    failed_count=$((failed_count + 1))
+  fi
+}
+
+trap cleanup EXIT
+
+if (( $# == 0 )); then
+  set -- "$HOME/Organisations"
+fi
+
+mkdir -p "$(dirname "$config")"
+touch "$config"
+
+mr -c "$config" list 2>/dev/null |
+  sed -n 's/^mr list: //p' |
+  sed 's:/*$::' > "$registered_file" || true
+
+for requested_root in "$@"; do
+  root="$(expand_path "$requested_root")"
+
+  if [[ ! -d "$root" ]]; then
+    printf 'mr-scan: skipping missing directory: %s\n' "$root" >&2
+    skipped_count=$((skipped_count + 1))
+    continue
+  fi
+
+  root="$(cd "$root" && pwd -P)"
+
+  while IFS= read -r -d '' gitdir; do
+    register_repo "${gitdir%/.git}"
+  done < <(find "$root" -type d -name .git -prune -print0)
+done
+
+printf 'Registered %d repositories; %d already registered; %d skipped.\n' \
+  "$registered_count" "$existing_count" "$skipped_count"
+
+if (( failed_count > 0 )); then
+  printf 'mr-scan: failed to register %d repositories.\n' "$failed_count" >&2
+  exit 1
+fi
