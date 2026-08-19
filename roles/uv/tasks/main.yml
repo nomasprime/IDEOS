@@ -1,0 +1,15 @@
+---
+- name: install uv
+  homebrew:
+    name: uv
+    state: present
+
+- name: manage config directory
+  file:
+    path: ~/.config/uv
+    state: directory
+
+- name: manage config
+  template:
+    dest: ~/.config/uv/uv.toml
+    src: uv.toml.j2
