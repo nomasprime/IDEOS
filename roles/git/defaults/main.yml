@@ -42,5 +42,6 @@ git:
     - out
     - .junie
     - .ai
+    - .vscode
 ideos:
   editor: vim
