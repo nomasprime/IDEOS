@@ -1,0 +1,56 @@
+---
+- name: provision CLI Agent Orchestrator
+  vars:
+    aws_cao_uv: "{{ brew['prefix'] }}/bin/uv"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.asdf/shims:{{ brew['prefix'] }}/bin:{{ ansible_env.PATH }}"
+  when: not ansible_check_mode
+  block:
+    - name: install CLI Agent Orchestrator
+      ansible.builtin.command:
+        argv: ["{{ aws_cao_uv }}", tool, install, cli-agent-orchestrator]
+      register: aws_cao_install
+      changed_when:
+        - "'`cli-agent-orchestrator` is already installed' not in aws_cao_install.stderr_lines"
+
+    - name: find herdr on the target
+      ansible.builtin.shell: command -v herdr
+      register: aws_cao_herdr
+      changed_when: false
+      failed_when: aws_cao_herdr.rc not in [0, 1]
+
+    - name: configure herdr when installed
+      when: aws_cao_herdr.rc == 0
+      block:
+        - name: find the uv tool executable directory
+          ansible.builtin.command:
+            argv: ["{{ aws_cao_uv }}", tool, dir, --bin]
+          register: aws_cao_tool_bin
+          changed_when: false
+
+        - name: find the CAO settings file
+          ansible.builtin.command:
+            argv: ["{{ aws_cao_tool_bin.stdout }}/cao", config, path]
+          register: aws_cao_settings_path
+          changed_when: false
+
+        - name: check for existing CAO settings
+          ansible.builtin.stat:
+            path: "{{ aws_cao_settings_path.stdout }}"
+            get_checksum: false
+          register: aws_cao_settings_file
+
+        - name: read existing CAO settings
+          ansible.builtin.slurp:
+            src: "{{ aws_cao_settings_path.stdout }}"
+          register: aws_cao_settings
+          when: aws_cao_settings_file.stat.exists
+          no_log: true
+
+        - name: select herdr as the CAO backend
+          ansible.builtin.command:
+            argv: ["{{ aws_cao_tool_bin.stdout }}/cao", config, set, terminal.backend, herdr]
+          # Parse existing settings before using CAO versions that replace invalid JSON
+          when: >-
+            not aws_cao_settings_file.stat.exists or
+            (aws_cao_settings.content | b64decode | from_json).get('terminal', {}).get('backend') != 'herdr'

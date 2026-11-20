@@ -1,0 +1,5 @@
+---
+- name: install herdr
+  homebrew:
+    name: herdr
+    state: present
