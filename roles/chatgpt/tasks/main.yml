@@ -1,0 +1,5 @@
+---
+- name: install chatgpt
+  homebrew:
+    name: uv
+    state: present
